@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'inter_font';
+    src:
+        src: url('{{ 'https://cdn.shopify.com/s/files/1/0597/5192/3755/files/Inter_font.woff?v=1742798725'  }}') format('woff'),
+
+    font-weight: normal;
+    font-style: normal;
+}
