@@ -84,7 +84,7 @@
 /* base */
 
 .page-width {
-  max-width: var(--page-width);
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
@@ -143,7 +143,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   }
 
   .page-width-desktop {
-    max-width: var(--page-width);
+    max-width: var(1400px);
     padding: 0 5rem;
   }
 }
@@ -1128,7 +1128,7 @@ summary::-webkit-details-marker {
   max-width: 100%;
   position: absolute;
   top: 0;
-  left: 0;
+  /* left: 0; */
   height: 100%;
   width: 100%;
 }
@@ -3604,6 +3604,88 @@ details-disclosure > details {
 }
 
 /* Amey default css  */
+/* brand slider start */
+.scrolling-ticker {
+    padding: 20px 0;
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+}
+
+.scrolling-ticker-box {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.scrolling-ticker-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.scrolling-ticker-track {
+    display: flex;
+    animation: scroll-left 15s linear infinite;
+    width: max-content;
+    gap: 150px;
+}
+
+.scrolling-ticker-track span {
+    display: flex;
+    align-items: center;
+
+}
+
+.scrolling-ticker-track img {
+    width: 100%;
+    background-size: cover;
+    object-fit: cover;
+    width: auto;
+    margin: 0;
+    /* Remove gap */
+}
+
+
+
+@keyframes scroll-left {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+
+
+@keyframes scroll-right {
+    from {
+        transform: translateX(-50%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+
+.scrolling-ticker[data-direction="left"] .scrolling-ticker-track {
+    animation: scroll-left 15s linear infinite;
+}
+
+.scrolling-ticker[data-direction="right"] .scrolling-ticker-track {
+    animation: scroll-right 15s linear infinite;
+}
+
+/* brand slider over */
+
+
+
+
+
 /* mega menu image  */
 .megamenu-image {
     width: 100%;
@@ -3657,8 +3739,7 @@ color:black;
   font-size:30px;
   
 }
-  .banner__buttons a,
-  .image-with-text__content a{
+  .banner__buttons a{
 color:black;
   background:white;
 
@@ -3716,8 +3797,217 @@ font-size:15px;
   .slider-dot{
 font-size:7px;
   }
-  
+
+ .image-with-text__media img{
+    /* display: block; */
+    /* max-width: 100%; */
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: auto;
+    width: 50%;
+    background-size: contain;
+    object-fit: contain;
+    
+}
+  .image-with-text__media {
+    order: 2;
+    position: absolute;
+    width: 50%;
+    min-height: auto;
+    right: 0;
+    top:-80px;
+    object-fit: contain;
+    background-size: contain;
+    box-sizing: content-box;
+    overflow: visible;
+}
+  .image-with-text__text.rte.body p {
+    font-size:9px;
+    width: 188px;
+    font-weight:300;
+    line-height:136%;
+}
+  h2.image-with-text__heading.inline-richtext.h1 {
+ 
+    font-weight: 400;
+    width: 222px;
+    font-size: 20px;
+}
+  .image-text-custome {
+width:40px;
+    font-size:9px;
+    font-weight:600;
+    line-height:100%;
+  }
+}
+
+/* product collection btn & feacured collection */
+ .product-btn a{
+color:black;
+  background-color:white;
+ border: 1.11px solid #000000;
+  display:flex;
+    justify-content:space-between;
+  font-size:16px;
+  font-weight:600;
+  line-height:100%;
+font-family:'inter_font';
+  text-transform:capitalize;
+} 
+.collection-btn{
+display:flex;
+    justify-content:space-between;
+  font-size:16px;
+  font-weight:600;
+  line-height:100%;
+font-family:'inter_font';
+  text-transform:capitalize;
+}
+.featured-collection-title{
+  font-family:'inter_font';
+font-size:39px;
+  font-weight:400;
+  line-height:100%;
+}
+.feacured-collection-title{
+font-family:'inter_font';
+  font-size:20.4px;
+  font-weight:500;
+  line-height:100%;
+}
+.feacured-collecion-price{
+font-size:20.4px;
+  font-weight:700;
+  font-family:'inter_font';
+  line-height:100%;
+}
+.collection__title .title:not(:only-child) {
+align-content:center;
 }
 
 
+/* mobile media query */
+@media screen and (max-width: 480px) {
+.featured-collection-title{
+ font-size:20px;
+}
+  .product-btn a{
+font-size:10px;
+    font-weight:600;
+}
+}
+/* image banne part start */
+ .image-banner {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+  .image-banner img {
+    width: 100%;
+    height: auto;
+  }
+  .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, {{ section.settings.image_overlay_opacity | divided_by: 100.0 }});
+  }
+  .banner-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .countdown {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+.banner-paragraph{
+display:flex;
+  flex-direction:column;
+  justify-content:center;
+}    
+.banner-para{
+        width: 80%;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+}
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-family: Arial, sans-serif;
+}
 
+.countdown-item {
+  text-align: center;
+  position: relative;
+  padding: 0 20px;
+}
+
+.countdown-item span {
+  display: block;
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
+}
+
+.countdown-label {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: white;
+  opacity: 0.8;
+}
+
+.countdown-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 10px;
+  height: 50px;
+  width: 2px;
+  background: white;
+}
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.countdown-item {
+  text-align: center;
+  position: relative;
+  padding: 0 20px;
+}
+
+.countdown-item span {
+  display: block;
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
+}
+
+.countdown-label {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: white;
+  opacity: 0.8;
+}
+
+.countdown-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 10px;
+  height: 50px;
+  width: 2px;
+  background: white;
+}

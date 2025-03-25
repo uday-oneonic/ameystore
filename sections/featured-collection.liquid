@@ -66,11 +66,14 @@
     id="collection-{{ section.id }}"
     data-id="{{ section.id }}"
   >
-    <div class="collection__title title-wrapper title-wrapper--no-top-margin page-width{% if show_mobile_slider %} title-wrapper--self-padded-tablet-down{% endif %}{% if show_desktop_slider %} collection__title--desktop-slider{% endif %}">
+    <div class="collection__title title-wrapper title-wrapper--no-top-margin page-width{% if show_mobile_slider %} title-wrapper--self-padded-tablet-down{% endif %}{% if show_desktop_slider %} collection__title--desktop-slider{% endif %} collection-btn">
       {%- if section.settings.title != blank -%}
-        <h2 class="title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        <h2 class="title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} featured-collection-title">
           {{ section.settings.title }}
         </h2>
+        <div class="product-btn">
+          <a href="/collections" class="button">{{ section.settings.colection_btn }} </a>
+        </div>
       {%- endif -%}
       {%- if section.settings.description != blank
         or section.settings.show_description
@@ -224,11 +227,11 @@
       "step": 1,
       "default": 4,
       "label": "t:sections.featured-collection.settings.products_to_show.label"
-    },     
+    },
     {
       "type": "header",
       "content": "t:sections.featured-collection.settings.header_text.content"
-    },   
+    },
     {
       "type": "inline_richtext",
       "id": "title",
@@ -272,7 +275,7 @@
       "type": "checkbox",
       "id": "show_description",
       "label": "t:sections.featured-collection.settings.show_description.label",
-      "default": false   
+      "default": false
     },
     {
       "type": "select",
@@ -293,11 +296,16 @@
         }
       ],
       "default": "body"
+    },{
+      "type": "text",
+      "id": "colection_btn",
+      "label": "Button",
+      "default":"view all"
     },
     {
       "type": "header",
       "content": "t:sections.featured-collection.settings.header_collection.content"
-    },    
+    },
     {
       "type": "range",
       "id": "columns_desktop",
@@ -345,7 +353,7 @@
         }
       ],
       "default": "solid"
-    }, 
+    },
     {
       "type": "color_scheme",
       "id": "color_scheme",
@@ -475,13 +483,13 @@
           "label": "t:sections.featured-collection.settings.columns_mobile.options__2.label"
         }
       ]
-    },    
+    },
     {
       "type": "checkbox",
       "id": "swipe_on_mobile",
       "default": false,
       "label": "t:sections.featured-collection.settings.swipe_on_mobile.label"
-    },          
+    },
     {
       "type": "header",
       "content": "t:sections.all.padding.section_padding_heading"

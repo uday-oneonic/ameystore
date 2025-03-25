@@ -1,0 +1,199 @@
+<div class="banner__content banner__content--{{ section.settings.desktop_content_position }} page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+  <div class="banner__box content-container content-container--full-width-mobile color-{{ section.settings.color_scheme }} gradient banner-paragraph">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'heading' -%}
+          <h2 class="banner__heading inline-richtext {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
+            {{ block.settings.heading }}
+          </h2>
+        {%- when 'text' -%}
+          <div class="banner__text rte {{ block.settings.text_style }} banner-para" {{ block.shopify_attributes }}>
+            <p>{{ block.settings.text }}</p>
+          </div>
+        {%- when 'countdown' -%}
+          <div class="countdown-timer" data-end-date="{{ block.settings.countdown_date }}">
+            <div class="countdown-item"><span class="days">00</span> Days</div>
+            <div class="countdown-item"><span class="hours">00</span> Hours</div>
+            <div class="countdown-item"><span class="minutes">00</span> Mins</div>
+            <div class="countdown-item"><span class="seconds">00</span> Secs</div>
+          </div>
+        {%- when 'buttons' -%}
+          <div
+            class="banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}"
+            {{ block.shopify_attributes }}
+          >
+            {%- if block.settings.button_label_1 != blank -%}
+              <a
+                {% if block.settings.button_link_1 == blank %}
+                  role="link" aria-disabled="true"
+                {% else %}
+                  href="{{ block.settings.button_link_1 }}"
+                {% endif %}
+                class="button{% if block.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}"
+              >
+                {{- block.settings.button_label_1 | escape -}}
+              </a>
+            {%- endif -%}
+            {%- if block.settings.button_label_2 != blank -%}
+              <a
+                {% if block.settings.button_link_2 == blank %}
+                  role="link" aria-disabled="true"
+                {% else %}
+                  href="{{ block.settings.button_link_2 }}"
+                {% endif %}
+                class="button{% if block.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}"
+              >
+                {{- block.settings.button_label_2 | escape -}}
+              </a>
+            {%- endif -%}
+          </div>
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+<!-- Countdown Timer Script -->
+<script>
+  function startCountdown() {
+    document.querySelectorAll('.countdown-timer').forEach(timer => {
+      const endDate = new Date(timer.dataset.endDate).getTime();
+      const daysEl = timer.querySelector('.days');
+      const hoursEl = timer.querySelector('.hours');
+      const minutesEl = timer.querySelector('.minutes');
+      const secondsEl = timer.querySelector('.seconds');
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const timeLeft = endDate - now;
+
+        if (timeLeft < 0) {
+          daysEl.innerText = '00';
+          hoursEl.innerText = '00';
+          minutesEl.innerText = '00';
+          secondsEl.innerText = '00';
+          return;
+        }
+
+        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+        daysEl.innerText = days.toString().padStart(2, '0');
+        hoursEl.innerText = hours.toString().padStart(2, '0');
+        minutesEl.innerText = minutes.toString().padStart(2, '0');
+        secondsEl.innerText = seconds.toString().padStart(2, '0');
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", startCountdown);
+</script>
+
+<!-- CSS for styling the countdown -->
+<style>
+  .countdown-timer {
+    display: flex;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .countdown-item {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Countdown Banner",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Heading",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Holiday sale is started."
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "label": "Heading size",
+          "options": [
+            { "value": "h1", "label": "Large" },
+            { "value": "h2", "label": "Medium" },
+            { "value": "h3", "label": "Small" }
+          ],
+          "default": "h2"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Lorem Ipsum is simply dummy text.</p>"
+        }
+      ]
+    },
+    {
+      "type": "countdown",
+      "name": "Countdown Timer",
+      "settings": [
+        {
+          "type": "text",
+          "id": "countdown_date",
+          "label": "Countdown End Date (YYYY-MM-DD HH:MM:SS)",
+          "default": "2025-12-31 23:59:59"
+        }
+      ]
+    },
+    {
+      "type": "buttons",
+      "name": "Buttons",
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label_1",
+          "label": "Button 1 Label",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "button_link_1",
+          "label": "Button 1 Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Countdown Banner",
+      "blocks": [
+        { "type": "heading" },
+        { "type": "text" },
+        { "type": "countdown" },
+        { "type": "buttons" }
+      ]
+    }
+  ]
+}
+{% endschema %}

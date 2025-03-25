@@ -1,0 +1,57 @@
+<div
+  class="scrolling-ticker"
+  data-direction="{{ section.settings.scroll_direction }}"
+  style="background-color: {{ section.settings.bg_color }};"
+>
+  <div class="scrolling-ticker-box">
+    <div class="scrolling-ticker-content">
+      <div class="scrolling-ticker-track">
+        {% for i in (1..2) %}
+          {% for block in section.blocks %}
+            {% if block.settings.image %}
+              <span>
+                <img
+                  src="{{ block.settings.image | img_url: 'master' }}"
+                  alt="{{ block.settings.image.alt | default: 'Brand Logo' }}"
+                  width="auto"
+                  height="auto"
+                >
+              </span>
+            {% else %}
+              <span>
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0645/8461/3958/files/image_5.png?v=1740979692"
+                  alt="Brand Logo"
+                  width="auto"
+                  height="auto"
+                >
+              </span>
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{ "name": "Scrolling Brand",
+  "settings": [
+    { "type": "select", "id": "scroll_direction",
+      "label": "Scroll Direction",
+"options": [
+  { "value": "left", "label": "Left to Right" },
+  { "value": "right", "label": "Right to Left" } ],
+      "default":"right" },
+    { "type": "color", "id": "bg_color", "label": "Background Color", "default": "#ffffff" } ],
+
+  "blocks": [ {
+"type": "image", "name": "Brand Logo",
+    "settings": [ { "type": "image_picker", "id": "image", "label": "Brand Image" } ]
+} ],
+  "presets": [ {
+    "name": "Scrolling Brand",
+    "settings": { "bg_color": "#ffffff" },
+    "blocks": [ { "type": "image" }, {
+"type": "image" } ] } ] }
+{% endschema %}

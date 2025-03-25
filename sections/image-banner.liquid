@@ -116,7 +116,7 @@
     </div>
   {%- endif -%}
   <div class="banner__content banner__content--{{ section.settings.desktop_content_position }} page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-    <div class="banner__box content-container content-container--full-width-mobile color-{{ section.settings.color_scheme }} gradient">
+    <div class="banner__box content-container content-container--full-width-mobile color-{{ section.settings.color_scheme }} gradient banner-paragraph">
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when 'heading' -%}
@@ -127,8 +127,26 @@
               {{ block.settings.heading }}
             </h2>
           {%- when 'text' -%}
-            <div class="banner__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
+            <div class="banner__text rte {{ block.settings.text_style }} banner-para" {{ block.shopify_attributes }}>
               <p>{{ block.settings.text }}</p>
+            </div>
+            <div class="countdown-container" id="countdown">
+              <div class="countdown-item">
+                <span id="days">00</span>
+                <div class="countdown-label">Days</div>
+              </div>
+              <div class="countdown-item">
+                <span id="hours">00</span>
+                <div class="countdown-label">Hours</div>
+              </div>
+              <div class="countdown-item">
+                <span id="minutes">00</span>
+                <div class="countdown-label">Mins</div>
+              </div>
+              <div class="countdown-item">
+                <span id="seconds">00</span>
+                <div class="countdown-label">Secs</div>
+              </div>
             </div>
           {%- when 'buttons' -%}
             <div
@@ -165,6 +183,42 @@
     </div>
   </div>
 </div>
+<script>
+    function startCountdown() {
+    var countdownDate = new Date("{{ section.settings.countdown_date }}").getTime();
+
+    if (isNaN(countdownDate)) {
+      document.getElementById("countdown").innerHTML = "Invalid date format!";
+      return;
+    }
+
+    function updateCountdown() {
+      var now = new Date().getTime();
+      var timeLeft = countdownDate - now;
+
+      if (timeLeft <= 0) {
+        document.getElementById("countdown").innerHTML = "The countdown has ended!";
+        clearInterval(countdownInterval);
+        return;
+      }
+
+      var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerHTML = days;
+      document.getElementById("hours").innerHTML = hours;
+      document.getElementById("minutes").innerHTML = minutes;
+      document.getElementById("seconds").innerHTML = seconds;
+    }
+
+    updateCountdown();
+    var countdownInterval = setInterval(updateCountdown, 1000);
+  }
+
+  document.addEventListener("DOMContentLoaded", startCountdown);
+</script>
 
 {% schema %}
 {
@@ -195,6 +249,12 @@
       "label": "t:sections.image-banner.settings.image_overlay_opacity.label",
       "default": 0
     },
+    {
+  "type": "text",
+  "id": "countdown_date",
+  "label": "Countdown End Date (YYYY-MM-DD HH:MM:SS)",
+  "default": "2025-12-31 23:59:59"
+},
     {
       "type": "select",
       "id": "image_height",
@@ -332,7 +392,7 @@
       "id": "stack_images_on_mobile",
       "default": true,
       "label": "t:sections.image-banner.settings.stack_images_on_mobile.label"
-    },    
+    },
     {
       "type": "select",
       "id": "mobile_content_alignment",

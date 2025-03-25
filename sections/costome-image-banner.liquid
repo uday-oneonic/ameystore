@@ -1,0 +1,177 @@
+{% schema %}
+{
+  "name": "Image Banner countdown",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Second Image (Optional)"
+    },
+    {
+      "type": "range",
+      "id": "image_overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Overlay Opacity",
+      "default": 20
+    },
+    {
+  "type": "text",
+  "id": "countdown_date",
+  "label": "Countdown End Date (YYYY-MM-DD HH:MM:SS)",
+  "default": "2025-12-31 23:59:59"
+}
+
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Heading",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "Your Banner Heading",
+          "label": "Heading Text"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "default": "Add a short description here",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "buttons",
+      "name": "Buttons",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image Banner with Countdown",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "buttons"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="image-banner">
+  {% if section.settings.image != blank %}
+    <img src="{{ section.settings.image | image_url }}" alt="Banner Image">
+  {% endif %}
+  <div class="image-overlay"></div>
+  <div class="banner-content">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'heading' %}
+          <h2 class="banner__heading ">{{ block.settings.heading }}</h2>
+        {% when 'text' %}
+          <div class="banner__text ">
+            <p>{{ block.settings.text }}</p>
+          </div>
+          <div class="countdown-container" id="countdown">
+            <div class="countdown-item">
+              <span id="days">00</span>
+              <div class="countdown-label">Days</div>
+            </div>
+            <div class="countdown-item">
+              <span id="hours">00</span>
+              <div class="countdown-label">Hours</div>
+            </div>
+            <div class="countdown-item">
+              <span id="minutes">00</span>
+              <div class="countdown-label">Mins</div>
+            </div>
+            <div class="countdown-item">
+              <span id="seconds">00</span>
+              <div class="countdown-label">Secs</div>
+            </div>
+          </div>
+        {% when 'buttons' %}
+          <a href="{{ block.settings.button_link }}" class="button">
+            {{ block.settings.button_label }}
+          </a>
+      {% endcase %}
+    {% endfor %}
+
+    <!-- Countdown Timer -->
+  </div>
+</div>
+
+<script>
+    function startCountdown() {
+    var countdownDate = new Date("{{ section.settings.countdown_date }}").getTime();
+
+    if (isNaN(countdownDate)) {
+      document.getElementById("countdown").innerHTML = "Invalid date format!";
+      return;
+    }
+
+    function updateCountdown() {
+      var now = new Date().getTime();
+      var timeLeft = countdownDate - now;
+
+      if (timeLeft <= 0) {
+        document.getElementById("countdown").innerHTML = "The countdown has ended!";
+        clearInterval(countdownInterval);
+        return;
+      }
+
+      var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerHTML = days;
+      document.getElementById("hours").innerHTML = hours;
+      document.getElementById("minutes").innerHTML = minutes;
+      document.getElementById("seconds").innerHTML = seconds;
+    }
+
+    updateCountdown();
+    var countdownInterval = setInterval(updateCountdown, 1000);
+  }
+
+  document.addEventListener("DOMContentLoaded", startCountdown);
+</script>
