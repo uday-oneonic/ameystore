@@ -1,72 +1,3 @@
-
-{% if template.name == 'index' %}
-<style>
-.header-wrapper {
-    position: absolute;
-    width: 100%;
-    background: transparent;
-    color: white;
-}
-
-.header-wrapper .list-menu span,
-details[open]>.header__menu-item,
-.header-wrapper summary svg,
-.header-wrapper a svg,
-.header-wrapper h1.header__heading span.h2,
-.header-wrapper details>span,
-.header-wrapper .disclosure__button>span,
-.header-wrapper .disclosure__button svg {
-    color: white !important;
-}
-
-.header-localization .disclosure .localization-form__select:hover {
-    text-decoration-color: white;
-}
-
-.section-header {
-    margin-bottom: 0;
-}
-
-.header-wrapper--border-bottom {
-    border-bottom: .1rem solid rgba(255, 255, 255, .08);
-}
-
-.overflow-hidden-desktop .header-wrapper,
-.overflow-hidden-tablet .header-wrapper {
-    position: initial;
-    width: initial;
-    background: initial;
-    color: initial;
-    background: var(--gradient-background);
-}
-
-.header-wrapper summary.header__menu-item+ul span,
-.header-wrapper summary.header__menu-item+ul svg,
-.overflow-hidden-desktop .header-wrapper .list-menu span,
-.overflow-hidden-desktop details[open]>.header__menu-item,
-.overflow-hidden-desktop .header-wrapper summary svg,
-.overflow-hidden-desktop .header-wrapper a svg,
-.overflow-hidden-desktop .header-wrapper h1.header__heading span.h2,
-.overflow-hidden-desktop .header-wrapper details>span,
-.overflow-hidden-desktop .header-wrapper .disclosure__button>span,
-.overflow-hidden-desktop .header-wrapper .disclosure__button svg,
-.overflow-hidden-tablet .header-wrapper .list-menu span,
-.overflow-hidden-tablet details[open]>.header__menu-item,
-.overflow-hidden-tablet .header-wrapper summary svg,
-.overflow-hidden-tablet .header-wrapper a svg,
-.overflow-hidden-tablet .header-wrapper h1.header__heading span.h2,
-.overflow-hidden-tablet .header-wrapper details>span,
-.overflow-hidden-tablet .header-wrapper .disclosure__button>span,
-.overflow-hidden-tablet .header-wrapper .disclosure__button svg {
-    color: rgba(var(--color-foreground), .75) !important
-}
-  .mega-menu_list:after {
-   
-position:rela;
-  
-}
-</style>
-{% endif %}
 <link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -1031,7 +962,7 @@ transform: scale(1.03);
 
 {% schema %}
 {
-  "name": "t:sections.header.name",
+  "name": "custome header",
   "class": "section-header",
   "settings": [
     {

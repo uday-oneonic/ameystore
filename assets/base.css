@@ -86,7 +86,7 @@
 .page-width {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  /* padding: 0 1.5rem; */
 }
 
 body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
@@ -109,7 +109,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 
 @media screen and (min-width: 750px) {
   .page-width {
-    padding: 0 5rem;
+    /* padding: 0 5rem; */
   }
 
   .header.page-width,
@@ -2318,6 +2318,7 @@ input[type='checkbox'] {
 
 /* section-header */
 .section-header.shopify-section-group-header-group {
+  /* background-color:black; */
   z-index: 3;
 }
 
@@ -2350,11 +2351,13 @@ input[type='checkbox'] {
 .header-wrapper {
   display: block;
   position: relative;
-  background-color: rgb(var(--color-background));
+  color:white;
+  background-color: transparent;
 }
 
 .header-wrapper--border-bottom {
-  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  /* width:var(--page-width); */
+  /* border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08); */
 }
 
 .header {
@@ -2392,7 +2395,7 @@ input[type='checkbox'] {
 
   .header--middle-left {
     grid-template-areas: 'heading navigation icons';
-    grid-template-columns: auto auto 1fr;
+    /* grid-template-columns: auto auto 1fr; */
     column-gap: 2rem;
   }
 
@@ -3287,6 +3290,7 @@ details-disclosure > details {
 
   .scroll-trigger.animate--slide-in {
     transform: translateY(2rem);
+    overflow:hidden;
   }
 
   .scroll-trigger:not(.scroll-trigger--offscreen).animate--fade-in {
@@ -3781,6 +3785,8 @@ color:white;
   text-align:center;
   line-height:100%;
 }
+
+
 @media screen and (max-width: 750px) {
       .slideshow__controls {
         position: absolute;
@@ -3840,6 +3846,11 @@ width:40px;
     font-weight:600;
     line-height:100%;
   }
+  h2.image-banner-title{
+  font-size:30px;
+  font-weight:600;
+  font-style:italic;
+}
 }
 
 /* product collection btn & feacured collection */
@@ -4011,3 +4022,44 @@ display:flex;
   width: 2px;
   background: white;
 }
+
+@media screen and (max-width: 480px) {
+.banner-para p{
+font-family:'inter_font';
+  font-size:12px;
+font-weight:400;
+}
+  .countdown-item {
+    
+    padding: 0 5px;
+}
+  .countdown-item span {
+   
+    font-size: 40px;
+    
+}
+  .countdown-label {
+    font-size: 11px;
+  
+}
+}
+
+
+/* shop by cetegory section css start */
+
+
+/* shop by cetegory section css over */
+
+/* collage section start  */
+.collage-title h2{
+  font-family: 'inter_font';
+font-weight: 400;
+font-size: 39px;
+line-height: 100%;
+
+
+}
+.collage-title{
+padding:20px;
+}
+/* collage section over  */

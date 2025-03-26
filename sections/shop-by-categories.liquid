@@ -1,0 +1,179 @@
+<div class="shop-by-categories">
+  <h2 class="shop-by-category-title">Shop by categories</h2>
+  <div class="categories-wrapper">
+    <div class="categories-grid">
+      {% for block in section.blocks %}
+        <div class="category-item">
+          {% if block.settings.image %}
+            <img src="{{ block.settings.image | image_url }}" alt="{{ block.settings.title }}">
+          {% else %}
+            <div class="no-image">No Image</div>
+          {% endif %}
+          <div class="category-title">{{ block.settings.title }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Shop by Categories",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Category Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Category Title",
+          "default": "Category Name"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop by Categories",
+      "blocks": [
+        { "type": "category" },
+        { "type": "category" },
+        { "type": "category" },
+        { "type": "category" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% style %}
+        .shop-by-categories {
+          text-align: start;
+          padding: 30px;
+        }
+
+        .shop-by-categories .categories-wrapper {
+          position: relative;
+          overflow: auto; /* ✅ Allow scrolling */
+          white-space: nowrap; /* ✅ Prevent wrapping */
+        }
+
+        .shop-by-categories .categories-grid {
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+        }
+
+        .shop-by-categories .category-item {
+          width: 250px;
+          text-align: center;
+        }
+
+        .shop-by-categories .category-item img {
+          width: 100%;
+          object-fit: cover;
+          border-radius: 10px;
+        }
+
+        .shop-by-categories .category-title {
+           font-family: 'inter_font';
+    font-weight: 400;
+    font-size: 24.65px;
+    line-height: 100%;
+
+
+        }
+
+        h2.shop-by-category-title {
+          text-align: start;
+          font-family: 'inter-font';
+          font-weight: 400;
+          font-size: 39px;
+          line-height: 100%;
+
+        }
+
+        .shop-by-categories h2 {
+          padding-left: 60px;
+        }
+
+        /* ✅ Tablet (768px) - Enable scrolling */
+        @media screen and (max-width: 768px) {
+          .categories-wrapper {
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+          }
+
+          .categories-grid {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 15px;
+            overflow-x: auto;
+          }
+
+          .category-item {
+            flex: 0 0 80%;
+            scroll-snap-align: center;
+          }
+
+          /* Hide scrollbar */
+          .categories-wrapper::-webkit-scrollbar {
+            display: none;
+          }
+        }
+
+        /* ✅ Mobile (480px) - Show 2 full items + part of 3rd */
+        @media screen and (max-width: 480px) {
+          .categories-wrapper {
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+          }
+
+          .categories-grid {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 10px;
+            overflow-x: auto;
+          }
+
+          .category-item {
+            flex: 0 0 calc(40% - 10px);
+            scroll-snap-align: center;
+          }
+
+          /* Hide scrollbar */
+          .categories-wrapper::-webkit-scrollbar {
+            display: none;
+          }
+           .shop-by-categories .categories-grid {
+
+          justify-content: start;
+
+        }
+          .shop-by-categories {
+
+          padding: 0;
+      }
+          .shop-by-categories h2{
+            font-size: 20px;
+            padding:5px;
+          }
+
+
+  .shop-by-categories .category-title{
+
+  font-size: 11.85px;
+
+
+  }
+        }
+{% endstyle %}
