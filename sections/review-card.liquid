@@ -1,0 +1,276 @@
+<div class="review-section">
+  <div class="review-section-title">
+    <h2>
+      {{ section.settings.review_title }}
+    </h2>
+  </div>
+
+  <!-- Swiper Container -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      {% for block in section.blocks %}
+        <div class="swiper-slide">
+          <div class="review-card">
+            {% if block.settings.review_image %}
+              <div class="image">
+                <img src="{{ block.settings.review_image | image_url }}" alt="Review Image">
+              </div>
+            {% endif %}
+
+            <div class="text">
+              <span>{{ block.settings.name }}</span>
+            </div>
+
+            <div class="country">
+              <span>{{ block.settings.country_name }}</span>
+            </div>
+
+            <div class="stars">
+              <span>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </span>
+            </div>
+
+            <div class="paragraph">
+              <span>{{ block.settings.review_paragraph }}</span>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Pagination Dots -->
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+
+<!-- Swiper JS (CDN) -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script> -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    new Swiper('.swiper-container', {
+      loop: true,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      spaceBetween: 20,
+      grabCursor: true,
+      slideToClickedSlide: true,
+      loopedSlides: 4,  // Ensures smooth loop effect
+      watchSlidesProgress: true,
+      watchSlidesVisibility: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      breakpoints: {
+        320: { slidesPerView: 1 },
+        480: { slidesPerView: 1 },
+        768: { slidesPerView: 3 },
+        1024: { slidesPerView: 3},
+        1400: { slidesPerView: 3 }
+      }
+    });
+  });
+</script>
+
+{% style %}
+             .review-section {
+               background: #F6F6F6;
+               width: 100%;
+               max-width: 1400px;
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+             }
+
+             .review-section-title {
+               display: flex;
+               text-align: center;
+             }
+
+             .review-section-title h2 {
+               font-family: 'Inter', sans-serif;
+               font-weight: 400;
+               font-size: 39px;
+               line-height: 100%;
+               letter-spacing: -3%;
+             }
+
+             .swiper-container {
+               width: 100%;
+               overflow: hidden;
+               padding: 40px 0;
+             }
+
+             .swiper-slide {
+               display: flex;
+               justify-content: center;
+               transition: transform 0.5s ease-in-out;
+             }
+
+             .review-card {
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               width: 100%;
+               max-width: 500px;
+               padding: 20px;
+               border: 1px solid #ddd;
+               border-radius: 10px;
+               transition: all 0.3s ease;
+             }
+
+             .swiper-slide:not(.swiper-slide-active) .review-card {
+               opacity: 0.5;
+               transform: scale(0.85);
+             }
+
+             .image {
+               display: flex;
+               justify-content: center;
+               width: 100%;
+               height: auto;
+             }
+
+             .image img {
+               border-radius: 50%;
+               width: 80px;
+               height: 80px;
+               object-fit: cover;
+             }
+
+             .text {
+               font-family: 'Inter', sans-serif;
+               font-weight: 600;
+               font-size: 22px;
+               text-align: center;
+             }
+
+             .country{
+               font-family: 'Inter', sans-serif;
+               text-align: center;
+               margin-top: 5px;
+             }
+
+             .stars {
+               padding-10px;
+               font-size: 20px;
+
+             }
+
+             .paragraph {
+               font-size: 20px;
+               line-height: 1.4;
+             }
+
+             .swiper-pagination {
+               position: relative;
+               bottom: -10px;
+             }
+
+  @media screen and (max-width: 480px) {
+                .review-section-title h2{
+                          margin-top: 30px;
+           font-weight: 400;
+           font-size: 20px;
+                }
+                .text{
+                  margin-top:20px;
+     order:2;
+         font-weight: 500;
+         font-size: 12.59px;
+            }
+                .country{
+                  margin:0;
+             color: #808080;
+                  order:3;
+         font-size: 5.51px;
+          }
+                .paragraph{
+                  width:40%;
+                  order:1;
+       font-size: 9.45px;
+        }
+                .review-card {
+                  background: #FAFAFA;
+         display: flex;
+         justify-content: start;
+
+         text-align: start;
+         align-items: start;
+     }
+
+    .image img {
+         border-radius: 10px;
+     position: absolute;
+     right: 0;
+     top: -20px;
+     width: 150px;
+     height: 200px;
+
+     }
+    .stars {
+              visibility:hidden;
+      display:none;
+
+             }
+   }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Review",
+  "settings": [
+    {
+      "type": "text",
+      "id": "review_title",
+      "label": "title",
+      "default":"Don't take our word for it"
+
+    }
+  ],
+
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Review Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "review_image",
+          "label": "Review Image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "country_name",
+          "label": "Sort Address"
+        },
+        {
+          "type": "text",
+          "id": "variant_picker",
+          "label": "Star Review"
+        },
+        {
+          "type": "text",
+          "id": "review_paragraph",
+          "label": "Review"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Review"
+    }
+  ]
+}
+{% endschema %}

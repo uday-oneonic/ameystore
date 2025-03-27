@@ -1,0 +1,183 @@
+{% schema %}
+{
+  "name": "Two Image with Text",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "First Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "first_image",
+          "label": "First Image"
+        }
+      ]
+    },
+    {
+      "type": "image_with_text",
+      "name": "Image with Text",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "second_image",
+          "label": "Second Image"
+        },
+        {
+          "type": "text",
+          "id": "image_heading",
+          "label": "Image Heading Title",
+          "default": "NEW"
+        },
+        {
+          "type": "text",
+          "id": "image_title",
+          "label": "Image Title",
+          "default": "Kiwi Flavored Cream"
+        },
+        {
+          "type": "textarea",
+          "id": "image_paragraph",
+          "label": "Paragraph",
+          "default": "Paying homage to the glamour of New York City nightlife in the late 70's."
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button",
+          "default": "Shop now"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Two Image with Text"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="two-image-text-section">
+  <div class="left-image">
+    {% if section.blocks[0].settings.first_image %}
+      <img src="{{ section.blocks[0].settings.first_image | image_url }}" alt="Left Image">
+    {% else %}
+      <div class="placeholder">Upload First Image</div>
+    {% endif %}
+  </div>
+
+  <div
+    class="right-content"
+    style="background-image: url('{{ section.blocks[1].settings.second_image | image_url }}');"
+  >
+    <div class="text-content">
+      <span class="new-label">{{ section.blocks[1].settings.image_heading }}</span>
+      <h2>{{ section.blocks[1].settings.image_title }}</h2>
+      <p>{{ section.blocks[1].settings.image_paragraph }}</p>
+      <a href="{{ section.blocks[1].settings.button_link }}" class="shop-button">
+        {{- section.blocks[1].settings.button_text -}}
+      </a>
+    </div>
+  </div>
+</div>
+
+{% style %}
+    .two-image-text-section {
+      display: flex;
+      max-width: 1400px;
+      width: 100%;
+    }
+
+    .left-image {
+      /* flex: 1; */
+      width:60%;
+      overflow: hidden;
+    }
+
+    .left-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .right-content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-size: cover;
+      background-position: center;
+      padding: 50px;
+      color: white;
+      text-align: left;
+    }
+
+    .text-content {
+      max-width: 400px;
+    }
+
+    .new-label {
+      font-family:'inter_font';
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 100%;
+      letter-spacing: -3%;
+      text-transform: uppercase;
+    }
+
+   .text-content h2 {
+      color:white;
+      font-family:'inter_font';
+      font-weight: 600;
+      font-size: 58px;
+      line-height: 100%;
+      letter-spacing: -3%;
+      margin-top: 10px;
+      margin-bottom:0;
+    }
+
+  .text-content p {
+      font-family:'inter_font';
+      font-weight: 600;
+      font-size: 19px;
+      line-height: 28px;
+      letter-spacing: -3%;
+    }
+
+    .shop-button {
+      display: inline-block;
+      background: white;
+      color: black;
+      padding: 10px 20px;
+      margin-top: 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    /* Mobile View (768px and smaller) */
+    @media (max-width: 768px) {
+      .two-image-text-section {
+        display: block;
+      }
+
+      .left-image {
+        width: 100%;
+      }
+
+      .left-image img {
+        width: 100%;
+        height: auto;
+      }
+
+      .right-content {
+        display: none; /* Hide right section */
+      }
+    }
+{% endstyle %}

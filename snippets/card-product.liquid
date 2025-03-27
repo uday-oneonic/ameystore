@@ -40,7 +40,7 @@
       assign ratio = 1
     endif
   -%}
-  <div class="card-wrapper product-card-wrapper underline-links-hover">
+  <div class="card-wrapper product-card-wrapper underline-links-hover collage-card">
     <div
       class="
         card card--{{ settings.card_style }}
@@ -576,14 +576,9 @@
       assign ratio = 0.8
     endif
   -%}
-  <div class="card-wrapper product-card-wrapper underline-links-hover">
+  <div class="card-wrapper product-card-wrapper underline-links-hover collage-card">
     <div
-      class="
-        card card--{{ settings.card_style }}
-        {% if extend_height %} card--extend-height{% endif %}
-        {% if image_shape and image_shape != 'default' %} card--shape{% endif %}
-        {% if settings.card_style == 'card' %} color-{{ settings.card_color_scheme }} gradient{% endif %}
-      "
+      class="card card--{{ settings.card_style }} {% if extend_height %} card--extend-height{% endif %} {% if image_shape and image_shape != 'default' %} card--shape{% endif %} {% if settings.card_style == 'card' %} color-{{ settings.card_color_scheme }} gradient{% endif %}"
       style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
     >
       <div
