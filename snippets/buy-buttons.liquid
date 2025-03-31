@@ -82,6 +82,7 @@
               disabled
             {% endif %}
           >
+            <img src="https://cdn.shopify.com/s/files/1/0597/5192/3755/files/delete-icon.png?v=1743405373">
             <span>
               {%- if product.selected_or_first_available_variant == null -%}
                 {{ 'products.product.unavailable' | t }}
@@ -99,6 +100,7 @@
         </div>
       {%- endform -%}
     </product-form>
+
   {%- else -%}
     <div class="product-form">
       <div class="product-form__buttons form">

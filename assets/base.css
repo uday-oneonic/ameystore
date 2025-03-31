@@ -1213,6 +1213,7 @@ button.shopify-payment-button__button--unbranded {
 button.shopify-payment-button__button--unbranded {
   min-width: calc(12rem + var(--buttons-border-width) * 2);
   min-height: calc(4.5rem + var(--buttons-border-width) * 2);
+  border-radius:7px;
 }
 
 .button,
@@ -4074,3 +4075,241 @@ padding:50px 30px
 padding:25px;
 }
 /* image with text paddidg */
+
+
+/* feactured product section start  */
+
+.product__title{
+
+  font-family: 'inter_font';
+font-weight: 700;
+font-size: 20px;
+line-height: 100%;
+letter-spacing: 14%;
+
+}
+.product__text{
+  font-family: 'inter_font';
+  text-transform: none;
+font-weight: 300;
+font-size: 30.84px;
+line-height: 100%;
+letter-spacing: -2%;
+
+
+}
+.feactured-product-price {
+font-family: 'inter_font';
+font-weight: 700;
+font-size: 29.84px;
+line-height: 100%;
+letter-spacing: -2%;
+
+
+}
+.quantity__label{
+font-family: 'inter_font';
+font-weight: 500;
+font-size: 20px;
+line-height: 100%;
+letter-spacing: -2%;
+
+}
+.product-description{
+font-family: 'inter_font';
+font-weight: 300;
+font-size: 64px;
+line-height: 25px;
+letter-spacing: -2%;
+
+}
+.feactured-product-check{
+display:flex;
+}
+.feactured-product-check-content h2{
+  margin-bottom:0;
+font-family: 'inter_font';
+font-weight: 700;
+font-size: 15.92px;
+line-height: 100%;
+letter-spacing: -2%;
+
+}
+.feactured-product-check-content p{
+  margin-top:0;
+font-family: 'inter_font';
+font-weight: 400;
+font-size: 14.92px;
+line-height: 100%;
+letter-spacing: -2%;
+
+}
+.feactured-product-check-content a{
+font-family: 'inter_font';
+font-weight: 400;
+font-size: 14.92px;
+line-height: 100%;
+letter-spacing: -2%;
+text-decoration: underline;
+text-decoration-style: solid;
+text-decoration-offset: 0%;
+text-decoration-thickness: 0%;
+
+}
+.feactured-product-check-image{
+margin-top:10px;
+}
+.feactured-product-check{
+gap:5px;
+}
+
+
+/*feactured product image or thumbnail image  */
+.main-image-container {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+
+.thumbnail-overlay {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  gap: 5px;
+  /* background: rgba(255, 255, 255, 0.8); */
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.thumbnail-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.thumbnail-item {
+  width: 100px;
+  height: 120px;
+  overflow: hidden;
+  /* border: 2px solid transparent; */
+  cursor: pointer;
+}
+
+.thumbnail-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.3s;
+}
+
+.thumbnail-item:hover {
+  border-color: #000;
+}
+
+
+
+
+/* feactured product section over  */
+
+/* footer section start*/
+
+
+  .footer__newsletter-container {
+    text-align: center;
+    padding: 20px 0;
+  }
+  .footer-block__heading {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .newsletter-form__field-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  .newsletter-form__button {
+    background-color: black;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+  }
+  .footer-block--currency {
+    text-align: left;
+  }
+/* .footer-subscribe-btn{
+background-color:black;
+  color:white;
+} */
+.footer-subscribe-btn button{
+  background-color:black;
+  color:white;
+  font-family: 'inter_font';
+font-weight: 600;
+font-size: 18.21px;
+line-height: 100%;
+letter-spacing: 0%;
+  padding
+
+
+}
+/* footer section over*/
+
+
+/*currancy select  */
+.header__icons{
+align-items:center;
+}
+
+.header__icons localization-form{
+  margin-left: 20px;
+}
+
+
+.disclosure__list-wrapper{
+  position: absolute !important;
+  bottom: 0% !important;
+  transform: translateY(195px) !important;
+}
+
+
+.localization-selector+.disclosure__list-wrapper{
+  margin-left: 0px !important;
+}
+
+
+
+@media only screen and (min-width: 768px)
+{
+  .d-lg-none{
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 600px)
+{
+  
+.d-sm-none{
+  display: none !important;
+}
+}
+
+
+.slide-in {
+  animation-name: slideIn;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

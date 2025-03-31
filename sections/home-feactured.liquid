@@ -74,6 +74,33 @@
         <div class="grid__item product__media-wrapper">
           {%- unless placeholder -%}
             {% render 'product-media-gallery', product: product, variant_images: variant_images, limit: 1 %}
+            <div class="main-image-container">
+              <!-- Main Product Image -->
+              <slider-component id="GalleryViewer-{{ section.id }}" class="slider-mobile-gutter">
+                <ul id="Slider-Gallery-{{ section.id }}" class="product__media-list">
+                  {%- if product.selected_or_first_available_variant.featured_media != null -%}
+                    {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
+                    <li class="product__media-item is-active">
+                      {% render 'product-thumbnail', media: featured_media %}
+                    </li>
+                  {%- endif -%}
+                </ul>
+              </slider-component>
+
+              <!-- Thumbnails Positioned in Bottom-Right Corner -->
+              <div class="thumbnail-overlay">
+                <ul class="thumbnail-list">
+                  {%- for media in product.media -%}
+                    <li class="thumbnail-item">
+                      <button class="thumbnail" data-target="{{ section.id }}-{{ media.id }}">
+                        {{ media.preview_image | image_url: width: 74 | image_tag }}
+                      </button>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+            </div>
+
           {%- else -%}
             <div class="product__media-item">
               <div
@@ -1479,7 +1506,7 @@
   ],
   "presets": [
     {
-      "name": "t:sections.featured-product.presets.name",
+      "name": "home feactured product",
       "blocks": [
         {
           "type": "text",
