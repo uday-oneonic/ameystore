@@ -457,6 +457,47 @@
         });
     });
 });
+
+      // currencey image
+//    document.addEventListener("DOMContentLoaded", function () {
+//   const select = document.getElementById("currency-selector");
+//   const flagImg = document.getElementById("selected-flag");
+
+//   function updateFlag() {
+//     const selectedOption = select.options[select.selectedIndex];
+//     const countryCode = selectedOption.getAttribute("data-flag");
+//     flagImg.src = `https://flagcdn.com/w40/${countryCode}.png`;
+//   }
+
+//   // Function to store selected currency in localStorage
+//   function saveSelectedCurrency() {
+//     localStorage.setItem("selectedCurrency", select.value);
+//   }
+
+//   // Function to load selected currency from localStorage
+//   function loadSelectedCurrency() {
+//     const savedCurrency = localStorage.getItem("selectedCurrency");
+//     if (savedCurrency) {
+//       select.value = savedCurrency;
+//       updateFlag();
+//     }
+//   }
+
+//   // Function to change currency and reload the page to update prices
+//   function changeCurrency() {
+//     saveSelectedCurrency();
+//     updateFlag();
+
+//     // Submit the Shopify currency form to update all prices
+//     document.getElementById("FooterCountryForm").submit();
+//   }
+
+//   // Update flag and trigger currency change when selection changes
+//   select.addEventListener("change", changeCurrency);
+
+//   // Ensure the flag and currency are set correctly on page load
+//   loadSelectedCurrency();
+// });
     </script>
   </body>
 </html>

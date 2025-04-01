@@ -33,7 +33,14 @@
     aria-controls="{{ localPosition }}-country-results"
     aria-describedby="{{ localPosition }}Label"
   >
-    <span>
+    <span class="currencey-with-image">
+      <img
+        id="selected-flag"
+        src="https://flagcdn.com/w40/{{ localization.country.iso_code | downcase }}.png"
+        alt="{{ localization.country.name }} flag"
+        width="20"
+        class="currency-flag"
+      >
       {{- localization.country.name }} |
       {{ localization.country.currency.iso_code }}
       {{ localization.country.currency.symbol -}}
@@ -103,6 +110,7 @@
                 {% endif %}
                 data-value="{{ country.iso_code }}"
                 id="{{ country.name }}"
+                onclick="updateCurrencyAndFlag(event, '{{ country.iso_code }}', '{{ country.currency.iso_code }}', '{{ country.currency.symbol }}', '{{ country.name }}')"
               >
                 <span
                   {% if country.iso_code != localization.country.iso_code %}
@@ -132,6 +140,7 @@
               {% endif %}
               data-value="{{ country.iso_code }}"
               id="{{ country.name }}"
+              onclick="updateCurrencyAndFlag(event, '{{ country.iso_code }}', '{{ country.currency.iso_code }}', '{{ country.currency.symbol }}', '{{ country.name }}')"
             >
               <span
                 {% if country.iso_code != localization.country.iso_code %}
@@ -153,4 +162,30 @@
   </div>
   <div class="country-selector__overlay"></div>
 </div>
+
 <input type="hidden" name="country_code" value="{{ localization.country.iso_code }}">
+
+<script>
+  function updateCurrencyAndFlag(event, isoCode, currencyCode, currencySymbol, countryName) {
+    // Prevent the page reload
+    event.preventDefault();
+
+    // Update the flag
+    var flagImg = document.getElementById("selected-flag");
+    flagImg.src = "https://flagcdn.com/w40/" + isoCode.toLowerCase() + ".png";
+    flagImg.alt = countryName + " flag";
+    
+    // Update the displayed country name, currency code, and currency symbol
+    var currencyDisplay = document.querySelector('.disclosure__button span');
+    currencyDisplay.innerHTML = `<img src="https://flagcdn.com/w40/${isoCode.toLowerCase()}.png" alt="${countryName} flag" width="20" class="currency-flag"> ${countryName} | ${currencyCode} ${currencySymbol}`;
+
+    // Optionally, set the country code value in the hidden input field
+    document.querySelector("input[name='country_code']").value = isoCode;
+
+    // Update the currency on the page
+    // Note: You may need to hook into Shopify's API for currency update if needed
+    if (window.Shopify && Shopify.Currency) {
+      Shopify.Currency.update(currencyCode);  // This updates the currency
+    }
+  }
+</script>
