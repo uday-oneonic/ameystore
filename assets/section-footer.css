@@ -1,5 +1,5 @@
 .footer {
-  border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
+border-top: 1px solid #BABABA;
 }
 
 .footer:not(.color-scheme-1) {
@@ -9,6 +9,7 @@
 .footer__content-top {
   padding-bottom: 5rem;
   display: block;
+  border-bottom: 1px solid #BABABA;
 }
 
 @media screen and (max-width: 749px) {
@@ -532,7 +533,7 @@ letter-spacing: 0;
   }
 }
 .footer__blocks-wrapper{
-padding:10px 50px;
+padding:50px 50px;
 }
 /*fotter menus title  */
 .footer-menu-title{

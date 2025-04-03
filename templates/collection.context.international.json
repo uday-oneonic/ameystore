@@ -1,1 +1,1 @@
-{"parent":"collection.json","context":{"market":"international"},"sections":{"product-grid":{"settings":{"products_per_page":24,"columns_desktop":3},"blocks":{}}}}
+{"parent":"collection.json","context":{"market":"international"},"sections":{"product-grid":{"settings":{"show_vendor":true},"blocks":{}}}}

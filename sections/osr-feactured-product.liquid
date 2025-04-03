@@ -1,0 +1,541 @@
+<style>
+  /* osr featured collection css start */
+
+  .osr-featured-collection-slide-inner .jdgm-widget.jdgm-widget {
+    display: block !important;
+    text-align: center;
+    padding-top: 10px;
+  }
+
+  .osr-featured-collection-slide-inner .jdgm-prev-badge[data-average-rating='0.00'] {
+    display: flex !important;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .osr-featured-collection-title {
+    margin: 0;
+    font-size: 48px;
+    line-height: 58px;
+    text-align: center;
+    font-family: var(--font-title-bold);
+    color: var(--primary-color);
+    padding-bottom: 30px;
+    text-transform: uppercase;
+  }
+
+  .osr-featured-collection-tabs-content-inner {
+    margin: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .osr-featured-collection-tab {
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 24px;
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--primary-color);
+    font-family: var(--font-text-medium);
+    border: 1px solid #000000;
+    border-radius: 40px;
+  }
+
+  .osr-featured-collection-tab.active {
+    background: var(--btn-bg);
+    border: 1px solid var(--btn-bg);
+    color: var(--secondary-color);
+  }
+
+  .osr-featured-collection-tab.active .osr-featured-collection-tab-logo {
+    filter: invert(1);
+  }
+
+  .osr-featured-collection-tab-logo {
+    max-width: 26px;
+    width: 100%;
+  }
+
+  .osr-featured-collection-tabs-content {
+    margin-bottom: 30px;
+  }
+
+  .osr-featured-collection-slider {
+    clip-path: inset(-100vw -100vw -100vw -17px);
+  }
+
+  .osr-featured-collection-product-link {
+    width: 100%;
+    display: block;
+    text-decoration: none;
+  }
+
+  .osr-featured-collection-slider-product-image {
+    width: 100%;
+    border-radius: 20px;
+  }
+
+  .osr-featured-collection-wrapper-inner-content.hide {
+    display: none;
+  }
+
+  .osr-featured-collection-wrapper-inner-content.show {
+    display: block;
+    overflow: hidden;
+  }
+
+  .osr-featured-collection-slide-image-content {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+  }
+
+  .osr-featured-collection-product-title {
+    margin: 0;
+    text-align: center;
+    font-size: 18px;
+    line-height: 28px;
+    font-family: var(--font-text-medium);
+    color: var(--primary-color);
+    padding: 15px 0;
+  }
+
+  .osr-featured-collection-slider-product-price-inner {
+    margin: 0;
+    text-align: center;
+    font-size: 24px;
+    line-height: 34px;
+    font-family: var(--font-text-medium);
+    color: var(--primary-color);
+  }
+
+  .osr-featured-collection-slide-inner .product-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .osr-featured-collection-slide-inner .quantity {
+    width: 100px;
+    height: 100%;
+    min-height: auto;
+    min-width: auto;
+    padding: 5px 20px;
+    border: 1px solid #000000;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .osr-featured-collection-slide-inner .quantity:before,
+  .osr-featured-collection-slide-inner .quantity:after {
+    display: none;
+  }
+
+  .osr-featured-collection-slide-inner .quantity-input {
+    width: 20px;
+    min-width: auto;
+    max-width: unset;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    font-size: 16px;
+    line-height: 26px;
+    color: var(--primary-color);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  .osr-featured-collection-slide-inner .quantity-button {
+    background: transparent;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    font-size: 18px;
+    line-height: 26px;
+    color: var(--primary-color);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .osr-featured-collection-slide-inner .quantity-input::-webkit-outer-spin-button,
+  .osr-featured-collection-slide-inner .quantity-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .osr-featured-collection-slide-inner .quantity-input[type='number'] {
+    -moz-appearance: textfield;
+  }
+
+  .osr-featured-collection-slide-inner .btn.add-to-cart-btn {
+    width: 100px;
+    height: 100%;
+    min-height: auto;
+    min-width: auto;
+    padding: 6px 20px;
+    border-radius: 40px;
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    line-height: 26px;
+    border: 1px solid var(--btn-bg);
+    background: var(--btn-bg);
+    color: var(--link-color);
+    cursor: pointer;
+  }
+
+  .osr-featured-collection-slide-inner .btn.add-to-cart-btn:hover {
+    border: 1px solid var(--primary-color);
+    background: #000000;
+    color: var(--link-color);
+  }
+
+  .osr-featured-collection-view-btn {
+    display: block;
+    width: fit-content;
+    text-align: center;
+    margin: 40px auto 0 auto;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 15px 30px;
+    cursor: pointer;
+    border-radius: 40px;
+    font-family: var(--font-text-medium);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+  }
+
+  .osr-featured-collection-view-btn:hover {
+    border: 1px solid var(--primary-color);
+    background: #000000;
+    color: var(--link-color);
+  }
+
+  @media only screen and (max-width: 767px) {
+    .osr-featured-collection-tabs-content-inner {
+      overflow: auto;
+    }
+
+    .osr-featured-collection-tab {
+      font-size: 12px;
+      line-height: 22px;
+      padding: 10px 15px;
+      gap: 5px;
+      min-width: 120px;
+    }
+
+    .osr-featured-collection-tab-logo {
+      max-width: 15px;
+    }
+
+    .osr-featured-collection-title {
+      font-size: 28px;
+      line-height: 38px;
+    }
+
+    .osr-featured-collection-product-title {
+      font-size: 14px;
+      line-height: 24px;
+    }
+
+    .osr-featured-collection-slider-product-price-inner {
+      font-size: 20px;
+      line-height: 30px;
+    }
+  }
+
+  /* osr featured collection css end */
+</style>
+
+<section class="osr-featured-collection-wrapper osr-section" id="{{ section.id }}">
+  <div class="osr-container">
+    <div class="osr-featured-collection-wrapper-inner">
+      <div class="osr-featured-collection-main-flex-wrap">
+        <div class="osr-featured-collection-text-content">
+          {%- if section.settings.title != blank -%}
+            <div class="osr-featured-collection-title-content ">
+              <h2 class="osr-featured-collection-title">{{ section.settings.title }}</h2>
+            </div>
+          {%- endif -%}
+        </div>
+        <div class="osr-featured-collection-tabs-content ">
+          <ul class="osr-featured-collection-tabs-content-inner" id="osr-featured-collection-tabs-content-inner">
+            {%- for block in section.blocks -%}
+              {%- if block.settings.tab_title != blank -%}
+                <li
+                  id="osr-featured-collection-tab--{{ forloop.index }}"
+                  class="osr-featured-collection-tab {% if forloop.first %} active {% endif %}"
+                >
+                  {%- if block.settings.tab_image != blank -%}
+                    <img
+                      src="{{ block.settings.tab_image | image_url }}"
+                      alt="{{ block.settings.tab_image.alt }}"
+                      width=""
+                      height=""
+                      loading="lazy"
+                      class="osr-featured-collection-tab-logo"
+                    >
+                  {%- endif -%}
+                  {{ block.settings.tab_title }}
+                </li>
+              {%- endif -%}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      {%- for block in section.blocks -%}
+        <div
+          class="osr-featured-collection-wrapper-inner-content {% if forloop.first %} show {% endif %}"
+          id="osr-featured-collection-wrapper-inner-tabpanel--{{ forloop.index }}"
+        >
+          <div class="osr-featured-collection-slider">
+            <div class="swiper-wrapper">
+              {% assign collection = block.settings.collection %}
+              {% for product in collection.products %}
+                <div class="swiper-slide" id="osr-featured-collection-slider-wrapper--{{ forloop.index }}">
+                  <div
+                    class="sliderproduct slider-product--{{ forloop.index }}"
+                    id="slider-product--{{ forloop.index }}"
+                  >
+                    <div class="osr-featured-collection-slide-inner osr-featured-collection-slider-inner--{{ forloop.index }}">
+                      <div class="osr-featured-collection-slide-image-content ">
+                        <a href="{{ product.url }}" class="osr-featured-collection-product-link">
+                          <img
+                            class="osr-featured-collection-slider-product-image"
+                            src="{{ product.featured_image | image_url}}"
+                            alt="{{ product.featured_image.alt }}"
+                            width=""
+                            height=""
+                            loading="lazy"
+                          >
+                        </a>
+                      </div>
+                      <!-- Start of Judge.me code -->
+                      <div
+                        style="{{ jm_style }}"
+                        class="jdgm-widget jdgm-preview-badge"
+                        data-id="{{ product.id }}"
+                        data-auto-install="false"
+                      >
+                        {{ product.metafields.judgeme.badge }}
+                      </div>
+                      <!-- End of Judge.me code -->
+                      <div class="osr-featured-collection-product-title-content ">
+                        <a href="{{ product.url }}" class="osr-featured-collection-product-link">
+                          <h3 class="osr-featured-collection-product-title">{{ product.title }}</h3>
+                        </a>
+                      </div>
+                      {% if product.compare_at_price > product.price %}
+                        <div class="osr-featured-collection-slider-product-price ">
+                          <p class="osr-featured-collection-slider-product-price-inner {% if product.compare_at_price > product.price %}product-compre{% endif %}">
+                            {{ product.selected_or_first_available_variant.compare_at_price | money_with_currency }}
+                          </p>
+                          <p class="osr-featured-collection-slider-product-price-inner">
+                            {{ product.selected_or_first_available_variant.price | money_with_currency }}
+                          </p>
+                        </div>
+                      {% else %}
+                        <p class="osr-featured-collection-slider-product-price-inner">
+                          From {{ product.selected_or_first_available_variant.price | money_with_currency }}
+                        </p>
+                      {% endif %}
+                      <form action="/cart/add" method="post" enctype="multipart/form-data" class="product-form">
+                        <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                        <div class="quantity">
+                          <button type="button" class="quantity-button minus" onclick="reduceQuantity(this)">-</button>
+                          <input type="number" name="quantity" value="1" min="1" class="quantity-input">
+                          <button type="button" class="quantity-button plus" onclick="increaseQuantity(this)">+</button>
+                        </div>
+                        <button
+                          type="submit"
+                          class="product-form__submit button button--full-width button--primary btn add-to-cart-btn"
+                        >
+                          Add to Cart
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              {%- endfor -%}
+            </div>
+          </div>
+          {%- if block.settings.button_label != blank -%}
+            <div class="osr-featured-collection-view-btn-content">
+              <a
+                href="{{ block.settings.button_link }}"
+                title="{{ block.settings.button_label }}"
+                class="osr-featured-collection-view-btn"
+              >
+                {{- block.settings.button_label -}}
+              </a>
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<script>
+  /* quntity button start */
+
+  function increaseQuantity(button) {
+    var input = button.previousElementSibling;
+    var currentValue = parseInt(input.value);
+    input.value = currentValue + 1;
+  }
+
+  function reduceQuantity(button) {
+    var input = button.nextElementSibling;
+    var currentValue = parseInt(input.value);
+    if (currentValue > 1) {
+      input.value = currentValue - 1;
+    }
+  }
+
+  /* quntity button end */
+
+  /* slider code start */
+
+  var swiper = new Swiper('.osr-featured-collection-slider', {
+    slidesPerView: 4,
+    spaceBetween: 20,
+    breakpoints: {
+      20: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+      400: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      640: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+      992: {
+        slidesPerView: 4,
+        spaceBetween: 20,
+      },
+    },
+  });
+
+  /* tabs code start */
+
+  function initializeTabs() {
+    var tabsd;
+    var tabContentsd;
+
+    tabContentsd = document.getElementsByClassName('osr-featured-collection-wrapper-inner-content');
+    tabsd = document.getElementsByClassName('osr-featured-collection-tab');
+    hideContent(1);
+
+    document.getElementById('osr-featured-collection-tabs-content-inner').onclick = function (event) {
+      var target = event.target;
+      if (target.className == 'osr-featured-collection-tab') {
+        for (var i = 0; i < tabsd.length; i++) {
+          if (target == tabsd[i]) {
+            showContent(i);
+            break;
+          }
+        }
+      }
+    };
+
+    function hideContent(indexToStart) {
+      for (var i = indexToStart; i < tabContentsd.length; i++) {
+        tabContentsd[i].classList.remove('show');
+        tabContentsd[i].classList.add('hide');
+        tabsd[i].classList.remove('active');
+      }
+    }
+
+    function showContent(indexToShow) {
+      if (tabContentsd[indexToShow].classList.contains('hide')) {
+        hideContent(0);
+        tabsd[indexToShow].classList.add('active');
+        tabContentsd[indexToShow].classList.remove('hide');
+        tabContentsd[indexToShow].classList.add('show');
+      }
+    }
+  }
+
+  initializeTabs();
+
+  /* tabs code end */
+</script>
+
+{% schema %}
+{
+  "name": "Osr Featured Collection",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title",
+      "default": "Featured Collections"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "tab_image",
+          "label": "Tab Image"
+        },
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab",
+          "default": "Collection"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "collection"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label",
+          "default": "View all products"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Osr Featured Collection"
+    }
+  ]
+}
+{% endschema %}

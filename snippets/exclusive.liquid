@@ -1,0 +1,31 @@
+<style>
+    .tag {
+      height: 32px;
+      width: 100px;
+      padding: 0 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: black;
+      color: #fff;
+      border-radius: 4px;
+      font-size: 12px;
+      flex-direction: row;
+      font-family: Inter;
+  font-weight: 400;
+  font-size: 16.91px;
+  line-height: 100%;
+  letter-spacing: -2%;
+
+    }
+    .tag span {
+      font-size: 16px;
+    }
+</style>
+
+{% if tags contains 'exclusive' %}
+  <div class="tag">
+    <!-- <span class="material-symbols-outlined"> sell </span> -->
+    <p>Exclusive</p>
+  </div>
+{% endif %}

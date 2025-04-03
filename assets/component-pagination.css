@@ -17,6 +17,9 @@
 .pagination__list > li {
   flex: 1 0 4.4rem;
   max-width: 4.4rem;
+  /* color:white;
+  background-color:black;
+  border-radius:50%; */
 }
 
 .pagination__list > li:not(:last-child) {
@@ -24,7 +27,9 @@
 }
 
 .pagination__item {
-  color: rgb(var(--color-foreground));
+  color: #B3B3B3;
+
+  /* color:white; */
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -33,6 +38,13 @@
   width: 100%;
   padding: 0;
   text-decoration: none;
+ 
+  font-family: 'inter_font';
+font-weight: 700;
+font-size: 26.92px;
+line-height: 100%;
+letter-spacing: 0;
+
 }
 
 a.pagination__item:hover::after {
@@ -49,7 +61,7 @@ a.pagination__item:hover::after {
 
 .pagination__item--current::after,
 .pagination__item:hover::after {
-  content: '';
+  /* content: ''; */
   display: block;
   width: 2rem;
   position: absolute;

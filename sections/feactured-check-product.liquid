@@ -1,0 +1,90 @@
+{% comment %}
+  {% schema %}
+  {
+    "name": "Featured Product Check",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "icon",
+        "label": "Icon Image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "PICKUP AVAILABLE AT CHICAGO STORE"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subtitle",
+        "default": "Ready in about 24 hours"
+      },
+      {
+        "type": "url",
+        "id": "link_url",
+        "label": "Link URL"
+      },
+      {
+        "type": "text",
+        "id": "link_text",
+        "label": "Link Text",
+        "default": "Check availability at other stores"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Featured Product Check",
+        "category": "Product"
+      }
+    ]
+  }
+  {% endschema %}
+
+  <div class="featured-product-check">
+    <div class="featured-product-check-image">
+      {% if section.settings.icon != blank %}
+        <img src="{{ section.settings.icon | img_url: 'master' }}" alt="Featured Icon">
+      {% endif %}
+    </div>
+    <div class="featured-product-check-content">
+      <h2>{{ section.settings.title }}</h2>
+      <p>{{ section.settings.subtitle }}</p>
+      {% if section.settings.link_url %}
+        <a href="{{ section.settings.link_url }}">{{ section.settings.link_text }}</a>
+      {% endif %}
+    </div>
+  </div>
+
+  <style>
+    .featured-product-check {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .featured-product-check-image img {
+      width: 40px;
+      height: auto;
+    }
+
+    .featured-product-check-content h2 {
+      font-size: 16px;
+      margin: 0;
+    }
+
+    .featured-product-check-content p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .featured-product-check-content a {
+      font-size: 14px;
+      color: #0073e6;
+      text-decoration: underline;
+    }
+  </style>
+{% endcomment %}

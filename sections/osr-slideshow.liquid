@@ -1,0 +1,465 @@
+{% style %}
+  .osr-slideshow {
+    background: linear-gradient(180.12deg, rgba(69, 0, 132, 1) 15.25%, rgba(238, 243, 248, 1) 97.82%);
+  }
+
+  /* slideshow css start */
+
+  .osr-slideshow-slide {
+    padding-top: 150px;
+  }
+
+  .osr-slideshow-slide .page-width {
+    max-width: calc(var(--page-width) - 10rem);
+    margin: 0 auto;
+  }
+
+  .osr-slideshow {
+    overflow: hidden;
+  }
+
+  .osr-slideshow-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+
+  .osr-slideshow-column {
+    width: calc(50% - 20px);
+  }
+
+  .osr-slideshow-review-star {
+    color: #004f95;
+    font-size: 24px;
+    display: flex;
+  }
+
+  .osr-slideshow-review-ratings {
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: bold;
+  }
+
+  .osr-slideshow-review {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .osr-slideshow-title {
+    margin: 0;
+    padding-bottom: 20px;
+    position: relative;
+  }
+
+  .osr-slideshow-title:before {
+    content: '';
+    background: url('https://cdn.shopify.com/s/files/1/0524/4239/8896/files/slideshow-title-star.webp?v=1740141356');
+    width: 50px;
+    height: 50px;
+    display: block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    right: 12rem;
+    top: -5rem;
+  }
+
+  .osr-slideshow-subtitle {
+    margin: 0;
+    padding-bottom: 20px;
+  }
+
+  .osr-slideshow-btn-wrap {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    gap: 20px;
+  }
+
+  .osr-slideshow-logo-img {
+    width: 100%;
+    max-width: 80px;
+  }
+
+  .osr-slideshow-logo-wrap {
+    display: flex;
+    align-items: baseline;
+    gap: 8rem;
+    justify-content: flex-start;
+  }
+
+  .osr-slideshow-logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .osr-slideshow-logo-title {
+    font-size: 16px;
+    line-height: 26px;
+    display: block;
+    padding-top: 10px;
+  }
+
+  .osr-slideshow-img {
+    width: 100%;
+  }
+
+  .osr-slideshow-column.osr-slideshow-right-column {
+    font-size: 0;
+    min-height: 640px;
+  }
+
+  .osr-slideshow-section {
+    border-bottom: 2px solid #000000;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    .osr-slideshow-column.osr-slideshow-right-column {
+      font-size: 0;
+      min-height: 550px;
+    }
+
+    .osr-slideshow-title:before {
+      right: 0;
+    }
+
+    .osr-slideshow-logo-wrap {
+      gap: 5rem;
+    }
+  }
+
+  @media only screen and (max-width: 991px) {
+    .osr-slideshow-logo-wrap {
+      gap: 1rem;
+    }
+  }
+
+  @media only screen and (max-width: 767px) {
+    .osr-slideshow-slide {
+      padding-top: 120px;
+    }
+
+    .osr-slideshow-column {
+      width: calc(100% - 0px);
+    }
+
+    .osr-slideshow-column.osr-slideshow-right-column {
+      min-height: auto;
+    }
+
+    .osr-slideshow-review {
+      justify-content: center;
+    }
+
+    .osr-slideshow-title {
+      text-align: center;
+    }
+
+    .osr-slideshow-subtitle {
+      text-align: center;
+    }
+
+    .osr-slideshow-logo-wrap {
+      justify-content: center;
+    }
+
+    .osr-slideshow-btn-wrap {
+      justify-content: center;
+    }
+
+    .osr-slideshow-title:before {
+      right: 0;
+      width: 30px;
+      height: 30px;
+      top: -4rem;
+    }
+
+    .osr-slideshow-logo {
+      max-width: 100px;
+    }
+  }
+
+  /* slideshow css end */
+{% endstyle %}
+
+<section class="osr-section osr-slideshow-section" id="{{ section.id }}">
+  <div class="osr-page-width">
+    <div class="osr-slideshow">
+      <div class="swiper-wrapper">
+        {%- for block in section.blocks -%}
+          <div class="swiper-slide">
+            <div class="osr-slideshow-slide osr-slideshow-slide-{{ forloop.index }} color-{{ block.settings.color_scheme }} gradient">
+              <div class="page-width">
+                <div class="osr-slideshow-flex">
+                  <div class="osr-slideshow-column osr-slideshow-left-column">
+                    {% if block.settings.review_text != blank %}
+                      <span class="osr-slideshow-review">
+                        <span class="osr-slideshow-review-star">
+                          <svg
+                            fill="#004F95"
+                            width="22px"
+                            height="22px"
+                            viewBox="0 0 32 32"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M16 4.588l2.833 8.719H28l-7.416 5.387 2.832 8.719L16 22.023l-7.417 5.389 2.833-8.719L4 13.307h9.167L16 4.588z"></path></g>
+                          </svg>
+                          <svg
+                            fill="#004F95"
+                            width="22px"
+                            height="22px"
+                            viewBox="0 0 32 32"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M16 4.588l2.833 8.719H28l-7.416 5.387 2.832 8.719L16 22.023l-7.417 5.389 2.833-8.719L4 13.307h9.167L16 4.588z"></path></g>
+                          </svg>
+                          <svg
+                            fill="#004F95"
+                            width="22px"
+                            height="22px"
+                            viewBox="0 0 32 32"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M16 4.588l2.833 8.719H28l-7.416 5.387 2.832 8.719L16 22.023l-7.417 5.389 2.833-8.719L4 13.307h9.167L16 4.588z"></path></g>
+                          </svg>
+                          <svg
+                            fill="#004F95"
+                            width="22px"
+                            height="22px"
+                            viewBox="0 0 32 32"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M16 4.588l2.833 8.719H28l-7.416 5.387 2.832 8.719L16 22.023l-7.417 5.389 2.833-8.719L4 13.307h9.167L16 4.588z"></path></g>
+                          </svg>
+                          <svg
+                            fill="#004F95"
+                            width="22px"
+                            height="22px"
+                            viewBox="0 0 32 32"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M16 4.588l2.833 8.719H28l-7.416 5.387 2.832 8.719L16 22.023l-7.417 5.389 2.833-8.719L4 13.307h9.167L16 4.588z"></path></g>
+                          </svg>
+                        </span>
+                        <span class="osr-slideshow-review-ratings">{{ block.settings.review_text }}</span>
+                      </span>
+                    {% endif %}
+                    {% if block.settings.heading != blank %}
+                      <h2 class="osr-slideshow-title osr-font-72">{{ block.settings.heading }}</h2>
+                    {% endif %}
+                    {% if block.settings.subheading != blank %}
+                      <h3 class="osr-slideshow-subtitle osr-font-22">{{ block.settings.subheading }}</h3>
+                    {% endif %}
+                    <div class="osr-slideshow-logo-wrap">
+                      {% if block.settings.logo_image_1 != blank %}
+                        <div class="osr-slideshow-logo">
+                          <img
+                            src="{{ block.settings.logo_image_1 | image_url }}"
+                            alt="{{ block.settings.logo_text_1 }}"
+                            class="osr-slideshow-logo-img"
+                            width=""
+                            height=""
+                            loading="lazy"
+                          >
+                          <span class="osr-slideshow-logo-title">{{ block.settings.logo_text_1 }}</span>
+                        </div>
+                      {% endif %}
+                      {% if block.settings.logo_image_2 != blank %}
+                        <div class="osr-slideshow-logo">
+                          <img
+                            src="{{block.settings.logo_image_2 | image_url }}"
+                            alt="{{ block.settings.logo_text_2 }}"
+                            class="osr-slideshow-logo-img"
+                            width=""
+                            height=""
+                            loading="lazy"
+                          >
+                          <span class="osr-slideshow-logo-title">{{ block.settings.logo_text_2 }}</span>
+                        </div>
+                      {% endif %}
+                      {% if block.settings.logo_image_3 != blank %}
+                        <div class="osr-slideshow-logo">
+                          <img
+                            src="{{ block.settings.logo_image_3 | image_url }}"
+                            alt="{{ block.settings.logo_text_3 }}"
+                            class="osr-slideshow-logo-img"
+                            width=""
+                            height=""
+                            loading="lazy"
+                          >
+                          <span class="osr-slideshow-logo-title">{{ block.settings.logo_text_3 }}</span>
+                        </div>
+                      {% endif %}
+                    </div>
+                    <div class="osr-slideshow-btn-wrap">
+                      {% if block.settings.btn_label_1 != blank %}
+                        <a href="{{ block.settings.btn_link_1 }}" class="osr-slideshow-btn osr-primary-btn">
+                          {{- block.settings.btn_label_1 -}}
+                        </a>
+                      {% endif %}
+                      {% if block.settings.btn_label_2 != blank %}
+                        <a href="{{ block.settings.btn_link_2 }}" class="osr-slideshow-btn osr-sub-primary-btn">
+                          {{- block.settings.btn_label_2 -}}
+                        </a>
+                      {% endif %}
+                    </div>
+                  </div>
+                  <div class="osr-slideshow-column osr-slideshow-right-column">
+                    {% if block.settings.image != blank %}
+                      <img
+                        src="{{ block.settings.image | image_url }}"
+                        alt="{{ block.settings.image.alt }}"
+                        class="osr-slideshow-img"
+                        width=""
+                        height=""
+                        loading="eager"
+                      >
+                    {% else %}
+                      {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  /* slideshow js start */
+
+  var slideshow = new Swiper('.osr-slideshow', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    speed: 2000,
+    effect: 'fade',
+    autoplay: {
+      delay: 2000,
+    },
+    loop: true,
+  });
+
+  /* slideshow js end */
+</script>
+
+{% schema %}
+{
+  "name": "Osr Slideshow",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "t:sections.slideshow.blocks.slide.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "textarea",
+          "id": "review_text",
+          "label": "Review Text",
+          "default": "802 reviews"
+        },
+        {
+          "type": "textarea",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Feel the Power of Natural, Crash-Free Energy"
+        },
+        {
+          "type": "text",
+          "id": "subheading",
+          "label": "Sub Heading",
+          "default": "Supercharge your day with HELO Energy Gummies."
+        },
+        {
+          "type": "image_picker",
+          "id": "logo_image_1",
+          "label": "Logo Image"
+        },
+        {
+          "type": "text",
+          "id": "logo_text_1",
+          "label": "Logo Text",
+          "default": "Mental Sharpness"
+        },
+        {
+          "type": "image_picker",
+          "id": "logo_image_2",
+          "label": "Logo Image"
+        },
+        {
+          "type": "text",
+          "id": "logo_text_2",
+          "label": "Logo Text",
+          "default": "Hydration"
+        },
+        {
+          "type": "image_picker",
+          "id": "logo_image_3",
+          "label": "Logo Image"
+        },
+        {
+          "type": "text",
+          "id": "logo_text_3",
+          "label": "Logo Text",
+          "default": "Energy"
+        },
+        {
+          "type": "text",
+          "id": "btn_label_1",
+          "label": "Button Label",
+          "default": "SHOP HELO"
+        },
+        {
+          "type": "url",
+          "id": "btn_link_1",
+          "label": "Button Link"
+        },
+        {
+          "type": "text",
+          "id": "btn_label_2",
+          "label": "Button Label",
+          "default": "SHOP MELO"
+        },
+        {
+          "type": "url",
+          "id": "btn_link_2",
+          "label": "Button Link"
+        },
+        {
+          "type": "color_scheme",
+          "id": "color_scheme",
+          "label": "t:sections.all.colors.label",
+          "default": "scheme-3"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Osr Slideshow",
+      "blocks": [
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

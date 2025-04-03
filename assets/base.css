@@ -527,6 +527,9 @@ h6:empty {
 
 a:not([href]) {
   cursor: not-allowed;
+      background-color: black;
+    border-radius: 50%;
+    color: white;
 }
 
 .circle-divider::after {
@@ -1899,11 +1902,12 @@ input[type='checkbox'] {
   right: var(--inputs-border-width);
   bottom: var(--inputs-border-width);
   left: var(--inputs-border-width);
-  border: 0.1rem solid transparent;
-  border-radius: var(--inputs-radius);
+  border: 0.99;
+  /* border-radius: var(--inputs-radius); */
   box-shadow: 0 0 0 var(--inputs-border-width) rgba(var(--color-foreground), var(--inputs-border-opacity));
   transition: box-shadow var(--duration-short) ease;
   z-index: 1;
+  border-radius:7px;
 }
 
 .quantity:before {
@@ -2806,6 +2810,7 @@ details[open] > .header__submenu {
   padding: 1.2rem;
   text-decoration: none;
   color: rgba(var(--color-foreground), 0.75);
+  text-transform:uppercase;
 }
 
 .header__menu-item:hover {
@@ -4146,6 +4151,7 @@ letter-spacing: -2%;
 }
 .feactured-product-check-content a{
 font-family: 'inter_font';
+  color:black;
 font-weight: 400;
 font-size: 14.92px;
 line-height: 100%;
@@ -4345,4 +4351,12 @@ align-items:center;
     align-items: center;
     gap: 10px;
 }
+
+
+/* all product main-collection-grid page start  */
+.allproduct-padding{
+  padding-inline:5rem;
+
+}
+/* all product main-collection-grid page over  */
 
