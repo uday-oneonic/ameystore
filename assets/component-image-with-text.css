@@ -197,7 +197,7 @@
         text-align: left;
         font-size: 22px;
         font-weight: 300;
-        font-family: 'inter_font';
+        /* font-family: 'inter_font'; */
         /* width: 80%; */
     }
   .image-with-text__content--desktop-center > * {

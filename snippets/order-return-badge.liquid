@@ -1,0 +1,23 @@
+<div class="dynamic-badge">
+  <span id="left-badge-{{ block.id }}" class="badge-left">Calculating...</span>
+  <span id="right-badge-{{ block.id }}" class="badge-right">Checking return policy...</span>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    let daysLeft = {{ block.settings.days_left | default: 3 }}; // Get from block settings
+    let returnDays = {{ block.settings.return_days | default: 60 }}; // Get return days
+
+    if (!daysLeft || daysLeft < 0) {
+      daysLeft = 3; // Default if invalid
+    }
+
+    if (!returnDays || returnDays < 0) {
+      returnDays = 60; // Default if invalid
+    }
+
+    // Update text dynamically
+    document.getElementById("left-badge-{{ block.id }}").innerText = `Only ${daysLeft} days left`;
+    document.getElementById("right-badge-{{ block.id }}").innerText = `FREE ${returnDays}-day returns`;
+  });
+</script>

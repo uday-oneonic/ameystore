@@ -98,6 +98,7 @@
                   {%- endif -%}
                 </p>
               {%- endif -%}
+
               <div class="article-card__footer">
                 {%- if article.comments_count > 0 and blog.comments_enabled? -%}
                   <span>{{ 'blogs.article.comments' | t: count: article.comments_count }}</span>
@@ -137,6 +138,7 @@
                 {%- endif -%}
               </p>
             {%- endif -%}
+            <button class="btn-blog" href="{{ article.url }}">Read more</button>
             <div class="article-card__footer">
               {%- if article.comments_count > 0 and blog.comments_enabled? -%}
                 <span>{{ 'blogs.article.comments' | t: count: article.comments_count }}</span>

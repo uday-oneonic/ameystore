@@ -1266,7 +1266,7 @@ input.mobile-facets__checkbox {
 /*===================== default css  ===============================*/
 
 .allproduct-filter-heading{
-  font-family: 'inter_font';
+  
 font-weight: 300;
 font-size: 18px;
 line-height: 100%;
@@ -1274,7 +1274,7 @@ letter-spacing: 0;
 
 }
 .filters-title{
- font-family: 'inter_font';
+
 font-weight: 400;
 font-size: 18px;
 line-height: 100%;
@@ -1282,7 +1282,7 @@ letter-spacing: 0;
 
 }
 .filter-price{
- font-family: 'inter_font';
+
 font-weight: 400;
 font-size: 18px;
 line-height: 100%;
@@ -1290,7 +1290,7 @@ letter-spacing: 0;
 
 }
 .sort-by{
-font-family: 'inter_font';
+
 font-weight: 300;
 font-size: 18px;
 line-height: 100%;
@@ -1298,7 +1298,7 @@ letter-spacing: 0;
 
 }
 .sort-by-name {
- font-family: 'inter_font';
+ 
 font-weight: 400;
 font-size: 18px;
 line-height: 100%;

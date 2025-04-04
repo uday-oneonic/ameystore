@@ -1,0 +1,27 @@
+<div class="feactured-product-check">
+  <div class="feactured-product-check-image">
+    {% if block.settings.image %}
+      <img
+        src="{{ block.settings.image | img_url: 'medium' }}"
+        alt="Helo logo"
+        width="auto"
+        height="auto"
+        alt="Pickup Availability"
+      >
+    {% else %}
+      <img
+        src="https://cdn.shopify.com/s/files/1/0597/5192/3755/files/tick-mark-feactured-product.png?v=1743405873"
+        alt="Helo logo"
+        width="auto"
+        height="auto"
+      >
+    {% endif %}
+  </div>
+  <div class="feactured-product-check-content">
+    <h2>{{ block.settings.store_name }}</h2>
+    <p>{{ block.settings.availability_text }}</p>
+    <a href="{{ block.settings.link  }}">
+      {{- block.settings.link_text -}}
+    </a>
+  </div>
+</div>

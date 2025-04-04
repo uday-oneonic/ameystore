@@ -161,7 +161,7 @@
         <div class="slideshow__text-wrapper banner__content banner__content--{{ block.settings.box_align }} page-width{% if block.settings.show_text_box == false %} banner--desktop-transparent{% endif %}{% if settings.animations_reveal_on_scroll and forloop.index == 1 %} scroll-trigger animate--slide-in{% endif %}">
           <div class="slideshow__text banner__box content-container content-container--full-width-mobile color-{{ block.settings.color_scheme }} gradient slideshow__text--{{ block.settings.text_alignment }} slideshow__text-mobile--{{ block.settings.text_alignment_mobile }}">
             {%- if block.settings.heading != blank -%}
-              <h2 class="banner__heading inline-richtext {{ block.settings.heading_size }}">
+              <h2 class="banner__heading inline-richtext {{ block.settings.heading_size }} slide-show-titile">
                 {{ block.settings.heading }}
               </h2>
             {%- endif -%}
@@ -171,14 +171,15 @@
               </div>
             {%- endif -%}
             {%- if block.settings.button_label != blank -%}
-              <div class="banner__buttons">
+              <div class="banner__buttons home-page-hero-btn">
                 <a
                   {% if block.settings.link %}
                     href="{{ block.settings.link }}"
                   {% else %}
                     role="link" aria-disabled="true"
-                  {% endif %}
-                  class="button {% if block.settings.button_style_secondary %}button--secondary{% else %}button--primary{% endif %}"
+                  {% endif -%}
+                  e
+                  class="button {% if block.settings.button_style_secondary %}button--secondary{% else %}button--primary{% endif %} home-page-hero-btn"
                 >
                   {{- block.settings.button_label | escape -}}
                 </a>
@@ -221,7 +222,7 @@
                   {{ forloop.index -}}
                 {%- else -%}
                   <span class="slider-dot">{{ block.settings.slider_text }}</span>
-                  <span class="dot"></span>
+                  <span class="dot slider-top-margin"></span>
                 {%- endif -%}
               </button>
             {%- endfor -%}

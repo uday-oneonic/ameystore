@@ -1,1 +1,36 @@
+<style>
+  .cart-drawer__collection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 10px;
+  }
+
+  .cart-drawer__collection .grid__item {
+    flex: 1 1 45%;
+    min-width: 120px;
+  }
+
+  .cart-drawer__product-link {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .cart-drawer__product-link img {
+    width: 100%;
+    height: auto;
+    max-width: 120px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .cart-drawer__product-title,
+  .cart-drawer__product-price {
+    font-size: 14px;
+    margin-top: 5px;
+    color: #000;
+  }
+</style>
+
 {%- render 'cart-drawer' -%}

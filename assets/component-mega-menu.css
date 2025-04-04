@@ -50,9 +50,11 @@
   text-decoration: none;
   transition: text-decoration var(--duration-short) ease;
   word-wrap: break-word;
+  text-transform:capitalize;
 }
 
 .mega-menu__link--level-2 {
+  text-transform:uppercase;
   font-weight: bold;
 }
 
@@ -71,7 +73,7 @@
 .mega-menu__link:hover,
 .mega-menu__link--active {
   color: rgb(var(--color-foreground));
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 
 .mega-menu__link--active:hover {
