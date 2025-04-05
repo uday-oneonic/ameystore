@@ -1,51 +1,71 @@
 {{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-          .section-{{ section.id }}-padding {
-            padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-            padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-          }
+                .section-{{ section.id }}-padding {
+                  padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+                  padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+                }
 
-          @media screen and (min-width: 750px) {
-            .section-{{ section.id }}-padding {
-              padding-top: {{ section.settings.padding_top }}px;
-              padding-bottom: {{ section.settings.padding_bottom }}px;
+                @media screen and (min-width: 750px) {
+                  .section-{{ section.id }}-padding {
+                    padding-top: {{ section.settings.padding_top }}px;
+                    padding-bottom: {{ section.settings.padding_bottom }}px;
+                  }
+                }
+                .image-with-text__heading{
+                  /* font-family: 'inter_font' !important; */
+              font-weight: 300 !important;
+              font-size: 31px !important;
+              line-height: 100% !important;
+              letter-spacing: 5px !important;
+
+              }
+              .product-page-image-with-text__subtitle{
+              /* font-family: 'inter_font' !important; */
+            font-weight: 600 !important;
+            font-size: 47px !important;
+            line-height: 100% !important;
+            letter-spacing: -1px !important;
+                color: black;
+
+              }
+            .product-page-image-with-text__paragraph{
+             /* font-family: 'inter_font' !important; */
+          font-weight: 300 !important;
+          font-size: 24px !important;
+          line-height: 100% !important;
+          letter-spacing: -1px !important;
+
+
             }
+          .product-page-image-with-button{
+            background-color:black !important;
+            color:white !important;
+
           }
-          .image-with-text__heading{
-            /* font-family: 'inter_font' !important; */
-        font-weight: 300 !important;
-        font-size: 31px !important;
-        line-height: 100% !important;
-        letter-spacing: 5px !important;
-
-        }
-        .product-page-image-with-text__subtitle{
-        /* font-family: 'inter_font' !important; */
-      font-weight: 600 !important;
-      font-size: 47px !important;
-      line-height: 100% !important;
-      letter-spacing: -1px !important;
-          color: black;
-
-        }
-      .product-page-image-with-text__paragraph{
-       /* font-family: 'inter_font' !important; */
-    font-weight: 300 !important;
-    font-size: 24px !important;
-    line-height: 100% !important;
-    letter-spacing: -1px !important;
+          .product-page-padding{
+        padding-left:100px;
+          }
+        @media screen and (max-width: 480px) {
+    .product-page-image-with-text__subtitle{
 
 
+            font-size: 17px !important;
+
+
+              }
+          .product-page-padding{
+        padding-left:0;
+            margin:0;
+            width:45%;
+          }
+          .product-page-width{
+  width:40%;
+          }
+          .product-page-image-with-text__heading{
+             font-size: 10px !important;
+          }
       }
-    .product-page-image-with-button{
-      background-color:black !important;
-      color:white !important;
-
-    }
-    .product-page-padding{
-  padding-left:100px
-    }
 {%- endstyle -%}
 
 {%- liquid
@@ -96,7 +116,7 @@
         <div class="image-with-text__text-item grid__item">
           <div
             id="ImageWithText--{{ section.id }} "
-            class="image-with-text__content image-with-text__content--{{ section.settings.desktop_content_position }} image-with-text__content--desktop-{{ section.settings.desktop_content_alignment }} image-with-text__content--mobile-{{ section.settings.mobile_content_alignment }} image-with-text__content--{{ section.settings.height }} content-container{% unless remove_color_classes %} gradient color-{{ section.settings.color_scheme }}{% else %} background-transparent{% endunless %} image-content-padding product-page-padding"
+            class="image-with-text__content image-with-text__content--{{ section.settings.desktop_content_position }} image-with-text__content--desktop-{{ section.settings.desktop_content_alignment }} image-with-text__content--mobile-{{ section.settings.mobile_content_alignment }} image-with-text__content--{{ section.settings.height }} content-container{% unless remove_color_classes %} gradient color-{{ section.settings.color_scheme }}{% else %} background-transparent{% endunless %} image-content-padding product-page-padding product-page-width"
           >
             {%- for block in section.blocks -%}
               {% case block.type %}

@@ -1,0 +1,83 @@
+{% if section.settings.collection != blank %}
+  <div class="custom-cart-draver-carousel-wrapper">
+    <h2 class="custom-cart-draver-title">{{ section.settings.title }}</h2>
+    <div class="custom-cart-draver-carousel">
+      {% for product in section.settings.collection.products %}
+        <div class="custom-cart-draver-item">
+          <a href="{{ product.url }}" class="custom-cart-draver-link">
+            <div class="custom-cart-draver-image-wrapper">
+              <img
+                src="{{ product.featured_image | image_url: width: 400 }}"
+                alt="{{ product.title }}"
+                class="custom-cart-draver-image"
+              >
+            </div>
+            <div class="custom-cart-draver-info">
+              <h3 class="custom-cart-draver-product-title">{{ product.title }}</h3>
+              <span class="custom-cart-draver-product-price">
+                {{ product.price | money }}
+              </span>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <style>
+    .custom-cart-draver-carousel-wrapper {
+      padding: 20px;
+    }
+
+    .custom-cart-draver-title {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    .custom-cart-draver-carousel {
+      display: flex;
+      overflow-x: auto;
+      gap: 15px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .custom-cart-draver-item {
+      min-width: 200px;
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .custom-cart-draver-link {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .custom-cart-draver-image-wrapper {
+      padding: 10px;
+    }
+
+    .custom-cart-draver-image {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    .custom-cart-draver-product-title {
+      font-size: 1rem;
+      margin: 10px 0 5px;
+    }
+
+    .custom-cart-draver-product-price {
+      font-weight: bold;
+      color: #444;
+      font-size: 0.95rem;
+    }
+  </style>
+{% endif %}

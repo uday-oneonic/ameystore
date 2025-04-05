@@ -92,85 +92,109 @@
 </section>
 
 <style>
-          .hero-section {
+                .hero-section {
+                  text-align: center;
+                }
+
+                .hero-background {
+                  background-size: cover;
+                  background-position: center;
+                  height: 650px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  position: relative;
+                }
+
+                .hero-content {
+                  color: white;
+                  text-align: center;
+                  /* background: rgba(0, 0, 0, 0.4); */
+                  padding: 20px;
+                  border-radius: 10px;
+                }
+
+                .hero-content h1 {
+
+                  margin-bottom: 10px;
+                  color:white;
+                  /* font-family: 'inter_font'; */
+              font-weight: 800;
+              font-size: 89px;
+              line-height: 100%;
+              letter-spacing: -2px;
+
+                }
+
+                .hero-button {
+                  background: white;
+                  color: black;
+                  padding: 10px 20px;
+                  border-radius: 5px;
+                  text-decoration: none;
+                  font-weight: bold;
+                }
+
+                .hero-button:hover {
+                  background: lightgray;
+                }
+
+                .hero-text {
+                  padding: 100px 50px;
+
+                  /* font-family: 'inter_font'; */
+            font-weight: 300;
+            font-size: 31px;
+            line-height: 50px;
+            letter-spacing: 0;
             text-align: center;
+
+                }
+          .hero-text p{
+            margin:0;
           }
 
-          .hero-background {
-            background-size: cover;
-            background-position: center;
-            height: 650px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
+                .hero-text a {
+                  color: #000;
+        text-underline-position: under;
+                  /* font-family: 'inter_font'; */
+          font-weight: 300;
+          font-size: 31px;
+          line-height: 50px;
+          letter-spacing: -2px;
+          text-align: center;
+          text-decoration: underline;
+          text-decoration-style: solid;
+          text-decoration-offset: 0%;
+          text-decoration-thickness: 0%;
+
+                }
+
+                .hero-text a:hover {
+                  text-decoration: underline;
+                }
+        @media only screen and (max-width: 480px){
+          .hero-background{
+      height:250px;
+        }
+        .hero-content h1{
+      font-size:40px;
+        }
+        .hero-content{
+      border-radius:none;
+          padding:10px;
+        }
+          .hero-text{
+        padding: 0 10px;
+          letter-spacing: 0;
+        font-size: 18px;
+            line-height: 100%;
           }
-
-          .hero-content {
-            color: white;
-            text-align: center;
-            /* background: rgba(0, 0, 0, 0.4); */
-            padding: 20px;
-            border-radius: 10px;
-          }
-
-          .hero-content h1 {
-
-            margin-bottom: 10px;
-            color:white;
-            /* font-family: 'inter_font'; */
-        font-weight: 800;
-        font-size: 89px;
-        line-height: 100%;
-        letter-spacing: -2px;
-
-          }
-
-          .hero-button {
-            background: white;
-            color: black;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-          }
-
-          .hero-button:hover {
-            background: lightgray;
-          }
-
-          .hero-text {
-            padding: 100px 50px;
-
-            /* font-family: 'inter_font'; */
-      font-weight: 300;
-      font-size: 31px;
-      line-height: 50px;
-      letter-spacing: 0;
-      text-align: center;
-
-          }
-    .hero-text p{
-      margin:0;
-    }
-
           .hero-text a {
-            color: #000;
-  text-underline-position: under;
-            /* font-family: 'inter_font'; */
-    font-weight: 300;
-    font-size: 31px;
-    line-height: 50px;
-    letter-spacing: -2px;
-    text-align: center;
-    text-decoration: underline;
-    text-decoration-style: solid;
-    text-decoration-offset: 0%;
-    text-decoration-thickness: 0%;
-
-          }
-
-          .hero-text a:hover {
-            text-decoration: underline;
-          }
+            font-size: 18px;
+    line-height: 100%;
+        letter-spacing: 0;}
+      }
+    .hero-text p{
+  margin: revert;}
 </style>

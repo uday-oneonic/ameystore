@@ -114,7 +114,8 @@
     .review-card {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      /* over ride */
+      /* align-items: center; */
       width: 100%;
       max-width: 500px;
       padding: 20px;
@@ -262,6 +263,13 @@
       width: calc(100% - 10px); /* 1 card per row */
     }
   }
+  @media screen and (max-width: 480px) {
+   .review-card {
+
+    align-items: start;
+
+  }
+    }
 {% endstyle %}
 
 {% schema %}

@@ -109,6 +109,7 @@ class CartItems extends HTMLElement {
       return fetch(`${routes.cart_url}?section_id=main-cart-items`)
         .then((response) => response.text())
         .then((responseText) => {
+          cartDrawerUpdate()
           const html = new DOMParser().parseFromString(responseText, 'text/html');
           const sourceQty = html.querySelector('cart-items');
           this.innerHTML = sourceQty.innerHTML;
@@ -160,6 +161,7 @@ class CartItems extends HTMLElement {
         return response.text();
       })
       .then((state) => {
+        cartDrawerUpdate()
         const parsedState = JSON.parse(state);
 
         CartPerformance.measure(`${eventTarget}:paint-updated-sections"`, () => {
