@@ -350,3 +350,7 @@ cart-remove-button .icon-remove {
     padding-left: 0;
   }
 }
+@media screen and (min-width: 480px) {
+      min-height: 0;
+      align-items: self-start;
+}

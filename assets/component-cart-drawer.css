@@ -404,3 +404,9 @@ cart-drawer-items::-webkit-scrollbar-track-piece {
     margin-left: 0;
   }
 }
+
+@media screen and (max-height: 480px) {
+  .cart-drawer__collection {
+    margin: 0 1.5rem 0 1.5rem;
+}
+}

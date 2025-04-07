@@ -217,6 +217,30 @@ cart-items {
 
   .cart__ctas {
     display: flex;
-    gap: 1rem;
+    /* gap: 1rem; */
   }
 }
+/* main cart page css - custome*/
+.cart__footer-wrapper:last-child .cart__footer {
+    /* padding-bottom: 5rem; */
+    padding: 10px 10px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+ .cart__footer > * {
+        width: 90%;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+  }
+.cart__note {
+  
+    top: 0;
+}
+  .cart__footer > * + * {
+    margin-left: 0;
+  
+  }

@@ -12,18 +12,230 @@
 <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
 
 <style>
-  .drawer {
-    visibility: hidden;
-  }
-  .cart-drawer-close-btn{
-  border: 1px solid black;
-  padding: 5px 20px;
-  font-family: Inter;
-  font-weight: 300;
-  font-size: 20px;
-  line-height: 100%;
-  letter-spacing: 0;
-  }
+                                       .drawer {
+                                         visibility: hidden;
+                                       }
+                                       .cart-drawer-close-btn{
+                                       border: 1px solid black;
+                                       padding: 5px 20px;
+                                       font-family: Inter;
+                                       font-weight: 300;
+                                       font-size: 20px;
+                                       line-height: 100%;
+                                       letter-spacing: 0;
+                                       }
+
+                                       /* cart gift code */
+                                       .cart-drawer-buttons {
+                                         display: flex;
+                                         gap: 1px;
+                                         /* background-color: #ffe9bb; */
+                                         border-radius: 8px;
+                                         overflow: hidden;
+                                         margin: 1rem 0;
+                                       }
+
+                                       .cart-drawer-buttons button {
+                                         flex: 1;
+                                         background: #FFE9BE;
+
+                                         border: none;
+                                         padding: 0.75rem 1rem;
+                                         font-weight: 600;
+                                         display: flex;
+                                         align-items: center;
+                                         gap: 6px;
+                                         justify-content: center;
+                                         cursor: pointer;
+                                         transition: background 0.2s;
+                                         font-family: Inter;
+                                         font-weight: 500;
+                                         font-size: 16px;
+                                         line-height: 100%;
+                                         letter-spacing: -1px;
+
+                                       }
+
+                                       .cart-drawer-buttons button:hover {
+                                         background: #ffdfa1;
+                                       }
+
+                                       .drawer-input-section {
+                                         display: none;
+                                         margin-bottom: 1rem;
+                                       }
+
+                                       .drawer-input-section.active {
+                                         display: block;
+                                       }
+
+                                       .drawer-input-section input,
+                                       .drawer-input-section textarea {
+                                         width: 100%;
+                                         padding: 0.5rem;
+                                         border: 1px solid #ccc;
+                                         border-radius: 6px;
+                                         margin-top: 0.5rem;
+                                       }
+                                       .cart-drawer-btn{
+                                     flex-direction:column;
+                                       }
+
+                                     a.button.cart__checkout-button {
+
+                                       width: 100%;
+                                           background: white;
+                                 color: black;
+                                 border: 1px solid;
+                                   }
+                                   .cart__checkout-button{
+                                 background: #424242;
+                                         border-radius: unset;
+                                     font-family: Inter;
+                               font-weight: 500;
+                               font-size: 23px;
+                               line-height: 100%;
+                               letter-spacing: -1px;
+
+
+                                   }
+                               h2.sub-totals,
+                               p.cart-drawer-totals-price{
+                                 font-family: Inter;
+                             font-weight: 400;
+                             font-size: 29px;
+                             line-height: 100%;
+                             letter-spacing: 0;
+
+                             }
+                             .cart-drawer-tax-note{
+                           font-family: Inter;
+                           font-weight: 400;
+                           font-size: 14px;
+                           line-height: 100%;
+                           letter-spacing: 0;
+
+                             }
+                           .gift-wrap-checkbox {
+                             font-family: Inter;
+                             font-weight: 200;
+                             font-size: 16px;
+                             line-height: 100%;
+                             letter-spacing: -1px;
+                         }
+                         .cart-drawer__heading{
+                           font-family: Inter;
+                       font-weight: 400;
+                       font-size: 27px;
+                       line-height: 100%;
+                       letter-spacing: -1px;
+
+                       }
+                       .cart-drawer-heading{
+                         font-family: Inter;
+                     font-weight: 600;
+                     font-size: 45px;
+                     line-height: 100%;
+                     letter-spacing: -2%;
+                       }
+                     .cart-drawer-heading span{
+                       font-family: Inter;
+                       font-weight: 500;
+                       font-size: 22px;
+                       line-height: 100%;
+                       letter-spacing: -2%;
+                     }
+                     .cart-drawer-item-name{
+                   font-family: Inter;
+                   font-weight: 300;
+                   font-size: 18.62px;
+                   line-height: 100%;
+                   letter-spacing: -1px;
+                   }
+                   @media only screen and (max-width: 480px){
+
+                  .cart-drawer-item-name{
+                  font-size: 9px;
+                  letter-spacing: 0;
+                   }
+                     .cart-drawer-price{
+                       font-weight: 600 !important;
+                    font-size: 12px !important;
+                }
+               .cart-drawer-quantity .quantity{
+                          width: calc(7rem / var(--font-body-scale) + var(--inputs-border-width) * 2);
+                      min-height: calc((var(--inputs-border-width) * 1) + 3rem);
+                  }
+                           .cart-drawer-quantity .quantity__button {
+                    width: calc(2rem / var(--font-body-scale));
+
+                }
+                     .cart-drawer__heading{
+             font-size:15px;
+                       display:flex;
+                       justify-content: center;
+                     }
+                     .cart-drawer-grid-item{
+               width: calc(45% - var(--grid-mobile-horizontal-spacing) * 3 / 4);
+                     }
+                     .cart-drawer__product-title,
+             .cart-drawer__product-price{
+
+               text-align: center;
+
+                       }
+                     .cart-drawer-heading span{
+              font-size: 12px;
+                     }
+                     .cart-drawer-heading{
+                        font-size: 20px;
+
+                     }
+                     .cart-drawer-close-btn{
+                       font-size: 12px;
+          }
+                     .gift-wrap-checkbox{
+                       font-size: 10px;
+          }
+                     .cart-drawer-buttons button{
+                       font-weight: 300;
+            font-size: 8px;
+            line-height: 100%;
+            letter-spacing: 0;
+        }{
+
+        }
+                     .cart-drawer-buttons img{
+                       width:70%;
+      }
+                     h2.sub-totals, p.cart-drawer-totals-price{
+                           font-size: 15px;
+                     }
+      .cart-drawer-tax-note{
+        font-size: 10px;
+    }
+      .cart-drawer-btn {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+      .cart-drawer .cart__checkout-button{
+            width: 50%;
+    }
+      .cart__checkout-button{
+    font-size: 10px;
+      letter-spacing: 0;
+      }
+    }
+    .cart-drawer-continue-btn{
+  flex-direction: column;
+      display: flex;
+      width: 50%;
+      justify-content: center;
+      align-items: center;
+    }
+            }
 </style>
 
 <cart-drawer class="drawer{% if cart == empty %} is-empty{% endif %}">
@@ -73,11 +285,13 @@
       {%- endif -%}
 
       <div class="drawer__header">
-        <h2 class="drawer__heading">
+        <h2 class="drawer__heading cart-drawer-heading">
           {{ 'sections.cart.title' | t }}
-          {% if cart.item_count > 0 %}
-            ({{ cart.item_count }} item{% if cart.item_count > 1 %}s{% endif %})
-          {% endif %}
+          <span>
+            {% if cart.item_count > 0 %}
+              ({{ cart.item_count }} item{% if cart.item_count > 1 %}s{% endif %})
+            {% endif %}
+          </span>
         </h2>
         <button
           class="drawer__close"
@@ -130,12 +344,12 @@
                           {% endif %}
                         </td>
 
-                        <td class="cart-item__details" role="cell" headers="CartDrawer-ColumnProduct">
+                        <td class="cart-item__details " role="cell" headers="CartDrawer-ColumnProduct">
                           {%- if settings.show_vendor -%}
                             <p class="caption-with-letter-spacing light">{{ item.product.vendor }}</p>
                           {%- endif -%}
 
-                          <a href="{{ item.url }}" class="cart-item__name h4 break">
+                          <a href="{{ item.url }}" class="cart-item__name h4 break cart-drawer-item-name">
                             {{- item.product.title | escape -}}
                           </a>
 
@@ -300,7 +514,7 @@
                         >
                           <quantity-popover>
                             <div class="cart-item__quantity-wrapper quantity-popover-wrapper">
-                              <div class="quantity-popover-container{% if has_qty_rules or has_vol_pricing %} quantity-popover-container--hover{% endif %}">
+                              <div class="quantity-popover-container{% if has_qty_rules or has_vol_pricing %} quantity-popover-container--hover{% endif %} cart-drawer-quantity">
                                 <quantity-input class="quantity cart-quantity">
                                   <button class="quantity__button" name="minus" type="button">
                                     <span class="visually-hidden">
@@ -461,14 +675,14 @@
       </cart-drawer-items>
       <!-- Start: Cart Drawer Collection Section -->
       <div class="cart-drawer__recommendations">
-        <h3 class="cart-drawer__heading">You may also like</h3>
+        <h3 class="cart-drawer__heading">Goes great with</h3>
         <div class="cart-drawer__collection grid">
           {% assign collection_handle = 'shop-best-sellers' %}
           {% assign recommended_collection = collections[collection_handle] %}
 
           {% if recommended_collection.products.size > 0 %}
             {% for product in recommended_collection.products limit: 4 %}
-              <div class="grid__item">
+              <div class="grid__item cart-drawer-grid-item">
                 <a href="{{ product.url }}" class="cart-drawer__product-link">
                   <img
                     src="{{ product.featured_image | image_url: width: 200 }}"
@@ -490,26 +704,61 @@
       <!-- End: Cart Drawer Collection Section -->
 
       <div class="drawer__footer">
-        {%- if settings.show_cart_note -%}
-          <details id="Details-CartDrawer">
-            <summary>
-              <span class="summary__title">
-                {{ 'sections.cart.note' | t }}
-                {{- 'icon-caret.svg' | inline_asset_content -}}
-              </span>
-            </summary>
-            <cart-note class="cart__note field">
-              <label class="visually-hidden" for="CartDrawer-Note">{{ 'sections.cart.note' | t }}</label>
-              <textarea
-                id="CartDrawer-Note"
-                class="text-area text-area--resize-vertical field__input"
-                name="note"
-                placeholder="{{ 'sections.cart.note' | t }}"
-              >{{ cart.note }}</textarea>
-            </cart-note>
-          </details>
-        {%- endif -%}
+        <!-- cart-drawer intruction option hide -->
+        <!-- that code i remove -->
+        <!-- this check-box code add gift in cart-drawer page -->
+        <div class="gift-wrap-checkbox" style="padding: 1rem 0;">
+          <label>
+            <input type="checkbox" id="gift-wrap-checkbox">
+            Add gift wrapping{{ linklists['gift-wrapping'].links.first.object.price | money }}
+          </label>
+        </div>
+        <div class="cart-drawer-buttons">
+          <button id="gift-code-btn">
+            <span> <img src="https://cdn.shopify.com/s/files/1/0597/5192/3755/files/gift-code.png?v=1744016766"> </span>
+            Apply Gift Code
+          </button>
+          <button id="order-note-btn">
+            <span>
+              <img src="https://cdn.shopify.com/s/files/1/0597/5192/3755/files/order_note.png?v=1744016766">
+            </span>
+            Order Note
+          </button>
+          <button id="shipping-btn">
+            <span>
+              <img src="https://cdn.shopify.com/s/files/1/0597/5192/3755/files/Calculate_Shipping.png?v=1744016766">
+            </span>
+            Calculate Shipping
+          </button>
+        </div>
 
+        <!-- Gift Code Input -->
+        <div id="gift-code-section" class="drawer-input-section">
+          <label for="gift_code">Enter Gift Code</label>
+          <input
+            type="text"
+            id="gift_code"
+            name="attributes[gift_code]"
+            value="{{ cart.attributes.gift_code }}"
+          >
+        </div>
+
+        <!-- Order Note Input -->
+        <div id="order-note-section" class="drawer-input-section">
+          <label for="order_note">Order Note</label>
+          <textarea
+            id="order_note"
+            name="attributes[order_note]"
+            rows="3"
+          >{{ cart.attributes.order_note }}</textarea>
+        </div>
+
+        <!-- Shipping Link -->
+        <div id="shipping-section" class="drawer-input-section">
+          <p>View our <a href="/policies/shipping-policy" target="_blank">Shipping Policy</a> for rate details.</p>
+        </div>
+
+        <!-- over gift card -->
         <!-- Start blocks -->
         <!-- Subtotals -->
 
@@ -529,11 +778,11 @@
           </div>
 
           <div class="totals" role="status">
-            <h2 class="totals__total">{{ 'sections.cart.estimated_total' | t }}</h2>
-            <p class="totals__total-value">{{ cart.total_price | money_with_currency }}</p>
+            <h2 class="totals__total sub-totals">{{ 'sections.cart.estimated_total' | t }}</h2>
+            <p class="totals__total-value cart-drawer-totals-price">{{ cart.total_price | money_with_currency }}</p>
           </div>
 
-          <small class="tax-note caption-large rte">
+          <small class="tax-note caption-large rte cart-drawer-tax-note">
             {%- if cart.duties_included and cart.taxes_included -%}
               {%- if shop.shipping_policy.body == blank -%}
                 {{ 'sections.cart.duties_and_taxes_included_shipping_at_checkout_without_policy' | t }}
@@ -576,7 +825,7 @@
 
         <!-- CTAs -->
 
-        <div class="cart__ctas" {{ block.shopify_attributes }}>
+        <div class="cart__ctas cart-drawer-btn" {{ block.shopify_attributes }}>
           <button
             type="submit"
             id="CartDrawer-Checkout"
@@ -589,8 +838,78 @@
           >
             {{ 'sections.cart.checkout' | t }}
           </button>
+          <div class="cart-drawer-continue-btn">
+            <a href="{{ routes.all_products_collection_url }}" class="button cart__checkout-button">
+              {{ 'general.continue_shopping' | t }}
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </cart-drawer>
+
+<!-- this js add for cart-drawer page add gift -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const giftWrapVariantId = 41418287775787; // your gift variant ID
+
+    // Function to sync checkbox with what's in the cart
+    function syncGiftCheckbox() {
+      fetch('/cart.js')
+        .then(res => res.json())
+        .then(cart => {
+          const item = cart.items.find(i => i.variant_id === giftWrapVariantId);
+          const checkbox = document.querySelector('#gift-wrap-checkbox');
+          if (checkbox) checkbox.checked = !!item;
+        });
+    }
+
+    // Add/remove gift when checkbox is clicked
+    document.body.addEventListener('change', function (e) {
+      if (e.target && e.target.id === 'gift-wrap-checkbox') {
+        const checkbox = e.target;
+        if (checkbox.checked) {
+          fetch('/cart/add.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id: giftWrapVariantId, quantity: 1 })
+          }).then(() => refreshCartDrawer());
+        } else {
+          fetch('/cart.js')
+            .then(res => res.json())
+            .then(cart => {
+              const giftItem = cart.items.find(i => i.variant_id === giftWrapVariantId);
+              if (giftItem) {
+                fetch('/cart/change.js', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ id: giftItem.key, quantity: 0 })
+                }).then(() => refreshCartDrawer());
+              }
+            });
+        }
+      }
+    });
+
+    // Refresh drawer content after cart update
+    function refreshCartDrawer() {
+      fetch(window.location.pathname, {
+        headers: { 'X-Requested-With': 'XMLHttpRequest' }
+      })
+        .then(r => r.text())
+        .then(html => {
+          const doc = new DOMParser().parseFromString(html, 'text/html');
+          const newDrawer = doc.querySelector('cart-drawer');
+          const oldDrawer = document.querySelector('cart-drawer');
+          if (newDrawer && oldDrawer) {
+            oldDrawer.innerHTML = newDrawer.innerHTML;
+            syncGiftCheckbox(); // re-sync checkbox after update
+          }
+        });
+    }
+
+    // Initial sync when page loads
+    syncGiftCheckbox();
+  });
+</script>
