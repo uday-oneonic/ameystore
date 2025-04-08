@@ -80,6 +80,14 @@
                                        .cart-drawer-btn{
                                      flex-direction:column;
                                        }
+    .cart-drawer-continue-btn{
+  flex-direction: column;
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+
 
                                      a.button.cart__checkout-button {
 
@@ -152,6 +160,7 @@
                    line-height: 100%;
                    letter-spacing: -1px;
                    }
+
                    @media only screen and (max-width: 480px){
 
                   .cart-drawer-item-name{
@@ -202,8 +211,6 @@
             font-size: 8px;
             line-height: 100%;
             letter-spacing: 0;
-        }{
-
         }
                      .cart-drawer-buttons img{
                        width:70%;
@@ -227,15 +234,14 @@
     font-size: 10px;
       letter-spacing: 0;
       }
-    }
-    .cart-drawer-continue-btn{
+                     .cart-drawer-continue-btn{
   flex-direction: column;
       display: flex;
       width: 50%;
       justify-content: center;
       align-items: center;
     }
-            }
+    }
 </style>
 
 <cart-drawer class="drawer{% if cart == empty %} is-empty{% endif %}">

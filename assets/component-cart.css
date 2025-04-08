@@ -87,13 +87,23 @@ cart-items {
 }
 
 .cart__note label {
+    /* changes this class */ 
+  width:100%;
+  justify-content: start;
   display: flex;
   align-items: flex-end;
-  position: absolute;
+
+  /* position: absolute; */
   line-height: 1;
   height: 1.8rem;
   top: -3rem;
   color: rgba(var(--color-foreground), 0.75);
+  font-family: Inter;
+font-weight: 500;
+font-size: 18px;
+line-height: 100%;
+letter-spacing: 0;
+
 }
 
 .cart__note .field__input {
@@ -121,6 +131,7 @@ cart-items {
     grid-column-start: 1;
     grid-column-end: 3;
     padding-bottom: 4rem;
+    border: unset;
   }
 
   .cart__contents > * + * {
@@ -183,7 +194,7 @@ cart-items {
 }
 
 .tax-note {
-  margin: 2.2rem 0 1.6rem auto;
+  margin: 1.5rem 0 1.6rem auto;
   text-align: center;
   display: block;
 }
@@ -208,7 +219,7 @@ cart-items {
 
   .tax-note {
     margin-bottom: 2.2rem;
-    text-align: right;
+    text-align: start;
   }
 
   [data-shopify-buttoncontainer] {
@@ -216,7 +227,10 @@ cart-items {
   }
 
   .cart__ctas {
+    /* changes  */
     display: flex;
+    width:100%;
+    margin-top: 1.5rem;
     /* gap: 1rem; */
   }
 }
@@ -224,10 +238,12 @@ cart-items {
 .cart__footer-wrapper:last-child .cart__footer {
     /* padding-bottom: 5rem; */
     padding: 10px 10px;
-    width: 30%;
+    /* width: 30%; */
     display: flex;
     flex-direction: column;
     justify-content: center;
+      align-items: center;
+
 }
  .cart__footer > * {
         width: 90%;
@@ -244,3 +260,109 @@ cart-items {
     margin-left: 0;
   
   }
+/* cart-items and cart-footer mix code */
+/* Cart layout row */
+.cart-page-sections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.cart-page-sections > .shopify-section:nth-child(1) {
+  flex: 0 0 65%;
+}
+
+.cart-page-sections > .shopify-section:nth-child(2) {
+  flex: 0 0 35%;
+}
+
+/* Mobile fallback */
+@media screen and (max-width: 749px) {
+  .cart-page-sections {
+    flex-direction: column;
+  }
+
+  .cart-page-sections > .shopify-section {
+    flex: 1 0 100%;
+  }
+}
+/* cart  */
+/* === Cart Page Grid Layout === */
+.cart-page .shopify-section {
+  margin: 0;
+  padding: 0;
+}
+
+.cart-page .shopify-section + .shopify-section {
+  margin-top: 0;
+}
+
+/* Layout wrapper for cart sections */
+.cart-page .cart-sections-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+/* Main cart items section */
+.cart-page .cart-sections-wrapper > .shopify-section:nth-child(1) {
+  flex: 0 0 65%;
+}
+
+/* Cart footer section */
+.cart-page .cart-sections-wrapper > .shopify-section:nth-child(2) {
+  flex: 0 0 35%;
+}
+
+/* Mobile fallback */
+@media screen and (max-width: 749px) {
+  .cart-page .cart-sections-wrapper {
+    flex-direction: column;
+  }
+
+  .cart-page .cart-sections-wrapper > .shopify-section {
+    flex: 1 0 100%;
+  }
+}
+/*cart  */
+/* Cart layout on desktop */
+.cart-page-in-one-line  {
+  display: flex;
+  
+  gap: 2rem;
+}
+
+/* 65% width for cart-items */
+.cart-page-in-one-line .cart-page-padding {
+  flex: 0 0 65%;
+  /* max-width: 65%; */
+}
+
+/* 35% width for cart-footer */
+.cart-page-in-one-line  > #main-cart-footer {
+  flex: 0 0 35%;
+  max-width: 35%;
+  background-color:#F8F8F8;
+}
+
+/* backgroung */
+.footer-bg-color{
+  background-color:#F8F8F8;
+}
+ #main-cart-footer .cart-shipping__success{
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 100%;
+  letter-spacing: 0;
+
+    }
+/* cart-page make responsive after 1000px sizze */
+@media screen and (max-width: 1000px) {
+  .cart-page-in-one-line{
+display:block;
+  }
+  .cart__footer>*+*{
+margin-top:0;}
+}
+

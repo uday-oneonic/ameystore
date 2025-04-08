@@ -4,25 +4,56 @@
 {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
+              .section-{{ section.id }}-padding {
+                padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+                padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+              }
 
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
+              @media screen and (min-width: 750px) {
+                .section-{{ section.id }}-padding {
+                  padding-top: {{ section.settings.padding_top }}px;
+                  padding-bottom: {{ section.settings.padding_bottom }}px;
+                }
+              }
+              .cart-page-cart-footer-title h2{
+              font-family: Inter;
+        font-weight: 600;
+        font-size: 31px;
+        line-height: 100%;
+        letter-spacing: 0;
+        width: 90%;
+        margin-bottom: 0;
+
+            }
+          .cart-page-cart-footer-title {
+          padding: 0 10px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          /* align-content: center; */
+      }
+      /* cart-page make responsive after 1000px sizze */
+    @media screen and (max-width: 1000px) {
+  div#main-cart-footer {
+      display: flex;
+      flex-wrap: wrap;
+      /* width: 80%; */
+      /* background: none; */
   }
+    }
 {%- endstyle -%}
 
 <div
-  class="gradient color-{{ section.settings.color_scheme }}{% if cart == empty %} is-empty{% endif %}"
+  class="gradient color-{{ section.settings.color_scheme }}{% if cart == empty %} is-empty{% endif %} footer-bg-color"
   id="main-cart-footer"
   data-id="{{ section.id }}"
 >
   <div class="page-width">
+    <div class="cart-page-cart-footer-title">
+      <h2>Order Summary</h2>
+    </div>
+    {% render 'custom-progress-bar' %}
     <div class="cart__footer isolate section-{{ section.id }}-padding">
       {%- if settings.show_cart_note -%}
         <cart-note class="cart__note field">
@@ -62,7 +93,26 @@
                   <h2 class="totals__total">{{ 'sections.cart.estimated_total' | t }}</h2>
                   <p class="totals__total-value">{{ cart.total_price | money_with_currency }}</p>
                 </div>
+                <div class="cart__ctas" {{ block.shopify_attributes }}>
+                  <button
+                    type="submit"
+                    id="checkout"
+                    class="cart__checkout-button button"
+                    name="checkout"
+                    {% if cart == empty %}
+                      disabled
+                    {% endif %}
+                    form="cart"
+                  >
+                    {{ 'sections.cart.checkout' | t }}
+                  </button>
+                </div>
 
+                {%- if additional_checkout_buttons -%}
+                  <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
+                    {{ content_for_additional_checkout_buttons }}
+                  </div>
+                {%- endif -%}
                 <small class="tax-note caption-large rte">
                   {%- if cart.duties_included and cart.taxes_included -%}
                     {%- if shop.shipping_policy.body == blank -%}
@@ -104,26 +154,6 @@
                 </small>
               </div>
             {%- else -%}
-              <div class="cart__ctas" {{ block.shopify_attributes }}>
-                <button
-                  type="submit"
-                  id="checkout"
-                  class="cart__checkout-button button"
-                  name="checkout"
-                  {% if cart == empty %}
-                    disabled
-                  {% endif %}
-                  form="cart"
-                >
-                  {{ 'sections.cart.checkout' | t }}
-                </button>
-              </div>
-
-              {%- if additional_checkout_buttons -%}
-                <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
-                  {{ content_for_additional_checkout_buttons }}
-                </div>
-              {%- endif -%}
           {%- endcase -%}
         {% endfor %}
 

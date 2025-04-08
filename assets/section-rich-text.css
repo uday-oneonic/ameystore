@@ -39,6 +39,11 @@
   .rich-text__blocks {
     max-width: 78rem;
   }
+  .about-page-rich-text{
+max-width: 1000px;
+        display: flex;
+        flex-wrap: wrap;
+  }
 }
 
 .rich-text__blocks * {
@@ -84,3 +89,13 @@
 .rich-text__blocks.right .rich-text__buttons {
   justify-content: flex-end;
 }
+/* about page rich text css  */
+ .about-page-rich-text p{
+font-family: Inter;
+    font-weight: 500;
+    font-size: 47px;
+    line-height: 120%;
+    letter-spacing: -2px;
+    color: black;
+    text-align: center;
+ }

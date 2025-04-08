@@ -6,20 +6,58 @@
 {{ 'quantity-popover.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-    }
-    .cart-page-padding{
-              padding: 0 5rem;
-  }
+            .section-{{ section.id }}-padding {
+              padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+              padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+            }
+            .cart-page-padding{
+                      padding: 0 0 0 5rem;
+          }
 
-    @media screen and (min-width: 750px) {
-      .section-{{ section.id }}-padding {
-        padding-top: {{ section.settings.padding_top }}px;
-        padding-bottom: {{ section.settings.padding_bottom }}px;
+            @media screen and (min-width: 750px) {
+              .section-{{ section.id }}-padding {
+                padding-top: {{ section.settings.padding_top }}px;
+                padding-bottom: {{ section.settings.padding_bottom }}px;
+              }
+            }
+          form#cart a.underlined-link {
+            border-radius: unset;
+            border: 1px solid;
+            background-color: white;
+            background: white;
+            color: black;
+            font-family: Inter;
+      font-weight: 600;
+      font-size: 15.81px;
+      line-height: 100%;
+      letter-spacing: 0;
+
+        }
+      .cart-item-title{
+        margin-bottom: 1rem;
       }
-    }
+      .cart-item-title h1{
+       font-family: Inter;
+    font-weight: 600;
+    font-size: 31px;
+    line-height: 100%;
+    letter-spacing: 0;
+
+      }
+      .cart-item-title span{
+      font-family: Inter;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: 0;
+    opacity:70%;
+      }
+    /* cart-page make responsive after 1000px sizze */
+  @media screen and (max-width: 1000px) {
+     .cart-page-padding {
+      padding: 0 5rem 0 5rem;
+  }
+  }
 {%- endstyle -%}
 
 {%- unless settings.cart_type == 'drawer' -%}
@@ -30,11 +68,13 @@
 
 <cart-items class="gradient color-{{ section.settings.color_scheme }} isolate{% if cart == empty %} is-empty{% else %} section-{{ section.id }}-padding{% endif %} cart-page-padding">
   <div class="page-width">
-    <div class="title-wrapper-with-link">
+    <div class="title-wrapper-with-link cart-item-title">
       <h1 class="title title--primary">{{ 'sections.cart.title' | t }}</h1>
-      <a href="{{ routes.all_products_collection_url }}" class="underlined-link">
-        {{- 'general.continue_shopping' | t -}}
-      </a>
+      <span>
+        {% if cart.item_count > 0 %}
+          ({{ cart.item_count }} item{% if cart.item_count > 1 %}s{% endif %})
+        {% endif %}
+      </span>
     </div>
 
     <div class="cart__warnings">
@@ -82,7 +122,7 @@
 
               <tbody>
                 {%- for item in cart.items -%}
-                  <tr class="cart-item" id="CartItem-{{ item.index | plus: 1 }}">
+                  <tr class="cart-item cart-item-table" id="CartItem-{{ item.index | plus: 1 }}">
                     <td class="cart-item__media">
                       {% if item.image %}
                         {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
@@ -438,6 +478,9 @@
             </table>
           {%- endif -%}
         </div>
+        <a href="{{ routes.all_products_collection_url }}" class="underlined-link button">
+          {{- 'general.continue_shopping' | t -}}
+        </a>
       </div>
 
       <p class="visually-hidden" id="cart-live-region-text" aria-live="polite" role="status"></p>

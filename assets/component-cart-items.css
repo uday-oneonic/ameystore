@@ -11,7 +11,8 @@ cart-items .title-wrapper-with-link {
 .cart-items th {
   text-align: left;
   padding-bottom: 1.8rem;
-  opacity: 0.85;
+  /* changes */
+  /* opacity: 0.85; */
   font-weight: normal;
 }
 
@@ -214,6 +215,16 @@ cart-remove-button .icon-remove {
 
 .cart-items thead th {
   text-transform: uppercase;
+  border-top:1px solid;
+  border-bottom:none;
+  font-family: Inter;
+font-weight: 600;
+font-size: 20px;
+line-height: 100%;
+letter-spacing: 0;
+ padding-top: 3rem;
+  color: black;
+
 }
 
 @media screen and (max-width: 749px) {
@@ -287,8 +298,8 @@ cart-remove-button .icon-remove {
   }
 
   .cart-items td {
-    vertical-align: top;
-    padding-top: 4rem;
+    vertical-align: center;
+    /* padding-top: 4rem; */
   }
 
   .cart-item {
@@ -296,7 +307,8 @@ cart-remove-button .icon-remove {
   }
 
   .cart-item > td + td {
-    padding-left: 4rem;
+    /* changes */
+    padding-left: 1rem;
   }
 
   .cart-item__details {
@@ -353,4 +365,24 @@ cart-remove-button .icon-remove {
 @media screen and (min-width: 480px) {
       min-height: 0;
       align-items: self-start;
+}
+.cart-item-table .cart-item__details a{
+  font-family: Inter;
+font-weight: 300;
+font-size: 15.71px;
+line-height: 100%;
+letter-spacing: 0;
+
+}
+.cart-item-table .cart-item__price-wrapper .price {
+  font-family: Inter;
+font-weight: 700;
+font-size: 18px;
+line-height: 100%;
+letter-spacing: 0;
+
+}
+/* cart-page make responsive after 1000px sizze */
+@media screen and (max-width: 1000px) {
+  
 }

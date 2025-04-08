@@ -1,0 +1,100 @@
+{% schema %}
+{
+  "name": "About-Us-Second-Banner",
+ "tag": "section",
+  "class": "about-us-second-banner-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "text",
+      "id": "highlight_text",
+      "label": "Center Text",
+      "default": "GET TO KNOW US"
+    },
+    {
+      "type": "color",
+      "id": "highlight_color",
+      "label": "Center Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "background_text_color",
+      "label": "Background Text Color",
+      "default": "#888888"
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Us Second Banner",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}
+
+{% style %}
+  .about-us-second-banner-wrapper {
+    position: relative;
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-us-second-banner-scroll-text {
+    font-size: 100px;
+    font-weight: 800;
+    color: {{ section.settings.background_text_color }};
+    white-space: nowrap;
+    opacity: 0.2;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 200%;
+    transform: translateY(-50%);
+    will-change: transform;
+  }
+
+  .about-us-second-banner-highlight {
+    position: relative;
+    z-index: 2;
+    font-size: 60px;
+    font-weight: 900;
+    color: {{ section.settings.highlight_color }};
+    text-align: center;
+    text-transform: uppercase;
+  }
+{% endstyle %}
+
+<div
+  class="about-us-second-banner-wrapper"
+  style="background-image: url({{ section.settings.background_image | image_url: width: 1500 }});"
+>
+  <div class="about-us-second-banner-scroll-text js-scroll-text">
+    {{ section.settings.highlight_text }}
+    {{ section.settings.highlight_text }}
+    {{ section.settings.highlight_text }}
+    {{ section.settings.highlight_text }}
+  </div>
+  <div class="about-us-second-banner-highlight">
+    {{ section.settings.highlight_text }}
+  </div>
+</div>
+
+<script>
+  document.addEventListener('scroll', function () {
+    const scrollText = document.querySelector('.js-scroll-text');
+    if (scrollText) {
+      const offset = window.scrollY * 0.5;
+      scrollText.style.transform = `translateY(-50%) translateX(-${offset}px)`;
+    }
+  });
+</script>

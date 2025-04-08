@@ -1885,7 +1885,7 @@ input[type='checkbox'] {
 .quantity {
   color: rgba(var(--color-foreground));
   position: relative;
-  width: calc(14rem / var(--font-body-scale) + var(--inputs-border-width) * 2);
+  width: calc(10rem / var(--font-body-scale) + var(--inputs-border-width) * 2);
   display: flex;
   border-radius: var(--inputs-radius);
   min-height: calc((var(--inputs-border-width) * 2) + 4.5rem);
@@ -1941,7 +1941,8 @@ input[type='checkbox'] {
 }
 
 .quantity__button {
-  width: calc(4.5rem / var(--font-body-scale));
+  /* changes  */
+  width: calc(2.5rem / var(--font-body-scale));
   flex-shrink: 0;
   font-size: 1.8rem;
   border: 0;
@@ -4096,7 +4097,7 @@ padding: 10px
 }
 .image-content-padding{
   /*over ride other class  */
-/* padding:25px; */
+padding:25px;
 }
 /* image with text paddidg */
 
@@ -4632,5 +4633,49 @@ width: 70%;
   }
   .svg-wrapper > svg{
     width: 50%;
+  }
+}
+/* cart */
+
+/* Cart layout on desktop */
+.cart-page-in-one-line  {
+  display: flex;
+  
+  gap: 2rem;
+}
+
+/* 65% width for cart-items */
+.cart-page-in-one-line .cart-page-padding {
+  flex: 0 0 65%;
+  /* max-width: 65%; */
+}
+
+/* 35% width for cart-footer */
+.cart-page-in-one-line  > #main-cart-footer {
+  flex: 0 0 35%;
+  max-width: 35%;
+    background-color:#F8F8F8;
+}
+.field__input{
+border:1px solid #C0C0C0;
+}
+.field:after{
+  position: static;
+  content:none;
+}
+
+
+ #main-cart-footer p.cart-shipping__success{
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 100%;
+  letter-spacing: 0;
+ }
+
+/* cart-page make responsive after 1000px sizze */
+@media screen and (max-width: 1000px) {
+   .cart-page-in-one-line{
+display:block;
   }
 }
