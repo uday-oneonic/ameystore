@@ -43,53 +43,62 @@
 {% endschema %}
 
 {% style %}
-      .about-us-banner {
-        position: relative;
-        width: 100%;
-        height: 300px;
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: {{ section.settings.text_alignment }};
-        color: white;
-      }
+        .about-us-banner {
+          position: relative;
+          width: 100%;
+          height: 300px;
+          background-size: cover;
+          background-position: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: {{ section.settings.text_alignment }};
+          color: white;
+        }
 
-      .about-us-banner::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        /* background: rgba(0, 0, 0, 0.3); /* Optional: adds overlay for better text contrast */ */
-      }
+        .about-us-banner::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          /* background: rgba(0, 0, 0, 0.3); /* Optional: adds overlay for better text contrast */ */
+        }
 
-      .about-us-banner-content {
-        position: relative;
-        z-index: 1;
-      }
+        .about-us-banner-content {
+          position: relative;
+          z-index: 1;
+        }
 
-      .about-us-banner h1 {
+        .about-us-banner h1 {
+          font-family: Inter;
+      font-weight: 600;
+      font-size: 74px;
+      line-height: 100%;
+      letter-spacing: 0;
+          color:white;
+          margin: 0;
+        }
+
+        .about-us-banner p {
         font-family: Inter;
-    font-weight: 600;
-    font-size: 74px;
+    font-weight: 400;
+    font-size: 23px;
     line-height: 100%;
     letter-spacing: 0;
-        color:white;
-        margin: 0;
+          margin-top: 10px;
+        }
+    @media screen and (max-width: 480px) {
+     .about-us-banner p {
+      font-size: 16px;
+     }
+      .about-us-banner h1 {
+      font-size: 40px;
       }
 
-      .about-us-banner p {
-      font-family: Inter;
-  font-weight: 400;
-  font-size: 23px;
-  line-height: 100%;
-  letter-spacing: 0;
-        margin-top: 10px;
-      }
+  }
 {% endstyle %}
 
 <div
-  class="about-us-banner"
+  class="about-us-banner page-width"
   style="background-image: url({{ section.settings.background_image | image_url: width: 1500 }});"
 >
   <div class="about-us-banner-content">

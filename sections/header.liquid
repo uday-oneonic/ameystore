@@ -16,6 +16,7 @@ details[open]>.header__menu-item,
 .header-wrapper details>span,
 .header-wrapper .disclosure__button>span,
 .header-wrapper .disclosure__button svg {
+  text-transform: uppercase;
     color: white !important;
 }
 
@@ -117,9 +118,17 @@ position:rela;
 
   .list-menu {
     list-style: none;
+    gap:30px;
     padding: 0;
     margin: 0;
   }
+  @media screen and (max-width: 1050px) {
+.list-menu {
+  gap:10px;
+
+}
+}
+
 
   .list-menu--inline {
     display: inline-flex;
@@ -141,6 +150,14 @@ position:rela;
     padding-bottom: 1rem;
     padding-top: 1rem;
     line-height: calc(1 + 0.8 / var(--font-body-scale));
+  }
+  .shop-name-manual{
+font-family: Inter;
+font-weight: 400;
+font-size: 36px;
+line-height: 100%;
+letter-spacing: 0;
+
   }
 
   @media screen and (min-width: 750px) {
@@ -635,7 +652,10 @@ transform: scale(1.03);
                 }}
               </div>
             {%- else -%}
-              <span class="h2">{{ shop.name }}</span>
+              <span class="h2 shop-name-manual">
+                Amey.
+                <!-- {{ shop.name }} -->
+              </span>
             {%- endif -%}
           </a>
       {%- if request.page_type == 'index' -%}
@@ -787,7 +807,10 @@ transform: scale(1.03);
                 }}
               </div>
             {%- else -%}
-              <span class="h2">{{ shop.name }}</span>
+              <span class="h2">
+                
+                {{ shop.name }}
+              </span>
             {%- endif -%}
           </a>
       {%- if request.page_type == 'index' -%}

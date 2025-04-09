@@ -494,9 +494,10 @@ h6:empty {
   text-underline-offset: 0.3rem; */
   color: rgb(var(--color-link));
   background-color: transparent;
-  font-size: 1.4rem;
+  font-size: 17px;
   font-family: 'Inter';
 }
+
 
 .link--text {
   color: rgb(var(--color-foreground));
@@ -4678,4 +4679,29 @@ border:1px solid #C0C0C0;
    .cart-page-in-one-line{
 display:block;
   }
+}
+@media screen and (max-width: 480px) {
+ .title-wrapper-with-link {
+    display: flex;
+    justify-content: start;
+   
+}
+}
+/* about page */
+/* collapse secction */
+summary .icon-plus {
+    position: absolute;
+    height: 0.6rem;
+    right: 1.5rem;
+  width:23px;
+  height:61px;
+    top: calc(30% - 0.2rem);
+}
+@media screen and (max-width: 480px) {
+   summary .icon-plus {
+    
+    width: 15px;
+    height: 61px;
+    top: calc(17% - 0.2rem);
+}
 }

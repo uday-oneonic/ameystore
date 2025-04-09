@@ -48,7 +48,8 @@
   margin: 0 auto;
   padding-right: 1.5rem;
   padding-left: 1.5rem;
-  max-width: 73.4rem;
+  /* change in css about-page collapse part  */
+  max-width: 1265px;
 }
 
 .collapsible-content__header {
@@ -62,7 +63,7 @@
 
 @media screen and (min-width: 750px) {
   .collapsible-content__heading {
-    margin-bottom: 3rem;
+    padding: 3rem 0;
   }
 }
 
@@ -125,4 +126,55 @@
       padding-left: 7rem;
     }
   }
+}
+
+/* custome css give by uday  */
+.collaps-title{
+font-family: Inter;
+font-weight: 600;
+font-size: 68px;
+line-height: 61px;
+letter-spacing: -2px;
+
+}
+.collaps-row-heading{
+  display:flex;
+  align-items:center;
+  font-family: Inter;
+font-weight: 600;
+font-size: 34px;
+line-height: 61px;
+letter-spacing: -2px;
+text-align: center;
+  width:80%;
+
+}
+  @media screen and (max-width: 1000px) {
+    .collaps-row-heading {
+    font-size: 25px;
+    line-height: 100%;
+    text-align: left;
+    width: 80%;
+ }
+    .collaps-title {
+    
+    font-size: 50px;
+   
+}
+}
+  @media screen and (max-width: 480px) {
+    
+   .collaps-title{
+font-size: 30px;
+line-height: 100%;
+     letter-spacing:0x;
+}
+    .collaps-row-heading{
+        font-size: 12px;
+        line-height: 100%;
+        width: 100%;
+        letter-spacing: 0;
+        text-align: left;
+
+}
 }

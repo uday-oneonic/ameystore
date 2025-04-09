@@ -1,0 +1,215 @@
+{% style %}
+    .about-us-slider-container{
+  padding:30px 0;
+    }
+      .about-us-side-images-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 0 5rem;
+        transition: transform 0.4s ease-in-out;
+      }
+
+      .about-us-side-images-wrapper .image-column {
+        flex: 1 1 45%;
+        height: auto;
+      }
+
+      .about-us-side-images-wrapper img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+      }
+
+      .about-us-side-images-text {
+        text-align: center;
+        padding: 10px 20px 40px 20px;
+        max-width: 1140px;
+        margin: 0 auto;
+      }
+
+      .about-us-side-images-text h2 {
+        font-family: Inter;
+        font-weight: 600;
+        font-size: 43px;
+        line-height: 61px;
+        letter-spacing: -2px;
+        margin-bottom: 15px;
+      }
+
+      .about-us-side-images-text p {
+        font-family: Inter;
+        font-weight: 400;
+        font-size: 23px;
+        line-height: 39px;
+        letter-spacing: -2px;
+        text-align: center;
+      }
+      /* .about-us-slider-buttons{
+    display:none;
+      visibility:hidden;
+      } */
+
+        @media (max-width: 1000px) {
+            .about-us-side-images-text h2 {
+          font-size: 35px;
+          line-height: 30px;
+          letter-spacing: 0;
+        }
+
+        .about-us-side-images-text p {
+          font-size: 18px;
+          line-height: 19.5px;
+          letter-spacing: 0;
+        }
+        }
+
+      @media (max-width: 480px) {
+        .about-us-side-images-text h2 {
+          font-size: 12px;
+          line-height: 30px;
+          letter-spacing: 0;
+        }
+        /* .about-us-slider-buttons{
+    display:block;
+      visibility:visible;
+      } */
+
+        .about-us-side-images-text p {
+          font-size: 11.5px;
+          line-height: 19.5px;
+          letter-spacing: 0;
+        }
+
+        .about-us-slider-container {
+          position: relative;
+          overflow: hidden;
+          width: 100%;
+        }
+
+        .about-us-side-images-wrapper {
+          display: flex;
+          flex-wrap: nowrap;
+          gap: 0;
+          padding: 0;
+          transform: translateX(0%);
+        }
+
+        .about-us-side-images-wrapper .image-column {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+
+        .about-us-slider-buttons {
+          display: flex;
+          justify-content: space-between;
+          position: absolute;
+          top: 50%;
+          width: 100%;
+          transform: translateY(-50%);
+          z-index: 2;
+          padding: 0 10px;
+        }
+
+        .about-us-slider-buttons button {
+          background: rgba(255, 255, 255, 0.6);
+          border: none;
+          font-size: 20px;
+          padding: 6px 10px;
+          cursor: pointer;
+          border-radius: 50%;
+        }
+
+        .about-us-side-images-wrapper.slide-1 {
+          transform: translateX(0%);
+        }
+
+        .about-us-side-images-wrapper.slide-2 {
+          transform: translateX(-100%);
+        }
+      }
+{% endstyle %}
+
+<div class="about-us-slider-container">
+  <div class="about-us-slider-buttons">
+    <button id="prev-slide">&#8592;</button>
+    <button id="next-slide">&#8594;</button>
+  </div>
+
+  <div class="about-us-side-images-wrapper slide-1" id="imageSlider">
+    {% if section.settings.left_image %}
+      <div class="image-column">
+        <img src="{{ section.settings.left_image | image_url: width: 800 }}" alt="Left Image">
+      </div>
+    {% endif %}
+    {% if section.settings.right_image %}
+      <div class="image-column">
+        <img src="{{ section.settings.right_image | image_url: width: 800 }}" alt="Right Image">
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<div class="about-us-side-images-text">
+  <h2>{{ section.settings.title }}</h2>
+  <p>{{ section.settings.paragraph }}</p>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (window.innerWidth <= 480) {
+      let currentSlide = 1;
+      const slider = document.getElementById('imageSlider');
+      const totalSlides = slider.children.length;
+
+      document.getElementById('next-slide').addEventListener('click', function () {
+        currentSlide = currentSlide < totalSlides ? currentSlide + 1 : 1;
+        slider.className = 'about-us-side-images-wrapper slide-' + currentSlide;
+      });
+
+      document.getElementById('prev-slide').addEventListener('click', function () {
+        currentSlide = currentSlide > 1 ? currentSlide - 1 : totalSlides;
+        slider.className = 'about-us-side-images-wrapper slide-' + currentSlide;
+      });
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "two-image-after-text",
+  "tag": "section",
+  "class": "about-us-side-images",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Left Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_image",
+      "label": "Right Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Our Fragrance Story"
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph",
+      "label": "Paragraph",
+      "default": "Discover the essence of our unique blends through nature-inspired notes and deep aromas."
+    }
+  ],
+  "presets": [
+    {
+      "name": "two-image-after-text",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}
