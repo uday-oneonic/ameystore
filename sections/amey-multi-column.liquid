@@ -1,0 +1,217 @@
+{% comment %} Custom Multi Column Section by Amey — Image Left, Text Right {% endcomment %}
+<div class="custom-contact-wrapper page-width">
+  <!-- Heading -->
+  <h2 class="contact-heading">{{ section.settings.heading }}</h2>
+
+  <!-- Paragraph -->
+  <p class="contact-subtext">
+    {{ section.settings.subtext }}
+  </p>
+
+  <!-- Columns -->
+  <div class="contact-columns">
+    {% for block in section.blocks %}
+      <div class="contact-column">
+        <div class="column-inner">
+          {% if block.settings.icon %}
+            <div class="column-image">
+              <img src="{{ block.settings.icon | image_url: width: 64 }}" alt="{{ block.settings.title }}">
+            </div>
+          {% endif %}
+          <div class="column-content">
+            <h3 class="column-title">{{ block.settings.title }}</h3>
+            <p class="column-text">{{ block.settings.text }}</p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+          .custom-contact-wrapper {
+
+            padding: 5rem 5rem;
+            /* text-align: center; */
+            font-family: Inter, sans-serif;
+          }
+
+          .contact-heading {
+            font-weight: 600;
+            font-size: 74px;
+            line-height: 100%;
+            letter-spacing: -2px;
+            margin: 0 0 20px 0;
+          }
+
+          .contact-subtext {
+            width:688px;
+            max-width:100%;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 32px;
+            letter-spacing: 0;
+            margin-bottom: 40px;
+          }
+
+          .contact-columns {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+          }
+
+          .contact-column {
+            background: #F3F3F3;
+            border: 1px solid #ccc;
+            padding: 30px 20px;
+            flex: 1 1 30%;
+            max-width: 32%;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          .column-inner {
+            display: flex;
+            align-items: center;
+            text-align: left;
+            gap: 20px;
+          }
+
+          .column-image img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+          }
+
+          .column-content {
+            flex: 1;
+          }
+
+          .column-title {
+            font-family: Inter;
+        font-weight: 600;
+        font-size: 26px;
+        line-height: 32px;
+        letter-spacing: 0;
+            margin-bottom: 10px;
+          }
+
+          .column-text {
+           font-family: Inter;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 22px;
+      letter-spacing: 0;
+
+          }
+
+          @media screen and (max-width: 1000px) {
+            .contact-column {
+              max-width: 100%;
+              flex: 1 1 100%;
+            }
+
+            .column-inner {
+              flex-direction: column;
+              align-items: center;
+              text-align: center;
+            }
+
+            .column-content {
+              text-align: center;
+            }
+          }
+       @media screen and (max-width: 480px) {
+          .custom-contact-wrapper {
+        padding: 3rem 3rem;
+          }
+         .contact-heading {
+        font-size: 23px;
+        line-height: 100%;
+        letter-spacing: 0;
+        margin: 0 0 5px 0;
+    }
+         .contact-subtext {
+        font-size: 12px;
+               line-height: 100%;
+        margin-bottom: 20px;
+        margin-top: 0;
+    }
+         .contact-column {
+      padding: 0 0;
+  }
+         .column-inner{
+           gap:0;
+         }
+         .column-title{
+           margin-top:0;
+         }
+       }
+</style>
+
+{% schema %}
+{
+  "name": "Amey Multi Column",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Get in touch"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "Please submit your queries or remarks using the form below.\nWe appreciate your input and will get back–"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Column",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Payment Secure"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description",
+          "default": "Crucial assurance that businesses provide to their customers regarding safety and protection of their financial transactions."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Amey Multi Column",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

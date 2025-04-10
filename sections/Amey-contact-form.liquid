@@ -1,0 +1,267 @@
+{{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+          .contact-section-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            justify-content: center;
+            gap: 40px;
+          }
+
+          .contact-image {
+            flex: 1 1 40%;
+            max-width: 600px;
+          }
+
+          .contact-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+
+          .contact-form-wrapper {
+            flex: 1 1 50%;
+          }
+
+          .contact-paragraph {
+             font-family: Inter;
+             font-weight: 400;
+             font-size: 19px;
+             line-height: 100%;
+             letter-spacing: 0;
+
+          }
+          .contact-page-padding{
+            padding-inline:5rem;
+          }
+          .contact-page-btn{
+                border-radius: unset;
+          }
+          .contact-page-title{
+        font-family: Inter;
+        font-weight: 600;
+        font-size: 44px;
+        line-height: 100%;
+        letter-spacing: 0;
+
+          }
+          @media screen and (max-width: 750px) {
+            .contact-section-wrapper {
+              flex-direction: column;
+              gap: 30px;
+            }
+
+            .contact-image,
+            .contact-form-wrapper {
+              max-width: 100%;
+            }
+          }
+
+          .section-{{ section.id }}-padding {
+            padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+            padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+          }
+
+
+          .contact-page-padding .field{
+            display:block;
+            width:99%;
+          }
+        .contact-page-padding .field label{
+            font-family: Inter;
+      font-weight: 400;
+      font-size: 21px;
+      line-height: 100%;
+      letter-spacing: 0;
+          }
+        .contact-page-padding .field input{
+           margin: 1rem 0 2rem 0;
+        }
+       @media screen and (min-width: 750px) {
+            .section-{{ section.id }}-padding {
+              padding-top: {{ section.settings.padding_top }}px;
+              padding-bottom: {{ section.settings.padding_bottom }}px;
+            }
+          }
+        @media screen and (max-width: 480px) {
+          .contact-page-padding {
+        padding-inline: 2rem;
+    }
+          .contact-page-title {
+      font-size: 20px;
+      margin-bottom: 5px;
+  }
+          .contact-paragraph {
+      font-size: 12px;
+      margin-top: 0;
+  }
+          .contact-section-wrapper {
+        gap: 10px;
+    }
+      }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient page-width">
+  <div class=" section-{{ section.id }}-padding contact-page-padding">
+    <div class="contact-section-wrapper">
+      {%- if section.settings.image != blank -%}
+        <div class="contact-image">
+          <img src="{{ section.settings.image | image_url: width: 800 }}" alt="Contact image">
+        </div>
+      {%- endif -%}
+
+      <div class="contact-form-wrapper">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }} contact-page-title">
+            {{ section.settings.heading }}
+          </h2>
+          <p class="contact-paragraph">{{ section.settings.paragraph }}</p>
+        {%- endif -%}
+
+        {%- liquid
+          assign contact_form_class = 'isolate'
+          if settings.animations_reveal_on_scroll
+            assign contact_form_class = 'isolate scroll-trigger animate--slide-in'
+          endif
+        -%}
+
+        {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
+          {%- if form.posted_successfully? -%}
+            <h2 class="form-status form-status-list form__message" tabindex="-1" autofocus>
+              {{- 'icon-success.svg' | inline_asset_content -}}
+              {{ 'templates.contact.form.post_success' | t }}
+            </h2>
+          {%- elsif form.errors -%}
+            <div class="form__message">
+              <h2 class="form-status caption-large text-body" role="alert" tabindex="-1" autofocus>
+                {{- 'icon-error.svg' | inline_asset_content -}}
+                {{ 'templates.contact.form.error_heading' | t }}
+              </h2>
+            </div>
+          {%- endif -%}
+
+          <div class="field">
+            <label for="ContactForm-name">{{ 'templates.contact.form.name' | t }}</label>
+            <input
+              class="field__input"
+              autocomplete="name"
+              type="text"
+              id="ContactForm-name"
+              name="contact[{{ 'templates.contact.form.name' | t }}]"
+              placeholder="{{ 'templates.contact.form.name' | t }}"
+            >
+          </div>
+
+          <div class="field field--with-error">
+            <label for="ContactForm-email">
+              {{ 'templates.contact.form.email' | t }}
+              <span aria-hidden="true">*</span>
+            </label>
+            <input
+              autocomplete="email"
+              type="email"
+              id="ContactForm-email"
+              class="field__input"
+              name="contact[email]"
+              placeholder="{{ 'templates.contact.form.email' | t }}"
+            >
+          </div>
+
+          <div class="field">
+            <label for="ContactForm-body">{{ 'templates.contact.form.comment' | t }}</label>
+            <textarea
+              rows="10"
+              id="ContactForm-body"
+              class="text-area field__input"
+              name="contact[{{ 'templates.contact.form.comment' | t }}]"
+              placeholder="{{ 'templates.contact.form.comment' | t }}"
+            ></textarea>
+          </div>
+
+          <div class="contact__button">
+            <button type="submit" class="button contact-page-btn">submit</button>
+          </div>
+        {%- endform -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Amey contact form",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Left Side Image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "How can we help you?",
+      "label": "Heading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "paragraph",
+      "default": "Please submit your queries or remarks using the form below. We appreciate your input and will get back to you as soon as possible. Our top goal is making sure you're satisfied.",
+      "label": "Paragraph"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "H2" },
+        { "value": "h1", "label": "H1" },
+        { "value": "h0", "label": "H0" },
+        { "value": "hxl", "label": "HXL" },
+        { "value": "hxxl", "label": "HXXL" }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Amey Contact Form"
+    }
+  ]
+}
+{% endschema %}

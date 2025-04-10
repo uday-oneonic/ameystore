@@ -2,17 +2,52 @@
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
+         .section-{{ section.id }}-padding {
+           padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+           padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
 
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
+         }
+
+         @media screen and (min-width: 750px) {
+           .section-{{ section.id }}-padding {
+             padding-top: {{ section.settings.padding_top }}px;
+             padding-bottom: {{ section.settings.padding_bottom }}px;
+
+           }
+         }
+         .multi-column-header{
+       display:block;
+         }
+       .multi-column-padding{
+         padding: 0 5rem;
+       }
+       .multi-column-header h2{
+  font-family: Inter;
+  font-weight: 600;
+  font-size: 74px;
+  line-height: 100%;
+  letter-spacing: -2px;
+
+
+
+         }
+      .multi-column-header p{
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: -2px;
+
+
+         }
+       /* .multicolumn-list{
+         column-gap:20px;
+       } */
+
+        /* .grid--3-col-desktop .grid__item {
+        width: calc(31.33% - var(--grid-desktop-horizontal-spacing) * 2 / 3);
+        max-width: calc(31.33% - var(--grid-desktop-horizontal-spacing) * 2 / 3);
+      } */
 {%- endstyle -%}
 
 {%- liquid
@@ -25,16 +60,17 @@
 
 <div class="multicolumn color-{{ section.settings.color_scheme }} gradient{% unless section.settings.background_style == 'none' and settings.text_boxes_border_thickness > 0 or settings.text_boxes_shadow_opacity > 0 %} background-{{ section.settings.background_style }}{% endunless %}{% if section.settings.title == blank %} no-heading{% endif %}">
   <div
-    class="page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+    class="page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} multi-column-padding"
     {% if settings.animations_reveal_on_scroll %}
       data-cascade
     {% endif %}
   >
     {%- unless section.settings.title == blank -%}
-      <div class="title-wrapper-with-link title-wrapper--self-padded-mobile title-wrapper--no-top-margin multicolumn__title">
+      <div class="title-wrapper-with-link title-wrapper--self-padded-mobile title-wrapper--no-top-margin multicolumn__title multi-column-header">
         <h2 class="title inline-richtext {{ section.settings.heading_size }}">
           {{ section.settings.title }}
         </h2>
+        <p class="inline-richtext">{{ section.settings.paragraph }}</p>
         {%- if section.settings.button_label != blank and show_mobile_slider -%}
           <a href="{{ section.settings.button_link }}" class="link underlined-link large-up-hide">
             {{- section.settings.button_label | escape -}}
@@ -84,7 +120,6 @@
                   <div
                     class="media media--transparent media--{{ section.settings.image_ratio }}"
                     {% if section.settings.image_ratio == 'adapt' %}
-                      style="padding-bottom: {{ 1 | divided_by: highest_ratio | times: 100 }}%;"
                     {% endif %}
                   >
                     {%- liquid
@@ -113,7 +148,7 @@
                       | image_tag:
                         widths: '50, 75, 100, 150, 200, 300, 400, 500, 750, 1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3200',
                         sizes: sizes,
-                        class: 'multicolumn-card__image'
+                        class: 'multicolumn-card__image multicolumn-image'
                     }}
                   </div>
                 </div>
@@ -206,6 +241,12 @@
       "label": "t:sections.multicolumn.settings.title.label"
     },
     {
+      "type": "text",
+      "id": "paragraph",
+      "default": "Please submit your queries or remarks using the form below. We appreciate your input and will get back",
+      "label": "Paragraph"
+    },
+    {
       "type": "select",
       "id": "heading_size",
       "options": [
@@ -236,7 +277,7 @@
     {
       "type": "header",
       "content": "t:sections.multicolumn.settings.header_image.content"
-    },    
+    },
     {
       "type": "select",
       "id": "image_width",
@@ -284,23 +325,23 @@
     {
       "type": "header",
       "content": "t:sections.multicolumn.settings.header_button.content"
-    },    
+    },
     {
       "type": "text",
       "id": "button_label",
       "default": "t:sections.multicolumn.settings.button_label.default",
-      "label": "t:sections.multicolumn.settings.button_label.label", 
+      "label": "t:sections.multicolumn.settings.button_label.label",
       "info": "t:sections.multicolumn.settings.button_label.info"
     },
     {
       "type": "url",
       "id": "button_link",
       "label": "t:sections.multicolumn.settings.button_link.label"
-    },    
+    },
     {
       "type": "header",
       "content": "t:sections.multicolumn.settings.header_layout.content"
-    },     
+    },
     {
       "type": "range",
       "id": "columns_desktop",
@@ -347,7 +388,7 @@
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
       "default": "scheme-1"
-    },    
+    },
     {
       "type": "header",
       "content": "t:sections.multicolumn.settings.header_mobile.content"

@@ -4705,3 +4705,12 @@ summary .icon-plus {
     top: calc(17% - 0.2rem);
 }
 }
+/*----------------------------------------------------  contact page css --------------------------------------------------------  */
+.multicolumn-image{
+  display: block !important;
+    position: unset !important;
+    height: 80px !important;
+    max-width: 80px !important;
+    width: 80px !important;
+}
+]

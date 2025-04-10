@@ -360,7 +360,8 @@
 
 #recover,
 #recover + div {
-  display: none;
+  /* this display:none but i comment for custome recover form  */
+  /* display: none; */
 }
 
 #recover:target {
