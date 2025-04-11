@@ -47,7 +47,7 @@
 }
 
 .article-card .card__heading {
-  margin-bottom: 0.6rem;
+  margin-bottom: 2rem;
 }
 
 .blog-articles .article-card .card__information,
@@ -139,4 +139,43 @@
       margin-bottom: 7rem;
     }
   }
+}
+.blog-page-btn{
+  width:100%;
+color:white;
+  background-color:black;
+  font-family: Inter;
+font-weight: 400;
+font-size: 23px;
+line-height: 100%;
+letter-spacing: 5px;
+  border: none;
+    height: 70px;
+}
+button.blog-page-btn:hover {
+    font-size: 50px;
+}
+.h2.blog-post-tile {
+    font-family: Inter;
+    font-weight: 600;
+    font-size: 27px;
+    line-height: 100%;
+    letter-spacing: 0;
+}
+.blog-post-date {
+  opacity: 60%;
+    font-family: Inter;
+    font-weight: 300;
+    font-size: 23px;
+    line-height: 100%;
+    letter-spacing: 0;
+}
+.blog-post-paragraph {
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 33px;
+    letter-spacing: 0;
+  max-width:1200px;
+   
 }

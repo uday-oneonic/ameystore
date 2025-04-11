@@ -130,7 +130,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   .header:not(.drawer-menu).page-width {
     padding-left: 5rem;
     padding-right: 5rem;
-    border-bottom: 1px solid #D6D6D6;
+    /* border-bottom: 1px solid #D6D6D6; */
   }
 
   .page-width--narrow {
@@ -4713,4 +4713,20 @@ summary .icon-plus {
     max-width: 80px !important;
     width: 80px !important;
 }
-]
+/* collection-list page  */
+.collection-list-page-title{
+font-family: Inter;
+font-weight: 600;
+font-size: 33px;
+line-height: 100%;
+letter-spacing: -2px;
+}
+.template-collection-list .about-us-banner {
+  height: 1000px; /* ke je tamne joiye te */
+}
+section#shopify-section-template--15719547371563__about_us_page_image_banner_DGaLVy .about-us-banner {
+    height: 372px;
+}
+.blog-post-last-line{
+  display:flex;
+}

@@ -68,7 +68,7 @@
                 style="--animation-order: {{ forloop.index }};"
               {% endif %}
             >
-              {% render 'article-card',
+              {% render 'orignle-blog-article',
                 blog: section.settings.blog,
                 article: article,
                 media_aspect_ratio: 1.66,
@@ -207,9 +207,9 @@
       "type": "range",
       "id": "post_limit",
       "min": 2,
-      "max": 4,
+      "max": 10,
       "step": 1,
-      "default": 3,
+      "default": 6,
       "label": "t:sections.featured-blog.settings.post_limit.label"
     },
     {

@@ -14,6 +14,7 @@
     grid-template-columns: 1fr 1fr;
     column-gap: var(--grid-desktop-horizontal-spacing);
     row-gap: var(--grid-desktop-vertical-spacing);
+    gap: 40px 20px;
   }
 
   .blog-articles--collage > *:nth-child(3n + 1),

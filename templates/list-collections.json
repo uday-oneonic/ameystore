@@ -1,17 +1,1 @@
-{
-  "sections": {
-    "main": {
-      "type": "main-list-collections",
-      "settings": {
-        "title": "Collections",
-        "sort": "alphabetical",
-        "image_ratio": "square",
-        "columns_desktop": 3,
-        "columns_mobile": "2"
-      }
-    }
-  },
-  "order": [
-    "main"
-  ]
-}
+{"sections":{"about_us_page_image_banner_DGaLVy":{"type":"about-us-page-image-banner","settings":{"background_image":"shopify:\/\/shop_images\/collection-page-main-image-banner.png","heading":"collection","subheading":"","text_alignment":"center"}},"main":{"type":"main-list-collections","settings":{"title":"","sort":"alphabetical","image_ratio":"square","columns_desktop":3,"columns_mobile":"2"}}},"order":["about_us_page_image_banner_DGaLVy","main"]}

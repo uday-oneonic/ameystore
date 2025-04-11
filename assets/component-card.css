@@ -593,4 +593,12 @@
     clip-path: polygon(var(--shape--blob-5));
   }
 }
-
+/*============== cutsome css for collection page ========== */
+.collection-title{
+  align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.card__information{
+  padding:3rem !important;
+}
