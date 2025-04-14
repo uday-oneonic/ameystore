@@ -57,7 +57,9 @@
 @media screen and (min-width: 750px) {
   .collage {
     grid-auto-flow: column;
-    grid-column-gap: var(--grid-desktop-horizontal-spacing);
+    /* grid-column-gap: var(--grid-desktop-horizontal-spacing);*/
+    /* change   */
+    grid-column-gap: 20px;
     grid-row-gap: var(--grid-desktop-vertical-spacing);
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -221,4 +223,46 @@ display:flex;
 /* width:100%; */
   justify-content:center;
 }
+}
+/* For the featured main card */
+/* .collage__item--highlighted {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.collage__item--highlighted .collage-card {
+  max-width: 400px; 
+  height: auto;
+  width: 100%;
+} */
+.custom-section {
+  display: flex;
+  height: 100vh; /* full height of viewport */
+  width: 100%;
+}
+
+.left-image {
+  width: 60%; /* or adjust */
+  height: 100%;
+}
+
+.left-image img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.right-product {
+  width: 40%;
+  height: 100%;
+  background: #000; /* to match your desired black background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right-product .product-card {
+  max-width: 300px; /* limit product image width */
+  text-align: center;
 }

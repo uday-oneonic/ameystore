@@ -4,7 +4,7 @@
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       {%- when '@app' -%}
-        <div class="page-width page-width--narrow">
+        <div class="page-width page-width--narrow ">
           {% render block %}
         </div>
       {%- when 'featured_image' -%}
@@ -42,22 +42,35 @@
         {%- endif -%}
 
       {%- when 'title' -%}
+        {% if blog.tags.size > 0 %}
+          <div class="blog-filter">
+            <div class="list-group">
+              <ul id="BlogTagFilter" class="tag-list">
+                {% for tag in blog.all_tags %}
+                  <li>
+                    <a href="{{ blog.url }}/tagged/{{ tag | handleize }}">{{ tag }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        {% endif %}
         <header
-          class="page-width page-width--narrow{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+          class="page-width page-width--narrow{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %} blog-post-contetn-center"
           {{ block.shopify_attributes }}
         >
           <h1
-            class="article-template__title"
+            class="article-template__title bolg-title"
           >
             {{ article.title | escape }}
           </h1>
           {%- if block.settings.blog_show_date -%}
-            <span class="circle-divider caption-with-letter-spacing">
+            <span class="circle-divider caption-with-letter-spacing bolg-date">
               {{- article.published_at | time_tag: format: 'date' -}}
             </span>
           {%- endif -%}
           {%- if block.settings.blog_show_author -%}
-            <span class="caption-with-letter-spacing">
+            <span class="caption-with-letter-spacing bolg-author">
               <span>{{ article.author }}</span>
             </span>
           {%- endif -%}
@@ -65,7 +78,7 @@
 
       {%- when 'content' -%}
         <div
-          class="article-template__content page-width page-width--narrow rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          class="article-template__content page-width page-width--narrow rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} bolg-post-content"
           {{ block.shopify_attributes }}
         >
           {{ article.content }}
@@ -97,10 +110,11 @@
     </div>
   -->
   {%- if blog.comments_enabled? -%}
-    <div class="article-template__comment-wrapper background-secondary">
+    <!-- remove "background-secondary" class from this class -->
+    <div class="article-template__comment-wrapper ">
       <div
         id="comments"
-        class="page-width page-width--narrow{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+        class="page-width page-width--narrow{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} blog-nameandicon"
       >
         {%- if article.comments_count > 0 -%}
           {%- assign anchorId = '#Comments-' | append: article.id -%}
@@ -151,17 +165,33 @@
             {%- render 'social-icons', class: 'footer__list-social' -%}
           {%- endif -%}
         {%- endif -%}
+        <div class="blog-date-name">
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+                <!-- social media icon -->
 
-        <!-- social media icon -->
+              {%- when 'title' -%}
+                {%- if block.settings.blog_show_date -%}
+                  <span class="circle-divider caption-with-letter-spacing">
+                    {{- article.published_at | time_tag: format: 'date' -}}
+                  </span>
+                {%- endif -%}
+                {%- if block.settings.blog_show_author -%}
+                  <span class="caption-with-letter-spacing">
+                    <span>{{ article.author }}</span>
+                  </span>
+                {%- endif -%}
+            {%- endcase -%}
+          {%- endfor -%}
+        </div>
         <div class="blog-post-last-line">
-          <div>
-            <span> Share on : {% render 'social-icons' %} </span>
-          </div>
+          <span class="blog-social-icon"> Share on : {% render 'social-icons' %} </span>
         </div>
 
         <!-- remove form -->
         <!--
           {% form 'new_comment', article %}
+
             {%- liquid
               assign post_message = 'blogs.article.success'
               if blog.moderated? and comment.status == 'unapproved'

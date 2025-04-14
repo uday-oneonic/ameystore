@@ -118,6 +118,7 @@
   }
 
   .banner__content.banner__content--middle-center {
+    height:659px;
     align-items: center;
     justify-content: center;
   }
@@ -438,10 +439,11 @@
 }
 
 .banner__box .banner__heading + * {
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .banner__buttons {
+      margin-top: 2rem;
   display: inline-flex;
   flex-wrap: wrap;
   gap: 1rem;
