@@ -956,7 +956,7 @@ summary::-webkit-details-marker {
   }
 
   .grid--4-col-tablet .grid__item {
-    width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
+    width: calc(24% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
   }
 
   .grid--3-col-tablet .grid__item {
@@ -3858,6 +3858,7 @@ width:40px;
   font-size:30px;
   font-weight:600;
   font-style:italic;
+     padding-top: 46px;
 }
 }
 
@@ -4044,7 +4045,7 @@ font-weight:400;
 }
   .countdown-item {
     
-    padding: 0 5px;
+    padding: 0 15px;
 }
   .countdown-item span {
    
@@ -4178,11 +4179,11 @@ letter-spacing: -2%;
 font-weight: 400;
 font-size: 14.92px;
 line-height: 100%;
-letter-spacing: -2%;
+letter-spacing: 0;
 text-decoration: underline;
 text-decoration-style: solid;
-text-decoration-offset: 0%;
 text-decoration-thickness: 0%;
+  text-underline-position: under;
 
 }
 .feactured-product-check-image{
@@ -4809,9 +4810,7 @@ letter-spacing: -2px;
 .italic-class {
     font-style: italic;
 }
-.italic-class::last-word{
-  color:red;
-}
+
 .italic-class span {
     /* text-underline-offset: auto; */
     text-underline-position: under;
@@ -4819,3 +4818,6 @@ letter-spacing: -2px;
   text-decoration-thickness: 5%;
     /* color: beige; */
 }
+/* (max-width: 480px) {
+   
+} */

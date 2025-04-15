@@ -63,99 +63,102 @@
 </div>
 
 <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap');
+          @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap');
 
-        .image-text-row {
-          display: flex;
-          width:100%;
-          align-items: center;
-          justify-content: space-between;
-          gap: 4rem;
-              padding: 5rem 5rem 5rem 4rem;
-          /* max-width: 1200px; */
-          margin: 0 auto;
-          /* flex-wrap: wrap; */
-        }
+          .image-text-row {
+            display: flex;
+            width:100%;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+                padding: 5rem 5rem 5rem 4rem;
+            /* max-width: 1200px; */
+            margin: 0 auto;
+            /* flex-wrap: wrap; */
+          }
 
-        .image-container img {
-          width: 100%;
-          max-width: 654px;
-          height: auto;
-          object-fit: cover;
-        }
+          .image-container img {
+            width: 100%;
+            max-width: 654px;
+            height: auto;
+            object-fit: cover;
+          }
 
-        .text-container {
+          .text-container {
+            flex: 1;
+            max-width: 525px;
+          }
+      .image-container {
           flex: 1;
-          max-width: 525px;
-        }
-    .image-container {
-        flex: 1;
-    }
-        .text-container h2 {
-          font-family: 'Inter', sans-serif;
-          font-weight: 500;
-          font-size: 54px;
-          line-height: 100%;
-          letter-spacing: -3px;
-          margin-bottom: 1rem;
-        }
-
-        .text-container p {
-          font-family: 'Inter', sans-serif;
-          font-weight: 300;
-          font-size: 22.5px;
-          line-height: 136%;
-          letter-spacing: 0;
-          margin-bottom: 1.5rem;
-        }
-
-        .custom-button {
-          font-family: 'Inter', sans-serif;
-          padding: 0.75rem 1.5rem;
-          background-color: #fff;
-          color: #000;
-          border: 2px solid #000;
-          text-decoration: none;
-          font-size: 22px;
-          transition: all 0.3s ease;
-          display: inline-block;
-        }
-
-        .custom-button:hover {
-          background-color: #000;
-          color: #fff;
-          border: 2px solid #fff;
-        }
-          @media screen and (max-width: 480px) {
-         .text-container h2{font-family: Inter;
-      font-weight: 500;
-      font-size: 17.34px;
-      line-height: 100%;
-      letter-spacing: -1px;
       }
-            .text-container p{font-family: Inter;
-      font-weight: 300;
-      font-size: 7.64px;
-      line-height: 136%;
-      letter-spacing: 0%;
-      }
-            .text-container{
-                  flex: unset;
+          .text-container h2 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 54px;
+            line-height: 100%;
+            letter-spacing: -3px;
+            margin-bottom: 1rem;
+          }
 
-            }
-            .image-container{
-               flex: unset;
-            }
-            .image-text-row{
-                  padding: 5rem 2rem 5rem 2rem;
-            }
-            .image-container img {
-      width: 186px;
-      height: 220px;
-      object-fit: cover;
+          .text-container p {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 22.5px;
+            line-height: 136%;
+            letter-spacing: 0;
+            margin-bottom: 1.5rem;
+          }
+
+          .custom-button {
+            font-family: 'Inter', sans-serif;
+            padding: 0.75rem 1.5rem;
+            background-color: #fff;
+            color: #000;
+            border: 2px solid #000;
+            text-decoration: none;
+            font-size: 22px;
+            transition: all 0.3s ease;
+            display: inline-block;
+          }
+
+          .custom-button:hover {
+            background-color: #000;
+            color: #fff;
+            border: 2px solid #fff;
+          }
+            @media screen and (max-width: 480px) {
+           .text-container h2{font-family: Inter;
+        font-weight: 500;
+        font-size: 19.34px;
+        line-height: 100%;
+        letter-spacing: -1px;
+        }
+              .text-container p{font-family: Inter;
+        font-weight: 300;
+        font-size: 7.64px;
+        line-height: 136%;
+        letter-spacing: 0%;
+        }
+              .image-text-row {
+                gap:2rem;
   }
-            .custom-button{
-              font-size:7.47px;
-            }
-        }
+              .text-container{
+                    flex: unset;
+
+              }
+              .image-container{
+                 flex: unset;
+              }
+              .image-text-row{
+                    padding: 0 2rem 5rem 2rem;
+              }
+              .image-container img {
+        width: 186px;
+        height: 220px;
+        object-fit: cover;
+    }
+              .custom-button{
+                font-size:7.47px;
+              }
+          }
 </style>

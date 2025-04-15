@@ -1,0 +1,209 @@
+{% schema %}
+{
+  "name": "Testimonials",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "quote",
+          "label": "Quote",
+          "default": "Dramatically maintain clicks-and-mortar solutions..."
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "John Doe"
+        },
+        {
+          "type": "text",
+          "id": "country_name",
+          "label": "Sort Address"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="testimonials">
+  <div id="customers-testimonials" class="owl-carousel owl-theme">
+    {% for block in section.blocks %}
+      <div class="item">
+        <div class="shadow-effect">
+          {% if block.settings.image %}
+            <img
+              class="img-circle"
+              src="{{ block.settings.image | img_url: 'medium' }}"
+              alt="{{ block.settings.name }}"
+            >
+          {% endif %}
+
+          <div class="testimonial-name">{{ block.settings.name }}</div>
+          <div class="testimonial-address">{{ block.settings.country_name }}</div>
+
+          <div class="testimonial-stars">
+            {% for i in (1..5) %}
+              <span class="star">&#9733;</span>
+            {% endfor %}
+          </div>
+
+          <p class="testimonial-quote">{{ block.settings.quote }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- External Styles -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+>
+
+<style>
+  .testimonials {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .shadow-effect {
+    background: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    width: 600px;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid #ECECEC;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.10), 0 15px 12px rgba(0,0,0,0.02);
+    margin: 0 auto;
+  }
+
+  .testimonial-name {
+    font-family: Inter;
+    font-weight: 600;
+    font-size: 21.86px;
+    margin-top: 10px;
+  }
+
+  .testimonial-address {
+    font-family: Inter;
+    font-weight: 200;
+    font-size: 18.88px;
+    color: #CECECE;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+
+  .testimonial-stars {
+    margin-bottom: 10px;
+    color: #1F1F1F;
+    font-size: 33.8px;
+  }
+
+  .testimonial-quote {
+    font-family: Inter;
+    font-weight: 300;
+    font-size: 26.82px;
+    text-align: center;
+  }
+
+  #customers-testimonials {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  #customers-testimonials .item {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    filter: blur(4px);
+    transform: scale3d(0.8, 0.8, 1);
+    transition: all 0.3s ease-in-out;
+  }
+
+  #customers-testimonials .owl-item.active.center .item {
+    filter: blur(0);
+    transform: scale3d(1.0, 1.0, 1);
+  }
+
+  .owl-carousel .owl-item img {
+    max-width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #customers-testimonials.owl-carousel .owl-dots {
+    text-align: center;
+  }
+
+  #customers-testimonials.owl-carousel .owl-dots .owl-dot span {
+    background: #3190E7;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0 2px;
+    transform: scale(0.3);
+    transition: all 250ms ease-out 0s;
+  }
+
+  #customers-testimonials.owl-carousel .owl-dots .owl-dot.active span,
+  #customers-testimonials.owl-carousel .owl-dots .owl-dot:hover span {
+    transform: scale(0.7);
+  }
+
+  @media screen and (max-width: 768px) {
+    .shadow-effect {
+      width: 100%;
+    }
+  }
+</style>
+
+<!-- External Scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof jQuery !== 'undefined') {
+      $('#customers-testimonials').owlCarousel({
+        loop: true,
+        center: true,
+        items: 1,
+        margin: 0,
+        stagePadding: 0,
+        dots: true,
+        responsive: {
+          480: { items: 1 },
+          768: { items: 2 },
+          1200: { items: 3 }
+        }
+      });
+    } else {
+      console.error('jQuery not loaded');
+    }
+  });
+</script>

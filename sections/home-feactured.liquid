@@ -204,11 +204,15 @@
                       {{ 'products.product.quantity.label' | t }}
                       <span class="quantity__rules-cart{% if cart_qty == 0 %} hidden{% endif %}">
                         {%- render 'loading-spinner' -%}
-                        <span
-                          >(
-                          {{- 'products.product.quantity.in_cart_html' | t: quantity: cart_qty -}}
-                          )</span
-                        >
+                        <!-- how many quentity in cart write -->
+                        <!--
+                          <span
+                            >(
+                            {{- 'products.product.quantity.in_cart_html' | t: quantity: cart_qty -}}
+                            )</span
+
+                          >
+                        -->
                       </span>
                     </label>
                     <div class="price-per-item__container">
@@ -432,7 +436,7 @@
                     <div class="feactured-product-check-content">
                       <h2>PICKUP AVAILABLE AT CHICAGO STORE</h2>
                       <p>Ready in about 24 hours</p>
-                      <a href="/collection">Check availability at other stores</a>
+                      <a href="/collections/all">Check availability at other stores</a>
                     </div>
                   </div>
                 {%- when 'custom_liquid' -%}
@@ -480,17 +484,20 @@
                   {% render 'icon-with-text', block: block %}
               {%- endcase -%}
             {%- endfor -%}
-            <a
-              {% if product == blank %}
-                role="link" aria-disabled="true"
-              {% else %}
-                href="{{ product.url }}"
-              {% endif %}
-              class="link product__view-details animate-arrow"
-            >
-              {{ 'products.product.view_full_details' | t }}
-              {{- 'icon-arrow.svg' | inline_asset_content -}}
-            </a>
+            <!-- view full detail a tag remove -->
+            <!--
+              <a
+                {% if product == blank %}
+                  role="link" aria-disabled="true"
+                {% else %}
+                  href="{{ product.url }}"
+                {% endif %}
+                class="link product__view-details animate-arrow"
+              >
+                {{ 'products.product.view_full_details' | t }}
+                {{- 'icon-arrow.svg' | inline_asset_content -}}
+              </a>
+            -->
           </section>
         </div>
       </div>

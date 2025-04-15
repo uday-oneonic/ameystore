@@ -492,4 +492,10 @@
     color: currentColor;
   }
 }
- ]
+@media screen and (max-width: 480px) {
+ .banner__box > * + .banner__buttons {
+  margin-bottom: 2rem;
+}
+
+}
+ 

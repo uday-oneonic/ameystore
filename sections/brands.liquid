@@ -54,86 +54,114 @@
 </div>
 
 <style>
-      /* Desktop: Grid layout with proper spacing */
-      .brand-logos {
-        display: flex;
-        flex-wrap: wrap;
-        /* justify-content: center; */
-        gap: 20px; /* Maintain spacing */
-         align-items: center;
-      }
+            /* Desktop: Grid layout with proper spacing */
+            .brand-logos {
+              display: flex;
+              flex-wrap: wrap;
+              /* justify-content: center; */
+              gap: 20px; /* Maintain spacing */
+                  row-gap: 50px;
+               align-items: center;
+            }
+        .brand-logos-section{
+              padding: 8rem 2rem;
+        }
+         .brand-logos-section h2{
+              padding: 0 2rem;
+           font-family: Inter;
+      font-weight: 400;
+      font-size: 39px;
+      line-height: 100%;
+      letter-spacing: -3px;
 
-      .brand-logo {
-        flex: 1 1 calc(25% - 20px); /* 4 per row */
-        max-width: calc(25% - 20px);
-        text-align: center;
-      }
-
-      .brand-logo img {
-        /* width: 100%; */
-        max-width: 150px; /* Ensure images do not scale beyond this */
-        height: auto;
-        object-fit: contain;
-      }
-
-      /* Mobile (Below 768px) - Slider mode with proper spacing */
-      @media (max-width: 768px) {
-        .slider-container {
-          position: relative;
-          overflow: hidden;
-          max-width: 100%;
-          padding: 10px 0; /* Prevent overlap at the edges */
         }
 
-        .brand-logos {
-          display: flex;
-          flex-wrap: nowrap;
-          overflow-x: auto;
-          scroll-behavior: smooth;
-          scrollbar-width: none; /* Hide scrollbar for Firefox */
-          -ms-overflow-style: none; /* Hide scrollbar for IE */
-          padding: 10px;
-          gap: 100px; /* Ensures spacing between images */
-                  align-items: center;
+
+            .brand-logo {
+              flex: 1 1 calc(25% - 20px); /* 4 per row */
+              max-width: calc(25% - 20px);
+              text-align: center;
+            }
+
+            .brand-logo img {
+              /* width: 100%; */
+              max-width: 150px; /* Ensure images do not scale beyond this */
+              height: auto;
+              object-fit: contain;
+            }
+
+            /* Mobile (Below 768px) - Slider mode with proper spacing */
+            @media (max-width: 768px) {
+              .slider-container {
+                position: relative;
+                overflow: hidden;
+                max-width: 100%;
+                padding: 10px 0; /* Prevent overlap at the edges */
+              }
+
+              .brand-logos {
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                scroll-behavior: smooth;
+                scrollbar-width: none; /* Hide scrollbar for Firefox */
+                -ms-overflow-style: none; /* Hide scrollbar for IE */
+                padding: 10px;
+                gap: 100px; /* Ensures spacing between images */
+                        align-items: center;
+              }
+
+              .brand-logos::-webkit-scrollbar {
+                display: none; /* Hide scrollbar for Chrome, Safari */
+              }
+
+              .brand-logo {
+                flex: 0 0 auto;
+                width: 150px; /* Keep fixed width to avoid overlap */
+                scroll-snap-align: center;
+              }
+
+              /* Slider buttons */
+              .prev-btn, .next-btn {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(0, 0, 0, 0.5);
+                color: white;
+                border: none;
+                cursor: pointer;
+                padding: 10px 15px;
+                font-size: 20px;
+                z-index: 10;
+              }
+
+              .prev-btn { left: 10px; }
+              .next-btn { right: 10px; }
+            }
+              @media (max-width: 400px) {
+                .brand-logos{
+                  gap:30px;
+
+          }
+                .brand-logo img {
+            width: 100%;
+
         }
 
-        .brand-logos::-webkit-scrollbar {
-          display: none; /* Hide scrollbar for Chrome, Safari */
+              }
+    @media (max-width: 480px) {
+               .brand-logos-section h2{
+                     padding: 0 0;
+              font-family: Inter;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0;
         }
-
-        .brand-logo {
-          flex: 0 0 auto;
-          width: 150px; /* Keep fixed width to avoid overlap */
-          scroll-snap-align: center;
-        }
-
-        /* Slider buttons */
-        .prev-btn, .next-btn {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          background: rgba(0, 0, 0, 0.5);
-          color: white;
-          border: none;
-          cursor: pointer;
-          padding: 10px 15px;
-          font-size: 20px;
-          z-index: 10;
-        }
-
-        .prev-btn { left: 10px; }
-        .next-btn { right: 10px; }
-      }
-        @media (max-width: 400px) {
-          .brand-logos{
-            gap:30px;
-
-    }
-          .brand-logo img {
-      width: 100%;
-
+      .brand-logos-section {
+      padding: 2rem 2rem;
   }
-        }
+              }
 </style>
 
 <script>

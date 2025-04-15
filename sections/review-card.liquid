@@ -9,7 +9,7 @@
   <div class="swiper-container swiper-container-review">
     <div class="swiper-wrapper">
       {% for block in section.blocks %}
-        <div class="swiper-slide">
+        <div class="swiper-slide blur">
           <div class="review-card">
             {% if block.settings.review_image %}
               <div class="image">
@@ -51,8 +51,8 @@
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     new Swiper('.swiper-container-review', {
-      slidesPerView: 1,
-      spaceBetween: 20,
+      slidesPerView: 'auto',
+      // spaceBetween: 20,
       // loop: true,
       loopAdditionalSlides: 4,
       slideToClickedSlide: true,
@@ -77,198 +77,205 @@
 </script>
 
 {% style %}
-    .review-section {
-      background: #F6F6F6;
-      width: 100%;
-      max-width: 1400px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+        .review-section {
+          background: #F6F6F6;
+          width: 100%;
+          max-width: 1400px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
 
-    .review-section-title {
-      display: flex;
-      text-align: center;
-    }
+        .review-section-title {
+          display: flex;
+          text-align: center;
+        }
 
-    .review-section-title h2 {
-      font-family: 'Inter', sans-serif;
-      font-weight: 400;
-      font-size: 39px;
-      line-height: 100%;
-      letter-spacing: -3%;
-    }
+        .review-section-title h2 {
+          font-family: 'Inter', sans-serif;
+          font-weight: 400;
+          font-size: 39px;
+          line-height: 100%;
+          letter-spacing: -3%;
+        }
 
-    .swiper-container {
-      width: 100%;
-      overflow: hidden;
-      padding: 40px 0;
-    }
+        .swiper-container {
+          width: 100%;
+          overflow: hidden;
+          padding: 40px 0;
+        }
 
-    .swiper-slide {
-      display: flex;
-      justify-content: center;
-      transition: transform 0.5s ease-in-out;
-    }
+        .swiper-slide {
+          display: flex;
+          justify-content: center;
+          transition: transform 0.5s ease-in-out;
+        }
 
-    .review-card {
-      display: flex;
-      flex-direction: column;
-      /* over ride */
-      /* align-items: center; */
-      width: 100%;
-      max-width: 500px;
-      padding: 20px;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      transition: all 0.3s ease;
-    }
+        .review-card {
+          display: flex;
+          flex-direction: column;
+          /* over ride */
+          /* align-items: center; */
+          width: 100%;
+          max-width: 500px;
+          padding: 20px;
+          border: 1px solid #ddd;
+          border-radius: 10px;
+          transition: all 0.3s ease;
+        }
 
-    .swiper-slide:not(.swiper-slide-active) .review-card {
-      opacity: 0.5;
-      transform: scale(0.85);
-    }
+        .swiper-slide:not(.swiper-slide-active) .review-card {
+          opacity: 0.5;
+          transform: scale(0.85);
+        }
 
-    .image {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-      height: auto;
-    }
+        .image {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+          height: auto;
+        }
 
-    .image img {
-      border-radius: 50%;
-      width: 80px;
-      height: 80px;
-      object-fit: cover;
-    }
+        .image img {
+          border-radius: 50%;
+          width: 80px;
+          height: 80px;
+          object-fit: cover;
+        }
 
-    .text {
-      font-family: 'Inter', sans-serif;
-      font-weight: 600;
-      font-size: 22px;
-      text-align: center;
-    }
+        .text {
+          font-family: 'Inter', sans-serif;
+          font-weight: 600;
+          font-size: 22px;
+          text-align: center;
+        }
 
-    .country{
-      font-family: 'Inter', sans-serif;
-      text-align: center;
-      margin-top: 5px;
-    }
+        .country{
+          font-family: 'Inter', sans-serif;
+          text-align: center;
+          margin-top: 5px;
+        }
 
-    .stars {
-      padding: 10px;
-      font-size: 20px;
-    }
+        .stars {
+          padding: 10px;
+          font-size: 20px;
+        }
 
-    .paragraph {
-      font-size: 20px;
-      line-height: 1.4;
-    }
+        .paragraph {
+          font-size: 20px;
+          line-height: 1.4;
+        }
 
-    .swiper-pagination-review {
-      position: relative;
-      bottom: -10px;
-    }
-  .swiper-pagination-review{
-    margin-top: 40px;
-    justify-content: center;
-    display: flex;
-    }
-    @media screen and (max-width: 768px) {
-      .review-card {
-        max-width: 350px;
-      }
-    }
-
-    @media screen and (max-width: 480px) {
-      .review-section-title h2{
-        margin-top: 30px;
-        font-weight: 400;
-        font-size: 20px;
-      }
-      .text{
-        margin-top:20px;
-        order:2;
-        font-weight: 500;
-        font-size: 12.59px;
-      }
-      .country{
-        margin:0;
-        color: #808080;
-        order:3;
-        font-size: 5.51px;
-      }
-      .paragraph{
-        width:40%;
-        order:1;
-        font-size: 9.45px;
-      }
-      .review-card {
-        background: #FAFAFA;
+        .swiper-pagination-review {
+          position: relative;
+          bottom: -10px;
+        }
+      .swiper-pagination-review{
+        margin-top: 40px;
+        justify-content: center;
         display: flex;
-        justify-content: start;
-        text-align: start;
-        align-items: start;
+        }
+        @media screen and (max-width: 768px) {
+          .review-card {
+            max-width: 350px;
+          }
+        }
+
+        @media screen and (max-width: 480px) {
+          .review-section-title h2{
+            margin-top: 30px;
+            font-weight: 400;
+            font-size: 20px;
+          }
+          .text{
+            margin-top:20px;
+            order:2;
+            font-weight: 500;
+            font-size: 12.59px;
+          }
+          .country{
+            margin:0;
+            color: #808080;
+            order:3;
+            font-size: 5.51px;
+          }
+          .paragraph{
+            width:40%;
+            order:1;
+            font-size: 9.45px;
+          }
+          .review-card {
+            background: #FAFAFA;
+            display: flex;
+            justify-content: start;
+            text-align: start;
+            align-items: start;
+          }
+
+          .image img {
+            border-radius: 10px;
+            position: absolute;
+            right: 0;
+            top: -20px;
+            width: 150px;
+            height: 200px;
+          }
+          .stars {
+            visibility:hidden;
+            display:none;
+          }
+        }
+        .swiper-container-review {
+        width: 100%;
+        max-width: 1400px; /* Ensures proper layout */
+        overflow: hidden;
+        padding: 40px 0;
       }
 
-      .image img {
+      .swiper-slide {
+        width: calc(100% / 3 - 20px); /* Ensures 3 cards per row */
+        display: flex;
+        justify-content: center;
+        transition: transform 0.5s ease-in-out;
+
+      }
+  .blur{
+       filter: blur(4px);
+  }
+      .review-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 400px; /* Adjust width to fit 3 cards */
+        padding: 20px;
+        border: 1px solid #ddd;
         border-radius: 10px;
-        position: absolute;
-        right: 0;
-        top: -20px;
-        width: 150px;
-        height: 200px;
+        transition: all 0.3s ease;
       }
-      .stars {
-        visibility:hidden;
-        display:none;
+
+      /* Responsive Card Sizing */
+      @media screen and (max-width: 1024px) {
+        .swiper-slide {
+          width: calc(100% / 2 - 20px); /* 2 cards per row */
+        }
       }
-    }
-    .swiper-container-review {
-    width: 100%;
-    max-width: 1400px; /* Ensures proper layout */
-    overflow: hidden;
-    padding: 40px 0;
-  }
 
-  .swiper-slide {
-    width: calc(100% / 3 - 20px); /* Ensures 3 cards per row */
-    display: flex;
-    justify-content: center;
-    transition: transform 0.5s ease-in-out;
-  }
+      @media screen and (max-width: 768px) {
+        .swiper-slide {
+          width: calc(100% - 10px); /* 1 card per row */
+        }
+      }
+      @media screen and (max-width: 480px) {
+       .review-card {
 
-  .review-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 400px; /* Adjust width to fit 3 cards */
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-  }
+        align-items: start;
 
-  /* Responsive Card Sizing */
-  @media screen and (max-width: 1024px) {
-    .swiper-slide {
-      width: calc(100% / 2 - 20px); /* 2 cards per row */
-    }
-  }
+      }
+        }
+      .swiper-slide.swiper-slide-active {
+        filter: blur(0);
 
-  @media screen and (max-width: 768px) {
-    .swiper-slide {
-      width: calc(100% - 10px); /* 1 card per row */
-    }
-  }
-  @media screen and (max-width: 480px) {
-   .review-card {
-
-    align-items: start;
-
-  }
     }
 {% endstyle %}
 
