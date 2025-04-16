@@ -3,25 +3,29 @@
 {{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
     }
-  }
-  .main-blog{padding:5rem;}
-  .blog-page-border{
-    border:1px solid #B1B1B1;
-  }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+    .main-blog{padding:5rem;}
+    .blog-page-border{
+      border:1px solid #B1B1B1;
+    }
+    .blog-page-all-blog .card__information{
+  padding-left: 2rem !important;
+      padding-right: 2rem !important;
+    }
 {%- endstyle -%}
 
 {%- paginate blog.articles by 6 -%}
-  <div class="main-blog page-width section-{{ section.id }}-padding">
+  <div class="main-blog page-width section-{{ section.id }}-padding blog-page-all-blog">
     <!-- remove blog main title -->
     <!--
       <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">

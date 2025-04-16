@@ -3888,7 +3888,7 @@ display:flex;
   text-transform: initial;
 font-size:39px;
   font-weight:400;
-  line-height:100%;
+  /* line-height:100%; */
 }
 .feacured-collection-title{
 /* font-family:'inter_font'; */
@@ -4110,11 +4110,11 @@ padding:25px;
 
 .product__title{
 
-  font-family: 'inter_font';
+
 font-weight: 700;
 font-size: 20px;
 line-height: 100%;
-letter-spacing: 14%;
+letter-spacing: 4px;
 
 }
 .product__text{
@@ -4137,11 +4137,11 @@ letter-spacing: -2%;
 
 }
 .quantity__label{
-/* font-family: 'inter_font'; */
+font-family: Inter;
 font-weight: 500;
 font-size: 20px;
 line-height: 100%;
-letter-spacing: -2%;
+letter-spacing: -1px;
 
 }
 .product-description{
@@ -4167,10 +4167,9 @@ letter-spacing: -2%;
 .feactured-product-check-content p{
   margin-top:0;
 /* font-family: 'inter_font'; */
-font-weight: 400;
-font-size: 14.92px;
-line-height: 100%;
-letter-spacing: -2%;
+font-weight: 400 !important;
+font-size: 14.92px !important;
+line-height: 100% !important;
 
 }
 .feactured-product-check-content a{
@@ -4821,3 +4820,57 @@ letter-spacing: -2px;
 /* (max-width: 480px) {
    
 } */
+.btn-blog.button {
+  margin-top: 10px;
+  background-color: white;
+  color: black;
+  padding: 0.8em 1.2em;
+  border:1px solid black;
+  text-align: center;
+  text-decoration: none;
+  font-family: Inter;
+font-weight: 600;
+font-size: 13.54px;
+line-height: 100%;
+letter-spacing: 0px;
+
+}
+.home-page-blog-copy .home-blog-title{
+  font-family: Inter;
+font-weight: 500;
+font-size: 27px;
+line-height: 100%;
+letter-spacing: -2px;
+
+}
+.home-page-blog-copy  .home-blog-paragraph{
+  font-family: Inter;
+font-weight: 300;
+font-size: 18px;
+line-height: 24px;
+letter-spacing: -1px;
+
+}
+.home-page-blog-copy .home-blog-title{
+    margin-bottom: 1rem !important;
+
+}
+.home-page-blog-copy  .home-blog-paragraph{
+    margin-bottom: 1rem !important;
+}
+@media screen and (max-width: 480px) {
+  .disclosure .field {
+    margin-top: 10px;
+   
+}
+  .allproduct-padding {
+    padding-inline: 1rem;
+}
+  .collection-list-page-title {
+    font-size: 13px;
+    letter-spacing: 0;
+}
+  section#shopify-section-template--15719547371563__about_us_page_image_banner_DGaLVy .about-us-banner {
+    height: 150px;
+}
+}

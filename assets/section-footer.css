@@ -161,8 +161,7 @@ border-top: 1px solid #BABABA;
   .footer-block__heading {
     margin:0;
     /* font-size: calc(var(--font-heading-scale) * 1.8rem); */
-      font-family: 'inter_font';
-font-weight: 600;
+      font-weight: 600;
 font-size: 25px;
 line-height: 100%;
 letter-spacing: 0;
@@ -265,12 +264,13 @@ letter-spacing: 0;
 }
 
 .footer__localization {
-  display: flex;
+  /* changes */
+  /* display: flex;
   flex-direction: row;
   justify-content: center;
   align-content: center;
   flex-wrap: wrap;
-  padding: 1rem 1rem 0;
+  padding: 1rem 1rem 0; */
 }
 
 .footer__localization:empty {
@@ -578,7 +578,10 @@ display:flex;
 }
    
   .footer-block.grid__item{
-    /* footer column two or chnage 3 width size autoSS  */
+    /* footer column two or chnage 3 width size auto  */
 width:45%;
   }
+   .footer__localization h2 {
+    margin: 0 0 0;
+}
 }

@@ -25,6 +25,11 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+    @media screen and (max-width: 480px) {
+  .email-lable{
+    font-size:10px;
+  }
+      }
 {%- endstyle -%}
 
 <footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding page-width">
@@ -95,7 +100,7 @@
                         placeholder="{{ 'newsletter.label' | t }}"
                         required
                       >
-                      <label class="field__label" for="NewsletterForm--{{ section.id }}">
+                      <label class="field__label email-lable" for="NewsletterForm--{{ section.id }} ">
                         {{ 'newsletter.label' | t }}
                       </label>
                       <button

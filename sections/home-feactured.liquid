@@ -28,16 +28,57 @@
   {% endunless %}
 
   {%- style -%}
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-    }
+                                .section-{{ section.id }}-padding {
+                                  padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+                                  padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+                                }
 
-    @media screen and (min-width: 750px) {
-      .section-{{ section.id }}-padding {
-        padding-top: {{ section.settings.padding_top }}px;
-        padding-bottom: {{ section.settings.padding_bottom }}px;
-      }
+                                @media screen and (min-width: 750px) {
+                                  .section-{{ section.id }}-padding {
+                                    padding-top: {{ section.settings.padding_top }}px;
+                                    padding-bottom: {{ section.settings.padding_bottom }}px;
+                                  }
+                                }
+                                .buy-it-now-home{
+                                  border-radius: 7px;
+                                }
+                                .payment-button-home .shopify-payment-button__button {
+                                     border-radius: 7px;
+                            }
+                            .home-page-feactured-product-subtitle{
+                                  margin-top: 1.5rem;
+                              margin-bottom:1.5rem;
+                            }
+                            .home-page-feactured-product-price span.feactured-product-price {
+                           font-size: 29.84px;
+                              margin:2rem 0 1rem 0;
+                        }
+                         .payment-button-home .quantity{
+                    width:30%;
+                         }
+                    .payment-button-home p{
+                      font-family: Inter;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 25px;
+            letter-spacing: -1px;
+            }
+            .home-page-product-description span{
+              font-family: Inter;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 100%;
+        letter-spacing: -1px;
+
+            }
+        .payment-button-home p.product__text {
+        /* font-family: 'inter_font'; */
+        text-transform: none;
+        font-weight: 300;
+        font-size: 30.84px;
+        line-height: 100%;
+        letter-spacing: -2px;
+          color:black;
     }
   {%- endstyle -%}
 
@@ -68,7 +109,7 @@
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
 
-  <section class="color-{{ section.settings.color_scheme }} {% if section.settings.secondary_background %}background-secondary{% else %}gradient{% endif %}">
+  <section class="color-{{ section.settings.color_scheme }} {% if section.settings.secondary_background %}background-secondary{% else %}gradient{% endif %} payment-button-home">
     <div class="page-width section-{{ section.id }}-padding{% if section.settings.secondary_background %} isolate{% endif %}">
       <div class="featured-product product product--{{ section.settings.media_size }} grid grid--1-col gradient color-{{ section.settings.color_scheme }} product--{{ section.settings.media_position }}{% if section.settings.secondary_background == false %} isolate{% endif %} {% if product.media.size > 0 or section.settings.product == blank %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
         <div class="grid__item product__media-wrapper">
@@ -127,7 +168,7 @@
                   {% render block %}
                 {%- when 'text' -%}
                   <p
-                    class="product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
+                    class="product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %} home-page-feactured-product-subtitle"
                     {{ block.shopify_attributes }}
                   >
                     {{- block.settings.text -}}
@@ -141,7 +182,12 @@
                     {%- endunless -%}
                   </h2>
                 {%- when 'price' -%}
-                  <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+                  <div
+                    id="price-{{ section.id }}"
+                    role="status"
+                    {{ block.shopify_attributes }}
+                    class="home-page-feactured-product-price"
+                  >
                     {%- render 'price',
                       product: product,
                       placeholder: placeholder,
@@ -156,18 +202,21 @@
                     </div>
                   {%- endif -%}
                   {%- if cart.taxes_included or cart.duties_included or shop.shipping_policy.body != blank -%}
-                    <div class="product__tax caption rte">
-                      {%- if cart.duties_included and cart.taxes_included -%}
-                        {{ 'products.product.duties_and_taxes_included' | t }}
-                      {%- elsif cart.taxes_included -%}
-                        {{ 'products.product.taxes_included' | t }}
-                      {%- elsif cart.duties_included -%}
-                        {{ 'products.product.duties_included' | t }}
-                      {%- endif -%}
-                      {%- if shop.shipping_policy.body != blank -%}
-                        {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
-                      {%- endif -%}
-                    </div>
+                    <!-- Taxes include hua hoto likha aata hai includ text vah comment kar diya -->
+                    <!--
+                      <div class="product__tax caption rte">
+                        {%- if cart.duties_included and cart.taxes_included -%}
+                          {{ 'products.product.duties_and_taxes_included' | t }}
+                        {%- elsif cart.taxes_included -%}
+                          {{ 'products.product.taxes_included' | t }}
+                        {%- elsif cart.duties_included -%}
+                          {{ 'products.product.duties_included' | t }}
+                        {%- endif -%}
+                        {%- if shop.shipping_policy.body != blank -%}
+                          {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+                        {%- endif -%}
+                      </div>
+                    -->
                   {%- endif -%}
                   {%- unless placeholder -%}
                     <div {{ block.shopify_attributes }}>
@@ -409,7 +458,10 @@
                       </volume-pricing>
                     {%- endif -%}
                   </div>
-                  <p class="product-description home-page -product-description">{{ product.description }}</p>
+                  <p class="product-description home-page-product-description">
+                    <span>Description</span>
+                    {{ product.description }}
+                  </p>
 
                 {%- when 'share' -%}
                   {% liquid
@@ -423,12 +475,49 @@
                     product_form_id: product_form_id
                   %}
                 {%- when 'buy_buttons' -%}
-                  {%- render 'buy-buttons',
-                    block: block,
-                    product: product,
-                    product_form_id: product_form_id,
-                    section_id: section.id
-                  -%}
+                  <div {{ block.shopify_attributes }}>
+                    {%- if product != blank -%}
+                      <product-form class="product-form" data-section-id="{{ section.id }}">
+                        <div class="product-form__error-message-wrapper" role="alert" hidden>
+                          <span class="svg-wrapper">
+                            {{- 'icon-error.svg' | inline_asset_content -}}
+                          </span>
+                          <span class="product-form__error-message"></span>
+                        </div>
+
+                        {%- form 'product',
+                          product,
+                          id: product_form_id,
+                          class: 'form',
+                          novalidate: 'novalidate',
+                          data-type: 'add-to-cart-form'
+                        -%}
+                          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+                          <!-- First Row: Quantity Selector + Add to Cart -->
+                          <div style="display: flex; gap: 10px;">
+                            <!-- Add to Cart Button -->
+                            <div style="flex: 1;">
+                              <button
+                                type="submit"
+                                class="product-form__submit button button--full-width add-to-cart-background"
+                              >
+                                <img src="https://cdn.shopify.com/s/files/1/0597/5192/3755/files/delete-icon.png?v=1743405373">
+                                <span>{{ 'products.product.add_to_cart' | t }}</span>
+                                {%- render 'loading-spinner' -%}
+                              </button>
+                            </div>
+                          </div>
+
+                          <!-- Second Row: Buy It Now Button (Full Width) -->
+                          <div style="margin-top: 10px; " class="buy-it-now-home">
+                            {{ form | payment_button }}
+                          </div>
+                        {%- endform -%}
+                      </product-form>
+                    {%- endif -%}
+                  </div>
+
                   <div class="feactured-product-check">
                     <div class="feactured-product-check-image">
                       <img src="https://cdn.shopify.com/s/files/1/0597/5192/3755/files/tick-mark-feactured-product.png?v=1743405873">

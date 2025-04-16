@@ -68,7 +68,8 @@
 }
 
 .collection__title.title-wrapper {
-  margin-bottom: 2.5rem;
+  /* changes */
+  margin-bottom: 1rem;
 }
 
 .collection__title .title:not(:only-child) {
