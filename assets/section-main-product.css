@@ -1502,3 +1502,19 @@ a.product__text {
     border: none;
   }
 }
+.custome-mobile-padding .product__title h1{
+  margin-top:2rem;
+  font-family: Inter;
+font-weight: 300;
+font-size: 30.84px;
+line-height: 100%;
+letter-spacing: -2px;
+
+}
+
+@media screen and (max-width: 480px) {
+  
+   .custome-mobile-padding .feacured-collecion-price {
+    font-size: 20.4px;
+}
+}

@@ -1,0 +1,121 @@
+<div class="fs-cart-drawer-related-products-wrapper">
+  <div class="fs-cart-drawer-related-products-header">
+    <h3 class="fs-cart-drawer-related-products-main-title">{{ 'cart_drawer.related_product_title' | t }}</h3>
+    <div class="fs-cart-related-products-slider-navigation">
+      <button type="button" class="fs-cart-related-products-slider-prev" aria-label="Previous"></button>
+      <button type="button" class="fs-cart-related-products-slider-next" aria-label="Next"></button>
+    </div>
+  </div>
+  <div class="fs-cart-drawer-related-products-slider">
+    <div class="fs-cart-related-products-wrap swiper-wrapper">
+      {% assign product_count = 0 %}
+      {% assign cart_items = cart.items | map: 'product_id' %}
+      {% for product in collections.all.products %}
+        {% assign is_in_cart = false %}
+        {% for cart_item in cart_items %}
+          {% if cart_item == product.id %}
+            {% assign is_in_cart = true %}
+          {% endif %}
+        {% endfor %}
+        {% if product.available and is_in_cart == false and product_count < 4 %}
+          <div class="fs-related-product swiper-slide">
+            <div class="fs-related-product-image-content">
+              <a href="{{ product.url }}" role="link">
+                {{
+                  product.images[0]
+                  | image_url: width: product.images[0].width
+                  | image_tag:
+                    loading: 'lazy',
+                    widths: '360, 533, 720, 940, 1066, 1200, 1400, 1600, 1800, 2000, 2200, 2400, 2600, 2800, 3000, 3200, 3400, 3584, 3800, 4000, 4200, 4400, 4600, 4800, 5000, 5200, 5400, 5600',
+                    sizes: sizes,
+                    class: 'fs-related-product-image fs-related-product-image-1',
+                    alt: product.title
+                  | escape
+                }}
+                {% if product.images.size > 1 %}
+                  {{
+                    product.images[1]
+                    | image_url: width: product.images[1].width
+                    | image_tag:
+                      loading: 'lazy',
+                      widths: '360, 533, 720, 940, 1066, 1200, 1400, 1600, 1800, 2000, 2200, 2400, 2600, 2800, 3000, 3200, 3400, 3584, 3800, 4000, 4200, 4400, 4600, 4800, 5000, 5200, 5400, 5600',
+                      sizes: sizes,
+                      class: 'fs-related-product-image fs-related-product-image-2',
+                      alt: product.title
+                    | escape
+                  }}
+                {% else %}
+                  {{
+                    product.images[0]
+                    | image_url: width: product.images[0].width
+                    | image_tag:
+                      loading: 'lazy',
+                      widths: '360, 533, 720, 940, 1066, 1200, 1400, 1600, 1800, 2000, 2200, 2400, 2600, 2800, 3000, 3200, 3400, 3584, 3800, 4000, 4200, 4400, 4600, 4800, 5000, 5200, 5400, 5600',
+                      sizes: sizes,
+                      class: 'fs-related-product-image fs-related-product-image-2',
+                      alt: product.title
+                    | escape
+                  }}
+                {% endif %}
+              </a>
+            </div>
+            <div class="fs-related-product-text-content">
+              <a class="fs-related-product-title" href="{{ product.url }}">{{ product.title | truncate: 18, '' }}</a>
+              <span class="fs-related-product-price">
+                {%- if settings.currency_code_enabled -%}
+                  {{ product.price | money_with_currency }}
+                {% else %}
+                  {{ product.price | money }}
+                {% endif %}
+                {% assign current_variant = product.selected_or_first_available_variant %}
+                <div
+                  data-unit-price-wrapper
+                  class="fs-product-price-wrap fs-product-unit-price-wrap {% unless current_variant.unit_price_measurement %} hide{% endunless %}"
+                >
+                  {%- capture unit_price_base_unit -%}
+                        <span data-unit-base>
+                          {%- if current_variant.unit_price_measurement -%}
+                            {%- if current_variant.unit_price_measurement.reference_value != 1 -%}
+                              {{ current_variant.unit_price_measurement.reference_value }}
+                            {%- endif -%}
+                            {{ current_variant.unit_price_measurement.reference_unit }}
+                          {%- endif -%}
+                        </span>
+                    {%- endcapture -%}
+                  <span data-unit-price class="fs-product-price fs-product-unit-price">
+                    {% if settings.currency_code_enabled %}
+                      {{ current_variant.unit_price | money_with_currency }}/{{ unit_price_base_unit }}
+                    {% else %}
+                      {{ current_variant.unit_price | money }}/{{ unit_price_base_unit }}
+                    {% endif %}
+                  </span>
+                </div>
+              </span>
+              <form
+                action="/cart/add"
+                method="post"
+                class="shopify-product-form fs-related-form"
+                id="product-form-{{ product.id }}"
+                data-product-id="{{ product.id }}"
+              >
+                <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                <input type="hidden" name="quantity" value="1">
+                <button
+                  type="submit"
+                  aria-label="{{ 'products.product.add_to_cart' | t }}"
+                  class="add-to-cart fs-related-add-btn"
+                  id="add-to-cart"
+                  data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+                >
+                  {{ 'products.product.add_to_cart' | t }}
+                  +
+                </button>
+              </form>
+            </div>
+          </div>
+          {% assign product_count = product_count | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>

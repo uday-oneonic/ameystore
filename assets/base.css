@@ -884,6 +884,7 @@ summary::-webkit-details-marker {
 
 /* component-grid */
 .grid {
+  /*  chnage */
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 2rem;
@@ -3841,6 +3842,7 @@ font-size:7px;
     width: 188px;
     font-weight:300;
     line-height:136%;
+    letter-spacing:0;
 }
   h2.image-with-text__heading.inline-richtext.h1 {
  
@@ -4500,8 +4502,9 @@ letter-spacing: 0 !important;
   
 }
 .cart-drawer__recommendations {
+  /* change for cart-drawer collection  */
   margin-top: 20px;
-  padding: 16px;
+  /* padding: 16px; */
   border-top: 1px solid #eee;
 }
 
@@ -4873,4 +4876,7 @@ letter-spacing: -1px;
   section#shopify-section-template--15719547371563__about_us_page_image_banner_DGaLVy .about-us-banner {
     height: 150px;
 }
+}
+.slider-mobile-gutter ul.product__media-list{
+  column-gap: 5px;
 }

@@ -26,28 +26,46 @@
   {%- endif -%}
 
   {%- style -%}
-        .section-{{ section.id }}-padding {
-          padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-          padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-            overflow: hidden;
+                    .section-{{ section.id }}-padding {
+                      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+                      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+                        overflow: hidden;
+                    }
+
+                    @media screen and (min-width: 750px) {
+                      .section-{{ section.id }}-padding {
+                        padding-top: {{ section.settings.padding_top }}px;
+                        padding-bottom: {{ section.settings.padding_bottom }}px;
+                      }
+                      .product-padding{
+                        padding:1rem 5rem;
+
+                      }
+                      }
+                       @media screen and (max-width: 480px) {
+
+                .custome-mobile-padding{
+                padding:0 10px;
+                }
+                    }
+                .product-title-review {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+            }
+
+            .product-title-review .jdgm-widget {
+              margin-top: 2px; /* Adjust as needed */
+            }
+            .jdgm-preview-badge{font-family: Inter;
+        font-weight: 400;
+        font-size: 16.91px;
+        line-height: 100%;
+        letter-spacing: 0;
         }
-
-        @media screen and (min-width: 750px) {
-          .section-{{ section.id }}-padding {
-            padding-top: {{ section.settings.padding_top }}px;
-            padding-bottom: {{ section.settings.padding_bottom }}px;
-          }
-          .product-padding{
-            padding:1rem 5rem;
-
-          }
-          }
-           @media screen and (max-width: 480px) {
-
-    .custome-mobile-padding{
-    padding:0 10px;
-    }
-        }
+        /* .jdgm-prev-badge {
+        display: flex !important;
+    } */
   {%- endstyle -%}
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
@@ -114,14 +132,24 @@
                 </p>
               {%- when 'title' -%}
                 <div class="product__title" {{ block.shopify_attributes }}>
-                  {% if product.metafields.custom.labels.value.label_name != blank %}
-                    <span
-                      class="custom-badge"
-                      style="background-color: {{ product.metafields.custom.labels.value.label_color }};"
-                    >
-                      {{ product.metafields.custom.labels.value.label_name }}
-                    </span>
-                  {% endif %}
+                  <div
+                    class="label-and-stars"
+                    style="display: flex; align-items: center; justify-content: space-between; gap: 10px;"
+                  >
+                    {% if product.metafields.custom.labels.value.label_name != blank %}
+                      <span
+                        class="custom-badge"
+                        style="background-color: {{ product.metafields.custom.labels.value.label_color }};"
+                      >
+                        {{ product.metafields.custom.labels.value.label_name }}
+                      </span>
+                    {% endif %}
+                    <!-- Start of Judge.me code -->
+                    <div class="jdgm-widget jdgm-preview-badge">
+                      {{ card_product.metafields.judgeme.badge }}
+                    </div>
+                    <!-- End of Judge.me code -->
+                  </div>
 
                   <h1>{{ product.title | escape }}</h1>
                   <a href="{{ product.url }}" class="product__title">
@@ -144,20 +172,24 @@
                     <span>{{ 'products.product.volume_pricing.note' | t }}</span>
                   </div>
                 {%- endif -%}
-                {%- if cart.taxes_included or cart.duties_included or shop.shipping_policy.body != blank -%}
-                  <div class="product__tax caption rte">
-                    {%- if cart.duties_included and cart.taxes_included -%}
-                      {{ 'products.product.duties_and_taxes_included' | t }}
-                    {%- elsif cart.taxes_included -%}
-                      {{ 'products.product.taxes_included' | t }}
-                    {%- elsif cart.duties_included -%}
-                      {{ 'products.product.duties_included' | t }}
-                    {%- endif -%}
-                    {%- if shop.shipping_policy.body != blank -%}
-                      {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
-                    {%- endif -%}
-                  </div>
-                {%- endif -%}
+                <!-- comment "tax include" -->
+                <!--
+                  {%- if cart.taxes_included or cart.duties_included or shop.shipping_policy.body != blank -%}
+
+                    <div class="product__tax caption rte">
+                      {%- if cart.duties_included and cart.taxes_included -%}
+                        {{ 'products.product.duties_and_taxes_included' | t }}
+                      {%- elsif cart.taxes_included -%}
+                        {{ 'products.product.taxes_included' | t }}
+                      {%- elsif cart.duties_included -%}
+                        {{ 'products.product.duties_included' | t }}
+                      {%- endif -%}
+                      {%- if shop.shipping_policy.body != blank -%}
+                        {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+                      {%- endif -%}
+                    </div>
+                  {%- endif -%}
+                -->
                 <div {{ block.shopify_attributes }}>
                   {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
                   {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
