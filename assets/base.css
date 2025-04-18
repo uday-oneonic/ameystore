@@ -79,6 +79,7 @@
 /* base */
 
 .page-width {
+  width:100%;
   max-width: 1400px;
   margin: 0 auto;
   /* padding: 0 1.5rem; */
@@ -134,7 +135,8 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   }
 
   .page-width--narrow {
-    max-width: 72.6rem;
+    max-width:940px;
+    /* max-width: 72.6rem; */
     padding: 0;
   }
 
@@ -3897,12 +3899,14 @@ font-size:39px;
   font-size:20.4px;
   font-weight:500;
   line-height:100%;
+      letter-spacing: -0.03em;
 }
 .feacured-collecion-price{
 font-size:20.4px;
   font-weight:700;
   /* font-family:'inter_font'; */
   line-height:100%;
+  letter-spacing: -0.03em;
 }
 .collection__title .title:not(:only-child) {
 align-content:center;
@@ -4724,7 +4728,7 @@ font-family: Inter;
 font-weight: 600;
 font-size: 33px;
 line-height: 100%;
-letter-spacing: -2px;
+letter-spacing: -0.02em;
 }
 .template-collection-list .about-us-banner {
   height: 1000px; /* ke je tamne joiye te */
@@ -4800,7 +4804,7 @@ letter-spacing: -2px;
 font-weight: 300;
 font-size: 22px;
 line-height: 100%;
-letter-spacing: -2px;
+    letter-spacing: -0.02em;
 }
 
 /*  texting css */
@@ -4851,7 +4855,7 @@ letter-spacing: -2px;
 font-weight: 300;
 font-size: 18px;
 line-height: 24px;
-letter-spacing: -1px;
+letter-spacing: -0.03em;
 
 }
 .home-page-blog-copy .home-blog-title{
@@ -4879,4 +4883,34 @@ letter-spacing: -1px;
 }
 .slider-mobile-gutter ul.product__media-list{
   column-gap: 5px;
+}
+/* blog-post bottom part  */
+span.circle-divider.caption-with-letter-spacing{
+  font-family: Inter;
+font-weight: 500;
+font-size: 24px;
+line-height: 100%;
+letter-spacing: 0em;
+
+}
+.caption-with-letter-spacing{
+font-family: Inter;
+font-weight: 500;
+font-size: 24px;
+line-height: 100%;
+letter-spacing: 0em;
+
+}
+.blog-post-last-line span {
+    font-family: Inter;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: 0em;
+}
+.blog-post-last-line a.link.list-social__link {
+    border: none;
+}
+.article-template div#comments {
+    padding: 1rem 0;
 }

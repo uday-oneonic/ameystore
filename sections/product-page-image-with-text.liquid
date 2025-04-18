@@ -17,7 +17,7 @@
               font-weight: 300 !important;
               font-size: 31px !important;
               line-height: 100% !important;
-              letter-spacing: 5px !important;
+              letter-spacing: 0.22em !important;
 
               }
               .product-page-image-with-text__subtitle{
@@ -25,7 +25,7 @@
             font-weight: 600 !important;
             font-size: 47px !important;
             line-height: 100% !important;
-            letter-spacing: -1px !important;
+            letter-spacing: -0.01em !important;
                 color: black;
 
               }
@@ -34,7 +34,7 @@
           font-weight: 300 !important;
           font-size: 24px !important;
           line-height: 100% !important;
-          letter-spacing: -1px !important;
+           letter-spacing: -0.01em !important;
 
 
 
@@ -47,6 +47,11 @@
           .product-page-padding{
         padding-left:100px;
           }
+  @media screen and (max-width: 700px) {
+      .product-page-padding{
+        padding-left:25px;
+          }
+      }
         @media screen and (max-width: 480px) {
     .product-page-image-with-text__subtitle{
 
@@ -69,6 +74,9 @@
              font-size: 10px !important;
           }
       }
+  .product-page-image-with-text__paragraph p{
+       width: 100% !important;
+  }
 {%- endstyle -%}
 
 {%- liquid

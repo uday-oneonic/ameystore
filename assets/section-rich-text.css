@@ -94,8 +94,8 @@ max-width: 1000px;
 font-family: Inter;
     font-weight: 500;
     font-size: 47px;
-    line-height: 120%;
-    letter-spacing: -2px;
+    line-height: 61px;
+    letter-spacing: -0.02em;
     color: black;
     text-align: center;
  }

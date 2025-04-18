@@ -3,329 +3,335 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-    background: #e5e5e5;
-  }
+   .section-{{ section.id }}-padding {
+     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+     background: #E8E8E8;
+     width:100%;
+     max-width:1400px;
+   }
 
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
+   @media screen and (min-width: 750px) {
+     .section-{{ section.id }}-padding {
+       padding-top: {{ section.settings.padding_top }}px;
+       padding-bottom: {{ section.settings.padding_bottom }}px;
+  background: #E8E8E8;
 
-  .section-{{ section.id }}-padding .auth-container {
-    background: #fff;
-    max-width: 500px;
-    margin: auto;
-    padding: 2rem 2rem 1rem;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-  }
+     }
+   }
 
-  .section-{{ section.id }}-padding .auth-tabs {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-    border-bottom: 1px solid #ccc;
-  }
+   .section-{{ section.id }}-padding .auth-container {
+     background: #fff;
+     width: 500px;
+     margin: auto;
+     padding: 2rem 2rem 1rem;
+     box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+   }
 
-  .section-{{ section.id }}-padding .auth-tab {
-    flex: 1;
-    text-align: center;
-    padding: 0.75rem 0;
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
-    color: #000;
-    font-family: Inter;
-    font-weight: 600;
-    font-size: 23px;
-    line-height: 100%;
-    letter-spacing: 0;
-  }
+   .section-{{ section.id }}-padding .auth-tabs {
+     display: flex;
+     justify-content: center;
+     margin-bottom: 1.5rem;
+     border-bottom: 1px solid #ccc;
+   }
 
-  .section-{{ section.id }}-padding .auth-tab.active {
-    border-color: #000;
-  }
+   .section-{{ section.id }}-padding .auth-tab {
+     flex: 1;
+     text-align: center;
+     padding: 0.75rem 0;
+     cursor: pointer;
+     border-bottom: 2px solid transparent;
+     color: #000;
+     font-family: Inter;
+     font-weight: 600;
+     font-size: 23px;
+     line-height: 100%;
+     letter-spacing: -0.02em;
+   }
 
-  .section-{{ section.id }}-padding .auth-form {
-    display: none;
-    transition: opacity 0.3s ease;
-    opacity: 0;
-    height: 0;
-    overflow: hidden;
-  }
+   .section-{{ section.id }}-padding .auth-tab.active {
+     border-color: #000;
+   }
 
-  .section-{{ section.id }}-padding .auth-form.active {
-    display: block;
-    opacity: 1;
-    height: auto;
-  }
+   .section-{{ section.id }}-padding .auth-form {
+     display: none;
+     transition: opacity 0.3s ease;
+     opacity: 0;
+     height: 0;
+     overflow: hidden;
+   }
 
-  .section-{{ section.id }}-padding h1 {
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-  }
+   .section-{{ section.id }}-padding .auth-form.active {
+     display: block;
+     opacity: 1;
+     height: auto;
+   }
 
-  .section-{{ section.id }}-padding .field {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    margin-bottom: 1rem;
-  }
+   .section-{{ section.id }}-padding h1 {
+     text-align: center;
+     font-size: 1.5rem;
+     font-weight: 700;
+     margin-bottom: 1.5rem;
+   }
 
-  .section-{{ section.id }}-padding .field input {
-    width: 100%;
-    height: 55px;
-    padding: 0.75rem;
-    font-size: 1rem;
-    border: 1px solid #000;
-    background: transparent;
-    outline: none;
-  }
+   .section-{{ section.id }}-padding .field {
+     display: flex;
+     flex-direction: column;
+     flex-wrap: wrap;
+     margin-bottom: 1rem;
+   }
 
-  .section-{{ section.id }}-padding .field label {
-    display: block;
-    margin: 2rem 0;
-    color: #000;
-    font-family: Inter;
-    font-weight: 300;
-    font-size: 21px;
-    line-height: 100%;
-    letter-spacing: -2px;
-  }
+   .section-{{ section.id }}-padding .field input {
+     width: 100%;
+     height: 55px;
+     padding: 0.75rem;
+     /* font-size: 1rem; */
+     border: 1px solid #000;
+     background: transparent;
+     outline: none;
+   }
 
-  .section-{{ section.id }}-padding .forgot-password {
-    text-align: right;
-    margin-bottom: 1.25rem;
-    font-size: 0.875rem;
-  }
+   .section-{{ section.id }}-padding .field label {
+     display: block;
+     margin: 2rem 0;
+     color: #000;
+     font-family: Inter;
+     font-weight: 300;
+     font-size: 21px;
+     line-height: 100%;
+     letter-spacing: -0.02em;
+   }
 
-  .section-{{ section.id }}-padding .forgot-password a {
-    color: #000;
-    text-decoration: underline;
-  }
+   .section-{{ section.id }}-padding .forgot-password {
+     text-align: right;
+     margin-bottom: 1.25rem;
+     font-size: 0.875rem;
+   }
 
-  .section-{{ section.id }}-padding .auth-container button {
-    height: 55px;
-    width: 100%;
-    padding: 0.75rem;
-    background: #000;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    margin-top: 0.5rem;
-    font-family: Inter;
-    font-weight: 600;
-    font-size: 21px;
-    line-height: 100%;
-    letter-spacing: 0;
-  }
+   .section-{{ section.id }}-padding .forgot-password a {
+     color: #000;
+     text-decoration: underline;
+   }
 
-  .section-{{ section.id }}-padding .text-center {
-    margin: 4.5rem 0;
-    font-family: Inter;
-    font-weight: 600;
-    font-size: 42px;
-    line-height: 100%;
-    letter-spacing: -2px;
-  }
+   .section-{{ section.id }}-padding .auth-container button {
+     height: 55px;
+     width: 100%;
+     padding: 0.75rem;
+     background: #000;
+     color: #fff;
+     border: none;
+     cursor: pointer;
+     margin-top: 0.5rem;
+     font-family: Inter;
+     font-weight: 600;
+     font-size: 21px;
+     line-height: 100%;
+     letter-spacing: -0.02em;
+   }
 
-  .section-{{ section.id }}-padding .text-center a {
-    color: #000;
-    text-decoration: underline;
-    margin-left: 4px;
-  }
+   .section-{{ section.id }}-padding .text-center {
+     margin: 4.5rem 0;
+     font-family: Inter;
+     font-weight: 600;
+     font-size: 42px;
+     line-height: 100%;
+     letter-spacing: -0.02em;
+   }
 
-  .section-{{ section.id }}-padding .form__message {
-    color: red;
-    font-size: 0.875rem;
-    margin-bottom: 1rem;
-  }
+   .section-{{ section.id }}-padding .text-center a {
+     color: #000;
+     text-decoration: underline;
+     margin-left: 4px;
+   }
 
-  .section-{{ section.id }}-padding .svg-wrapper {
-    margin-right: 4px;
-  }
+   .section-{{ section.id }}-padding .form__message {
+     color: red;
+     font-size: 0.875rem;
+     margin-bottom: 1rem;
+   }
 
-  .section-{{ section.id }}-padding .auth-container .text-bottom {
-    text-align: center;
-    margin: 2rem 0;
-    font-family: Inter;
-    font-weight: 300;
-    font-size: 21px;
-    line-height: 100%;
-    letter-spacing: 0;
-    text-decoration-style: solid;
-    text-decoration-offset: 0%;
-    text-decoration-thickness: 0%;
-    text-underline-position: under;
-  }
+   .section-{{ section.id }}-padding .svg-wrapper {
+     margin-right: 4px;
+   }
 
-  .section-{{ section.id }}-padding .text-bottom a {
-    color: #000;
-    text-decoration: underline;
-    margin-left: 4px;
-  }
+   .section-{{ section.id }}-padding .auth-container .text-bottom {
+     text-align: center;
+     margin: 2rem 0;
+     font-family: Inter;
+     font-weight: 300;
+     font-size: 21px;
+     line-height: 100%;
+     letter-spacing: -0.02em;
+     text-decoration-style: solid;
+     text-decoration-offset: 0%;
+     text-decoration-thickness: 0%;
+     text-underline-position: under;
+   }
 
-  .register-form-bottome-link {
-    text-decoration: none;
-  }
+   .section-{{ section.id }}-padding .text-bottom a {
+     color: #000;
+     text-decoration: underline;
+     margin-left: 4px;
+   }
 
-  @media (max-width: 749px) {
-    .section-{{ section.id }}-padding .auth-container {
-      padding: 1.5rem 1rem;
-    }
+   .register-form-bottome-link {
+     text-decoration: none;
+   }
 
-    .section-{{ section.id }}-padding .text-center {
-      font-size: 32px;
-      margin: 3rem 0;
-    }
-  }
+   @media (max-width: 749px) {
+     .section-{{ section.id }}-padding .auth-container {
+       padding: 1.5rem 1rem;
+     }
 
-  @media (max-width: 480px) {
-    .section-{{ section.id }}-padding .auth-container {
-      max-width: 350px;
-    }
+     .section-{{ section.id }}-padding .text-center {
+       font-size: 32px;
+       margin: 3rem 0;
+     }
+   }
 
-    .section-{{ section.id }}-padding .auth-container .text-bottom {
-      font-weight: 300;
-      font-size: 15px;
-    }
-  }
+   @media (max-width: 480px) {
+     .section-{{ section.id }}-padding .auth-container {
+       max-width: 350px;
+     }
+
+     .section-{{ section.id }}-padding .auth-container .text-bottom {
+       font-weight: 300;
+       font-size: 15px;
+     }
+   }
 {%- endstyle -%}
 
-<div class="section-{{ section.id }}-padding">
-  <h1 class="text-center" id="auth-heading">Customer Login</h1>
+<div class="section-{{ section.id }}-padding page-width">
+  <div class="my">
+    <h1 class="text-center" id="auth-heading">Customer Login</h1>
 
-  <div class="auth-container">
-    <div class="auth-tabs">
-      <div class="auth-tab active" data-tab="login">Login</div>
-      <div class="auth-tab" data-tab="register">Sign up</div>
-    </div>
+    <div class="auth-container">
+      <div class="auth-tabs">
+        <div class="auth-tab active" data-tab="login">Login</div>
+        <div class="auth-tab" data-tab="register">Sign up</div>
+      </div>
 
-    <!-- Login Form -->
-    <div class="auth-form active" id="login">
-      {%- form 'customer_login', novalidate: 'novalidate' -%}
-        {% if form.errors %}
-          <div class="form__message">
-            <span class="svg-wrapper">{{ 'icon-error.svg' | inline_asset_content }}</span>
-            {{ 'templates.contact.form.error_heading' | t }}
-          </div>
-          {{ form.errors | default_errors }}
-        {% endif %}
-
-        <div class="field">
-          <label for="CustomerEmail">{{ 'customer.login_page.email' | t }}</label>
-          <input
-            type="email"
-            name="customer[email]"
-            id="CustomerEmail"
-          >
-        </div>
-
-        <div class="field">
-          <label for="CustomerPassword">{{ 'customer.login_page.password' | t }}</label>
-          <input
-            type="password"
-            name="customer[password]"
-            id="CustomerPassword"
-          >
-        </div>
-
-        <button>{{ 'customer.login_page.submit' | t }}</button>
-
-        <p class="text-bottom forgot-password">
-          <a href="#" onclick="switchTab('recover'); return false;">
-            {{ 'customer.login_page.forgot_password' | t }}
-          </a>
-        </p>
-      {%- endform -%}
-    </div>
-
-    <!-- Register Form -->
-    <div class="auth-form" id="register">
-      {%- form 'create_customer', novalidate: 'novalidate' -%}
-        {% if form.errors %}
-          <div class="form__message">
-            <span class="svg-wrapper">{{ 'icon-error.svg' | inline_asset_content }}</span>
-            {{ 'templates.contact.form.error_heading' | t }}
-          </div>
-        {% endif %}
-
-        <div class="field">
-          <label for="RegisterForm-FirstName">{{ 'customer.register.first_name' | t }}</label>
-          <input
-            type="text"
-            name="customer[first_name]"
-            id="RegisterForm-FirstName"
-          >
-        </div>
-
-        <div class="field">
-          <label for="RegisterForm-LastName">{{ 'customer.register.last_name' | t }}</label>
-          <input
-            type="text"
-            name="customer[last_name]"
-            id="RegisterForm-LastName"
-          >
-        </div>
-
-        <div class="field">
-          <label for="RegisterForm-email">{{ 'customer.register.email' | t }}</label>
-          <input
-            type="email"
-            name="customer[email]"
-            id="RegisterForm-email"
-          >
-        </div>
-
-        <div class="field">
-          <label for="RegisterForm-password">{{ 'customer.register.password' | t }}</label>
-          <input
-            type="password"
-            name="customer[password]"
-            id="RegisterForm-password"
-          >
-        </div>
-
-        <button>{{ 'customer.register.submit' | t }}</button>
-
-        <p class="text-bottom register-form-bottome-link">
-          Already have an account?
-          <a href="#" onclick="switchTab('login'); return false;">Log in</a>
-        </p>
-      {%- endform -%}
-    </div>
-    <!-- Recover Password Form -->
-    <div class="auth-form" id="recover">
-      {%- form 'recover_customer_password' -%}
-        {% if form.errors %}
-          <div class="form__message">
-            <span class="svg-wrapper">{{ 'icon-error.svg' | inline_asset_content }}</span>
+      <!-- Login Form -->
+      <div class="auth-form active" id="login">
+        {%- form 'customer_login', novalidate: 'novalidate' -%}
+          {% if form.errors %}
+            <div class="form__message">
+              <span class="svg-wrapper">{{ 'icon-error.svg' | inline_asset_content }}</span>
+              {{ 'templates.contact.form.error_heading' | t }}
+            </div>
             {{ form.errors | default_errors }}
+          {% endif %}
+
+          <div class="field">
+            <label for="CustomerEmail">{{ 'customer.login_page.email' | t }}</label>
+            <input
+              type="email"
+              name="customer[email]"
+              id="CustomerEmail"
+            >
           </div>
-        {% endif %}
 
-        {% if form.posted_successfully? %}
-          <div class="form__message" style="color: green;">
-            {{ 'customer.recover_password.success' | t }}
+          <div class="field">
+            <label for="CustomerPassword">{{ 'customer.login_page.password' | t }}</label>
+            <input
+              type="password"
+              name="customer[password]"
+              id="CustomerPassword"
+            >
           </div>
-        {% endif %}
 
-        <div class="field">
-          <label for="RecoverEmail">{{ 'customer.login_page.email' | t }}</label>
-          <input type="email" name="email" id="RecoverEmail" required>
-        </div>
+          <button>{{ 'customer.login_page.submit' | t }}</button>
 
-        <button>{{ 'customer.login_page.submit' | t }}</button>
+          <p class="text-bottom forgot-password">
+            <a href="#" onclick="switchTab('recover'); return false;">
+              {{ 'customer.login_page.forgot_password' | t }}
+            </a>
+          </p>
+        {%- endform -%}
+      </div>
 
-        <p class="text-bottom">
-          <a href="#" onclick="switchTab('login'); return false;"> {{ 'customer.login_page.cancel' | t }}</a>
-        </p>
-      {%- endform -%}
+      <!-- Register Form -->
+      <div class="auth-form" id="register">
+        {%- form 'create_customer', novalidate: 'novalidate' -%}
+          {% if form.errors %}
+            <div class="form__message">
+              <span class="svg-wrapper">{{ 'icon-error.svg' | inline_asset_content }}</span>
+              {{ 'templates.contact.form.error_heading' | t }}
+            </div>
+          {% endif %}
+
+          <div class="field">
+            <label for="RegisterForm-FirstName">{{ 'customer.register.first_name' | t }}</label>
+            <input
+              type="text"
+              name="customer[first_name]"
+              id="RegisterForm-FirstName"
+            >
+          </div>
+
+          <div class="field">
+            <label for="RegisterForm-LastName">{{ 'customer.register.last_name' | t }}</label>
+            <input
+              type="text"
+              name="customer[last_name]"
+              id="RegisterForm-LastName"
+            >
+          </div>
+
+          <div class="field">
+            <label for="RegisterForm-email">{{ 'customer.register.email' | t }}</label>
+            <input
+              type="email"
+              name="customer[email]"
+              id="RegisterForm-email"
+            >
+          </div>
+
+          <div class="field">
+            <label for="RegisterForm-password">{{ 'customer.register.password' | t }}</label>
+            <input
+              type="password"
+              name="customer[password]"
+              id="RegisterForm-password"
+            >
+          </div>
+
+          <button>{{ 'customer.register.submit' | t }}</button>
+
+          <p class="text-bottom register-form-bottome-link">
+            Already have an account?
+            <a href="#" onclick="switchTab('login'); return false;">Log in</a>
+          </p>
+        {%- endform -%}
+      </div>
+      <!-- Recover Password Form -->
+      <div class="auth-form" id="recover">
+        {%- form 'recover_customer_password' -%}
+          {% if form.errors %}
+            <div class="form__message">
+              <span class="svg-wrapper">{{ 'icon-error.svg' | inline_asset_content }}</span>
+              {{ form.errors | default_errors }}
+            </div>
+          {% endif %}
+
+          {% if form.posted_successfully? %}
+            <div class="form__message" style="color: green;">
+              {{ 'customer.recover_password.success' | t }}
+            </div>
+          {% endif %}
+
+          <div class="field">
+            <label for="RecoverEmail">{{ 'customer.login_page.email' | t }}</label>
+            <input type="email" name="email" id="RecoverEmail" required>
+          </div>
+
+          <button>{{ 'customer.login_page.submit' | t }}</button>
+
+          <p class="text-bottom">
+            <a href="#" onclick="switchTab('login'); return false;"> {{ 'customer.login_page.cancel' | t }}</a>
+          </p>
+        {%- endform -%}
+      </div>
     </div>
   </div>
 </div>

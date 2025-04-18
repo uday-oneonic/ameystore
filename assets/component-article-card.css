@@ -148,7 +148,7 @@ color:white;
 font-weight: 400;
 font-size: 23px;
 line-height: 100%;
-letter-spacing: 5px;
+    letter-spacing: 0.22em;
   border: none;
     height: 70px;
 }
@@ -168,7 +168,7 @@ button.blog-page-btn:hover {
     font-weight: 300;
     font-size: 23px;
     line-height: 100%;
-    letter-spacing: 0;
+    letter-spacing: 0.07em;
 }
 .blog-post-paragraph {
     font-family: Inter;

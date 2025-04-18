@@ -11,8 +11,7 @@
            }
 
            .about-us-second-banner-scroll-text {
-             font-size: 100px;
-             font-weight: 800;
+
              color: {{ section.settings.background_text_color }};
              white-space: nowrap;
              opacity: 0.2;
@@ -25,10 +24,13 @@
               font-family: Inter;
          font-weight: 800;
          font-size: 116px;
-         line-height: 61px;
-         letter-spacing: -2px;
+         /* line-height: 61px; */
+         letter-spacing: -0.02em;
          text-align: center;
-
+         background: linear-gradient(90deg, rgba(255, 255, 255, 0.5) 0%, #999999 100%);
+        text-align: center;
+       -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
            }
 
            .about-us-second-banner-highlight {
@@ -43,7 +45,8 @@
          font-weight: 800;
          font-size: 116px;
          line-height: 61px;
-         letter-spacing: -2px;
+         letter-spacing: -0.02em;
+
          text-align: center;
 
            }

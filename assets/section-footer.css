@@ -164,7 +164,7 @@ border-top: 1px solid #BABABA;
       font-weight: 600;
 font-size: 25px;
 line-height: 100%;
-letter-spacing: 0;
+letter-spacing: -0.03em;
 
   }
 }
@@ -393,7 +393,14 @@ letter-spacing: 0;
 @media screen and (min-width: 750px) {
   .footer-block__details-content .list-menu__item--link {
     display: inline-block;
-    font-size: 1.4rem;
+    font-family: Inter;
+font-weight: 400;
+font-size: 19.37px;
+line-height: 100%;
+letter-spacing: 0px;
+    opacity: 50%;
+        color: #0A142F;
+
   }
 
   .footer-block__details-content > :first-child .list-menu__item--link {
@@ -542,6 +549,7 @@ font-weight: 600;
 font-size: 19.37px;
 line-height: 33.89px;
 letter-spacing: 0px;
+  margin-bottom: 1rem;
 }
 .footer-shop-title{
   color:black;
@@ -584,4 +592,8 @@ width:45%;
    .footer__localization h2 {
     margin: 0 0 0;
 }
+}
+/* custome css footer bottom   */
+.footer__content-bottom {
+    margin: 0 2rem;
 }

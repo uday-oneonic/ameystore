@@ -363,11 +363,17 @@
 
     <main
       id="MainContent"
-      class="content-for-layout focus-none {% if template.name == 'cart' %}cart-page-in-one-line{% endif %}"
+      class="content-for-layout focus-none"
       role="main"
       tabindex="-1"
     >
-      {{ content_for_layout }}
+      {% if template.name == 'cart' %}
+        <div class="cart-page-in-one-line  page-width">
+          {{ content_for_layout }}
+        </div>
+      {% else %}
+        {{ content_for_layout }}
+      {% endif %}
     </main>
 
     {% sections 'footer-group' %}

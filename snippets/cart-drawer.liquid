@@ -12,247 +12,251 @@
 <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
 
 <style>
-                                         .drawer {
-                                           visibility: hidden;
-                                         }
-                                         .cart-drawer-close-btn{
-                                         border: 1px solid black;
-                                         padding: 5px 20px;
-                                         font-family: Inter;
-                                         font-weight: 300;
-                                         font-size: 20px;
+                                                 .drawer {
+                                                   visibility: hidden;
+                                                 }
+                                                 .cart-drawer-close-btn{
+                                                 border: 1px solid black;
+                                                 padding: 5px 20px;
+                                                 font-family: Inter;
+                                                 font-weight: 300;
+                                                 font-size: 20px;
+                                                 line-height: 100%;
+                                                 letter-spacing: 0;
+                                                 }
+
+                                                 /* cart gift code */
+                                                 .cart-drawer-buttons {
+                                                   display: flex;
+                                                   gap: 1px;
+                                                   /* background-color: #ffe9bb; */
+                                                   border-radius: 8px;
+                                                   overflow: hidden;
+                                                   margin: 1rem 0;
+                                                 }
+
+                                                 .cart-drawer-buttons button {
+                                                   flex: 1;
+                                                   background: #FFE9BE;
+
+                                                   border: none;
+                                                   padding: 0.75rem 1rem;
+                                                   font-weight: 600;
+                                                   display: flex;
+                                                   align-items: center;
+                                                   gap: 6px;
+                                                   justify-content: center;
+                                                   cursor: pointer;
+                                                   transition: background 0.2s;
+                                                   font-family: Inter;
+                                                   font-weight: 500;
+                                                   font-size: 16px;
+                                                   line-height: 100%;
+                                                   letter-spacing: -1px;
+
+                                                 }
+
+                                                 .cart-drawer-buttons button:hover {
+                                                   background: #ffdfa1;
+                                                 }
+
+                                                 .drawer-input-section {
+                                                   display: none;
+                                                   margin-bottom: 1rem;
+                                                 }
+
+                                                 .drawer-input-section.active {
+                                                   display: block;
+                                                 }
+
+                                                 .drawer-input-section input,
+                                                 .drawer-input-section textarea {
+                                                   width: 100%;
+                                                   padding: 0.5rem;
+                                                   border: 1px solid #ccc;
+                                                   border-radius: 6px;
+                                                   margin-top: 0.5rem;
+                                                 }
+                                                 .cart-drawer-btn{
+                                               flex-direction:column;
+                                                 }
+              .cart-drawer-continue-btn{
+            flex-direction: column;
+                display: flex;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+              }
+
+
+                                               a.button.cart__checkout-button {
+
+                                                 width: 100%;
+                                                     background: white;
+                                           color: black;
+                                           border: 1px solid;
+                                             }
+                                             .cart__checkout-button{
+                                           background: #424242;
+                                                   border-radius: unset;
+                                               font-family: Inter;
+                                         font-weight: 500;
+                                         font-size: 23px;
                                          line-height: 100%;
-                                         letter-spacing: 0;
-                                         }
+                                         letter-spacing: -1px;
 
-                                         /* cart gift code */
-                                         .cart-drawer-buttons {
-                                           display: flex;
-                                           gap: 1px;
-                                           /* background-color: #ffe9bb; */
-                                           border-radius: 8px;
-                                           overflow: hidden;
-                                           margin: 1rem 0;
-                                         }
 
-                                         .cart-drawer-buttons button {
-                                           flex: 1;
-                                           background: #FFE9BE;
-
-                                           border: none;
-                                           padding: 0.75rem 1rem;
-                                           font-weight: 600;
-                                           display: flex;
-                                           align-items: center;
-                                           gap: 6px;
-                                           justify-content: center;
-                                           cursor: pointer;
-                                           transition: background 0.2s;
+                                             }
+                                         h2.sub-totals,
+                                         p.cart-drawer-totals-price{
                                            font-family: Inter;
-                                           font-weight: 500;
-                                           font-size: 16px;
-                                           line-height: 100%;
-                                           letter-spacing: -1px;
+                                       font-weight: 400;
+                                       font-size: 29px;
+                                       line-height: 100%;
+                                       letter-spacing: 0;
 
-                                         }
+                                       }
+                                       .cart-drawer-tax-note{
+                                     font-family: Inter;
+                                     font-weight: 400;
+                                     font-size: 14px;
+                                     line-height: 100%;
+                                     letter-spacing: 0;
 
-                                         .cart-drawer-buttons button:hover {
-                                           background: #ffdfa1;
-                                         }
-
-                                         .drawer-input-section {
-                                           display: none;
-                                           margin-bottom: 1rem;
-                                         }
-
-                                         .drawer-input-section.active {
-                                           display: block;
-                                         }
-
-                                         .drawer-input-section input,
-                                         .drawer-input-section textarea {
-                                           width: 100%;
-                                           padding: 0.5rem;
-                                           border: 1px solid #ccc;
-                                           border-radius: 6px;
-                                           margin-top: 0.5rem;
-                                         }
-                                         .cart-drawer-btn{
-                                       flex-direction:column;
-                                         }
-      .cart-drawer-continue-btn{
-    flex-direction: column;
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-      }
-
-
-                                       a.button.cart__checkout-button {
-
-                                         width: 100%;
-                                             background: white;
-                                   color: black;
-                                   border: 1px solid;
-                                     }
-                                     .cart__checkout-button{
-                                   background: #424242;
-                                           border-radius: unset;
+                                       }
+                                     .gift-wrap-checkbox {
                                        font-family: Inter;
-                                 font-weight: 500;
-                                 font-size: 23px;
+                                       font-weight: 200;
+                                       font-size: 16px;
+                                       line-height: 100%;
+                                       letter-spacing: -1px;
+                                   }
+                                   .cart-drawer__heading{
+                                     font-family: Inter;
+                                 font-weight: 400;
+                                 font-size: 27px;
                                  line-height: 100%;
                                  letter-spacing: -1px;
 
-
-                                     }
-                                 h2.sub-totals,
-                                 p.cart-drawer-totals-price{
+                                 }
+                                 .cart-drawer-heading{
                                    font-family: Inter;
-                               font-weight: 400;
-                               font-size: 29px;
+                               font-weight: 600;
+                               font-size: 45px;
                                line-height: 100%;
-                               letter-spacing: 0;
-
+                               letter-spacing: -2%;
+                                 }
+                               .cart-drawer-heading span{
+                                 font-family: Inter;
+                                 font-weight: 500;
+                                 font-size: 22px;
+                                 line-height: 100%;
+                                 letter-spacing: -2%;
                                }
-                               .cart-drawer-tax-note{
+                               .cart-drawer-item-name{
                              font-family: Inter;
-                             font-weight: 400;
-                             font-size: 14px;
+                             font-weight: 300;
+                             font-size: 18.62px;
                              line-height: 100%;
-                             letter-spacing: 0;
+                             letter-spacing: -1px;
+                             }
+
+                             @media only screen and (max-width: 480px){
+
+                            .cart-drawer-item-name{
+                            font-size: 9px;
+                            letter-spacing: 0;
+                             }
+                               .cart-drawer-price{
+                                 font-weight: 600 !important;
+                              font-size: 12px !important;
+                          }
+                         .cart-drawer-quantity .quantity{
+                                    width: calc(7rem / var(--font-body-scale) + var(--inputs-border-width) * 2);
+                                min-height: calc((var(--inputs-border-width) * 1) + 3rem);
+                            }
+                                     .cart-drawer-quantity .quantity__button {
+                              width: calc(2rem / var(--font-body-scale));
+
+                          }
+                               .cart-drawer__heading{
+                       font-size:15px;
+                                 display:flex;
+                                 justify-content: center;
+                               }
+                               .cart-drawer-grid-item{
+                         width: calc(45% - var(--grid-mobile-horizontal-spacing) * 3 / 4);
+                               }
+                               .cart-drawer__product-title,
+                       .cart-drawer__product-price{
+
+                         text-align: center;
+
+                                 }
+                               .cart-drawer-heading span{
+                        font-size: 12px;
+                               }
+                               .cart-drawer-heading{
+                                  font-size: 20px;
 
                                }
-                             .gift-wrap-checkbox {
-                               font-family: Inter;
-                               font-weight: 200;
-                               font-size: 16px;
-                               line-height: 100%;
-                               letter-spacing: -1px;
-                           }
-                           .cart-drawer__heading{
-                             font-family: Inter;
-                         font-weight: 400;
-                         font-size: 27px;
-                         line-height: 100%;
-                         letter-spacing: -1px;
-
-                         }
-                         .cart-drawer-heading{
-                           font-family: Inter;
-                       font-weight: 600;
-                       font-size: 45px;
-                       line-height: 100%;
-                       letter-spacing: -2%;
-                         }
-                       .cart-drawer-heading span{
-                         font-family: Inter;
-                         font-weight: 500;
-                         font-size: 22px;
-                         line-height: 100%;
-                         letter-spacing: -2%;
-                       }
-                       .cart-drawer-item-name{
-                     font-family: Inter;
-                     font-weight: 300;
-                     font-size: 18.62px;
-                     line-height: 100%;
-                     letter-spacing: -1px;
-                     }
-
-                     @media only screen and (max-width: 480px){
-
-                    .cart-drawer-item-name{
-                    font-size: 9px;
-                    letter-spacing: 0;
-                     }
-                       .cart-drawer-price{
-                         font-weight: 600 !important;
-                      font-size: 12px !important;
-                  }
-                 .cart-drawer-quantity .quantity{
-                            width: calc(7rem / var(--font-body-scale) + var(--inputs-border-width) * 2);
-                        min-height: calc((var(--inputs-border-width) * 1) + 3rem);
+                               .cart-drawer-close-btn{
+                                 font-size: 12px;
                     }
-                             .cart-drawer-quantity .quantity__button {
-                      width: calc(2rem / var(--font-body-scale));
-
+                               .gift-wrap-checkbox{
+                                 font-size: 10px;
+                    }
+                               .cart-drawer-buttons button{
+                                 font-weight: 300;
+                      font-size: 8px;
+                      line-height: 100%;
+                      letter-spacing: 0;
                   }
-                       .cart-drawer__heading{
-               font-size:15px;
-                         display:flex;
-                         justify-content: center;
-                       }
-                       .cart-drawer-grid-item{
-                 width: calc(45% - var(--grid-mobile-horizontal-spacing) * 3 / 4);
-                       }
-                       .cart-drawer__product-title,
-               .cart-drawer__product-price{
+                               .cart-drawer-buttons img{
+                                 width:70%;
+                }
+                               h2.sub-totals, p.cart-drawer-totals-price{
+                                     font-size: 15px;
+                               }
+                .cart-drawer-tax-note{
+                  font-size: 10px;
+              }
+                .cart-drawer-btn {
+                  display: flex;
+                  justify-content: center;
+                  flex-direction: column;
+                  align-items: center;
+              }
+                .cart-drawer .cart__checkout-button{
+                      width: 50%;
+              }
+                .cart__checkout-button{
+              font-size: 10px;
+                letter-spacing: 0;
+                }
+                               .cart-drawer-continue-btn{
+            flex-direction: column;
+                display: flex;
+                width: 50%;
+                justify-content: center;
+                align-items: center;
+              }
+                               a.button.cart__checkout-button{border-radius: 25px;}
+              }
+            /* .cart-drawer__recommendations.grid.slider.slide {
+              display: flex ;
+              flex-direction: column;
+          } */
+   .abccc .cart-drawer__recommendations .grid {
+      flex-wrap: nowrap; /* Default: nowrap */
+  }
 
-                 text-align: center;
 
-                         }
-                       .cart-drawer-heading span{
-                font-size: 12px;
-                       }
-                       .cart-drawer-heading{
-                          font-size: 20px;
 
-                       }
-                       .cart-drawer-close-btn{
-                         font-size: 12px;
-            }
-                       .gift-wrap-checkbox{
-                         font-size: 10px;
-            }
-                       .cart-drawer-buttons button{
-                         font-weight: 300;
-              font-size: 8px;
-              line-height: 100%;
-              letter-spacing: 0;
+
+          .abccc .cart-drawer__recommendations .grid__item {
+                width: calc(33% - var(--grid-desktop-horizontal-spacing) * / 4);
           }
-                       .cart-drawer-buttons img{
-                         width:70%;
-        }
-                       h2.sub-totals, p.cart-drawer-totals-price{
-                             font-size: 15px;
-                       }
-        .cart-drawer-tax-note{
-          font-size: 10px;
-      }
-        .cart-drawer-btn {
-          display: flex;
-          justify-content: center;
-          flex-direction: column;
-          align-items: center;
-      }
-        .cart-drawer .cart__checkout-button{
-              width: 50%;
-      }
-        .cart__checkout-button{
-      font-size: 10px;
-        letter-spacing: 0;
-        }
-                       .cart-drawer-continue-btn{
-    flex-direction: column;
-        display: flex;
-        width: 50%;
-        justify-content: center;
-        align-items: center;
-      }
-                       a.button.cart__checkout-button{border-radius: 25px;}
-      }
-    /* .cart-drawer__recommendations.grid.slider.slide {
-      display: flex ;
-      flex-direction: column;
-  } */
-  .abccc .cart-drawer__recommendations .grid{
-    flex-wrap:nowrap;
-  }
-  .abccc .cart-drawer__recommendations .grid__item {
-        width: calc(33% - var(--grid-desktop-horizontal-spacing) * / 4);
-  }
 </style>
 
 <cart-drawer class="drawer{% if cart == empty %} is-empty{% endif %} abccc">
@@ -690,6 +694,14 @@
           <div id="CartDrawer-CartErrors" role="alert"></div>
         </form>
       </cart-drawer-items>
+      <!-- cart empty -->
+      <div
+        id="empty-cart-message"
+        style="display: none; flex-direction: column; align-items: center; text-align: center; padding: 2rem;"
+      >
+        <p>Your cart is empty</p>
+        <a href="/collections/all" class="button" style="margin-top: 1rem;">Continue Shopping</a>
+      </div>
 
       <!-- Start: Cart Drawer Collection Section -->
 
@@ -727,68 +739,6 @@
         <!-- cart-drawer intruction option hide -->
         <!-- that code i remove -->
         <!-- this check-box code add gift in cart-drawer page -->
-        <!--
-          <div class="gift-wrap-checkbox" style="padding: 1rem 0;">
-            <label>
-              <input type="checkbox" id="gift-wrap-checkbox">
-              Add gift wrapping{{ linklists['gift-wrapping'].links.first.object.price | money }}
-            </label>
-          </div>
-          <div class="cart-drawer-buttons">
-            <button id="gift-code-btn">
-              <span> <img src="https://cdn.shopify.com/s/files/1/0597/5192/3755/files/gift-code.png?v=1744016766"> </span>
-              Apply Gift Code
-            </button>
-            <button id="order-note-btn">
-              <span>
-                <img src="https://cdn.shopify.com/s/files/1/0597/5192/3755/files/order_note.png?v=1744016766">
-              </span>
-              Order Note
-            </button>
-            <button id="shipping-btn">
-              <span>
-                <img src="https://cdn.shopify.com/s/files/1/0597/5192/3755/files/Calculate_Shipping.png?v=1744016766">
-              </span>
-              Calculate Shipping
-            </button>
-          </div>
-        -->
-
-        <!-- Gift Code Input -->
-        <!--
-          <div id="gift-code-section" class="drawer-input-section">
-            <label for="gift_code">Enter Gift Code</label>
-            <input
-              type="text"
-              id="gift_code"
-              name="attributes[gift_code]"
-              value="{{ cart.attributes.gift_code }}"
-            >
-          </div>
-        -->
-
-        <!-- Order Note Input -->
-        <!--
-          <div id="order-note-section" class="drawer-input-section">
-            <label for="order_note">Order Note</label>
-            <textarea
-              id="order_note"
-              name="attributes[order_note]"
-              rows="3"
-            >{{ cart.attributes.order_note }}</textarea>
-          </div>
-        -->
-
-        <!-- Shipping Link -->
-        <!--
-          <div id="shipping-section" class="drawer-input-section">
-            <p>View our <a href="/policies/shipping-policy" target="_blank">Shipping Policy</a> for rate details.</p>
-          </div>
-        -->
-
-        <!-- over gift card -->
-        <!-- Start blocks -->
-        <!-- Subtotals -->
 
         <div class="gift-wrap-checkbox" style="padding: 1rem 0;">
           <label>
@@ -815,6 +765,7 @@
         </div>
 
         <!-- Sections to show/hide -->
+        <!-- Gift Code Section -->
         <div id="gift-code-section" class="drawer-input-section" style="display: none;">
           <label for="gift_code">Enter Gift Code</label>
           <input
@@ -822,16 +773,20 @@
             id="gift_code"
             name="attributes[gift_code]"
             value="{{ cart.attributes.gift_code }}"
+            form="cart"
           >
         </div>
 
-        <div id="order-note-section" class="drawer-input-section" style="display: none;">
+        <!-- Order Note Section -->
+        <div class="drawer-input-section" id="order-note-section" style="display: none;">
           <label for="order_note">Order Note</label>
           <textarea
             id="order_note"
             name="note"
-            rows="3"
-          >{{ cart.note }}</textarea>
+            placeholder="Enter any notes about your order here"
+            class="text-area field__input"
+            rows="4"
+          ></textarea>
         </div>
 
         <div id="shipping-section" class="drawer-input-section" style="display: none;">
@@ -925,123 +880,160 @@
   </div>
 </cart-drawer>
 
-<!-- this js add for cart-drawer page add gift -->
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const giftWrapVariantId = 41418287775787;
+    document.addEventListener('DOMContentLoaded', function () {
+      const giftWrapVariantId = 41418287775787;
 
-    function syncGiftCheckbox() {
-      fetch('/cart.js')
-        .then(res => res.json())
-        .then(cart => {
-          const item = cart.items.find(i => i.variant_id === giftWrapVariantId);
+      function syncGiftCheckbox() {
+        fetch('/cart.js')
+          .then(res => res.json())
+          .then(cart => {
+            const item = cart.items.find(i => i.variant_id === giftWrapVariantId);
           const checkbox = document.querySelector('#gift-wrap-checkbox');
-          if (checkbox) checkbox.checked = !!item;
-        });
-    }
-
-    document.body.addEventListener('change', function (e) {
-      if (e.target && e.target.id === 'gift-wrap-checkbox') {
-        const checkbox = e.target;
-        if (checkbox.checked) {
-          fetch('/cart/add.js', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ id: giftWrapVariantId, quantity: 1 })
-          }).then(() => refreshCartDrawer());
-        } else {
-          fetch('/cart.js')
-            .then(res => res.json())
-            .then(cart => {
-              const giftItem = cart.items.find(i => i.variant_id === giftWrapVariantId);
-              if (giftItem) {
-                fetch('/cart/change.js', {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify({ id: giftItem.key, quantity: 0 })
-                }).then(() => refreshCartDrawer());
-              }
-            });
-        }
-      }
-    });
-
-    function refreshCartDrawer() {
-      fetch(window.location.pathname, {
-        headers: { 'X-Requested-With': 'XMLHttpRequest' }
-      })
-        .then(r => r.text())
-        .then(html => {
-          const doc = new DOMParser().parseFromString(html, 'text/html');
-          const newDrawer = doc.querySelector('cart-drawer');
-          const oldDrawer = document.querySelector('cart-drawer');
-          if (newDrawer && oldDrawer) {
-            oldDrawer.innerHTML = newDrawer.innerHTML;
-            syncGiftCheckbox();
-            initDrawerEvents(); // <== Re-bind after drawer update
-          }
-        });
-    }
-
-    function toggleSection(id) {
-      const section = document.getElementById(id);
-      const isVisible = section && section.style.display === 'block';
-      document.querySelectorAll('.drawer-input-section').forEach(sec => sec.style.display = 'none');
-      if (!isVisible && section) {
-        section.style.display = 'block';
-      }
-    }
-
-    function initDrawerEvents() {
-      const giftCodeBtn = document.getElementById('gift-code-btn');
-      const orderNoteBtn = document.getElementById('order-note-btn');
-      const shippingBtn = document.getElementById('shipping-btn');
-
-      if (giftCodeBtn) {
-        giftCodeBtn.addEventListener('click', () => toggleSection('gift-code-section'));
-      }
-
-      if (orderNoteBtn) {
-        orderNoteBtn.addEventListener('click', () => toggleSection('order-note-section'));
-      }
-
-      if (shippingBtn) {
-        shippingBtn.addEventListener('click', () => toggleSection('shipping-section'));
-      }
-    }
-
-    // Init everything on page load
-    syncGiftCheckbox();
-    initDrawerEvents();
-  });
-</script>
-<script>
-  function updateCartAttribute(attributeName, value) {
-    fetch('/cart/update.js', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        attributes: {
-          [attributeName]: value
-        }
-      })
-    });
+  if (checkbox) {
+    checkbox.checked = !!item;
+    checkbox.disabled = cart.items.length === 0; // Disable when cart is empty
   }
 
-  document.addEventListener('DOMContentLoaded', function () {
-    const giftCodeInput = document.getElementById('gift_code');
-    const orderNoteInput = document.getElementById('order_note');
+          });
+      }
 
-    if (giftCodeInput) {
-      giftCodeInput.addEventListener('change', function () {
-        updateCartAttribute('gift_code', giftCodeInput.value);
-      });
-    }
+      function updateCartAttribute(attributeName, value) {
+        fetch('/cart/update.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            attributes: {
+              [attributeName]: value
+            }
+          })
+        });
+      }
 
-    if (orderNoteInput) {
-      orderNoteInput.addEventListener('change', function () {
-        updateCartAttribute('order_note', orderNoteInput.value);
+      function refreshCartDrawer() {
+        fetch(window.location.pathname, {
+          headers: { 'X-Requested-With': 'XMLHttpRequest' }
+        })
+          .then(r => r.text())
+          .then(html => {
+            const doc = new DOMParser().parseFromString(html, 'text/html');
+            const newDrawer = doc.querySelector('cart-drawer');
+            const oldDrawer = document.querySelector('cart-drawer');
+            if (newDrawer && oldDrawer) {
+              oldDrawer.innerHTML = newDrawer.innerHTML;
+              syncGiftCheckbox();
+              initDrawerEvents();
+              updateGridLayout(); // update layout after drawer refresh
+            }
+          });
+      }
+
+      function toggleSection(id) {
+        const section = document.getElementById(id);
+        const isVisible = section && section.style.display === 'block';
+        document.querySelectorAll('.drawer-input-section').forEach(sec => sec.style.display = 'none');
+        if (!isVisible && section) section.style.display = 'block';
+      }
+
+      function initDrawerEvents() {
+        const giftCodeBtn = document.getElementById('gift-code-btn');
+        const orderNoteBtn = document.getElementById('order-note-btn');
+        const shippingBtn = document.getElementById('shipping-btn');
+        const giftCodeInput = document.getElementById('gift_code');
+        const orderNoteInput = document.getElementById('order_note');
+
+        if (giftCodeBtn) giftCodeBtn.addEventListener('click', () => toggleSection('gift-code-section'));
+        if (orderNoteBtn) orderNoteBtn.addEventListener('click', () => toggleSection('order-note-section'));
+        if (shippingBtn) shippingBtn.addEventListener('click', () => toggleSection('shipping-section'));
+
+        if (giftCodeInput) {
+          giftCodeInput.addEventListener('input', function () {
+            updateCartAttribute('gift_code', giftCodeInput.value);
+          });
+        }
+
+        if (orderNoteInput) {
+          orderNoteInput.addEventListener('input', function () {
+            updateCartAttribute('order_note', orderNoteInput.value);
+          });
+        }
+      }
+
+      document.body.addEventListener('change', function (e) {
+        if (e.target && e.target.id === 'gift-wrap-checkbox') {
+          const checkbox = e.target;
+          if (checkbox.checked) {
+            fetch('/cart/add.js', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ id: giftWrapVariantId, quantity: 1 })
+            }).then(() => refreshCartDrawer());
+          } else {
+            fetch('/cart.js')
+              .then(res => res.json())
+              .then(cart => {
+                const giftItem = cart.items.find(i => i.variant_id === giftWrapVariantId);
+                if (giftItem) {
+                  fetch('/cart/change.js', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: giftItem.key, quantity: 0 })
+                  }).then(() => refreshCartDrawer());
+                }
+              });
+          }
+        }
       });
-    }
-  });
+
+      // ====== Layout Control + Empty Message ======
+      function updateGridLayout() {
+        const grid = document.querySelector('.abccc .cart-drawer__recommendations .grid');
+        const recommendations = document.querySelector('.abccc .cart-drawer__recommendations');
+        const cartItems = document.querySelector('.cart-drawer-items');
+        const emptyMessage = document.querySelector('#empty-cart-message');
+
+        fetch('/cart.js')
+          .then(res => res.json())
+          .then(cart => {
+            if (!grid || !recommendations) return;
+
+            if (cart.items.length > 0) {
+              grid.style.flexWrap = 'nowrap';
+              recommendations.style.padding = '0';
+              if (cartItems) cartItems.style.display = 'block';
+              if (emptyMessage) emptyMessage.style.display = 'none';
+            } else {
+              grid.style.flexWrap = 'wrap';
+              recommendations.style.padding = '50px';
+              if (cartItems) cartItems.style.display = 'none';
+              if (emptyMessage) emptyMessage.style.display = 'flex';
+            }
+          });
+      }
+
+      // Initial check
+      updateGridLayout();
+
+      const drawerTarget = document.querySelector('cart-drawer') || document.querySelector('.cart-drawer');
+      if (drawerTarget) {
+        const observer = new MutationObserver(() => {
+          updateGridLayout();
+        });
+        observer.observe(drawerTarget, {
+          childList: true,
+          subtree: true
+        });
+      }
+
+      document.body.addEventListener('click', function (e) {
+        if (e.target.closest('.cart-drawer__remove-item')) {
+          setTimeout(updateGridLayout, 500);
+        }
+      });
+
+      document.addEventListener('cart:updated', updateGridLayout);
+
+      syncGiftCheckbox();
+      initDrawerEvents();
+    });
 </script>
