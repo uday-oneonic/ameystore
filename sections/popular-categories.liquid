@@ -1,0 +1,55 @@
+<section class="popular-categories" style="padding: 40px 20px; text-align: center;">
+  <h2 style="font-size: 2rem; margin-bottom: 2rem;">Popular categories</h2>
+  <div class="popular-categories__grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
+    {% for block in section.blocks %}
+      <div class="popular-categories__item" style="max-width: 300px;">
+        <a href="{{ block.settings.link }}" style="text-decoration: none; color: inherit;">
+          <img
+            src="{{ block.settings.image | img_url: 'medium' }}"
+            alt="{{ block.settings.title }}"
+            style="width: 100%; height: auto; border-radius: 10px;"
+          >
+          <h3 style="margin-top: 10px; font-size: 1.2rem;">{{ block.settings.title }}</h3>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Popular Categories",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Category Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Category Title",
+          "default": "Category"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Category Link"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Popular Categories",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

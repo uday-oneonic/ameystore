@@ -1,4 +1,4 @@
-<div class="review-section page-width">
+<div class="review-section ">
   <div class="review-section-title">
     <h2>
       {{ section.settings.review_title }}
@@ -80,7 +80,7 @@
         .review-section {
           background: #F6F6F6;
           width: 100%;
-          max-width: 1400px;
+          /* max-width: 1400px; */
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -96,7 +96,7 @@
           font-weight: 400;
           font-size: 39px;
           line-height: 100%;
-          letter-spacing: -3%;
+              letter-spacing: -0.03em;
         }
 
         .swiper-container {
@@ -125,7 +125,7 @@
         }
 
         .swiper-slide:not(.swiper-slide-active) .review-card {
-          opacity: 0.5;
+          /* opacity: 0.5; */
           transform: scale(0.85);
         }
 
@@ -240,7 +240,7 @@
 
       }
   .blur{
-       filter: blur(4px);
+       filter: blur(3px);
   }
       .review-card {
         display: flex;

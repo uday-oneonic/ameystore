@@ -63,7 +63,7 @@
 }
 {% endschema %}
 
-<div class="two-image-text-section page-width">
+<div class="two-image-text-section">
   <div class="left-image">
     {% if section.blocks[0].settings.first_image %}
       <img src="{{ section.blocks[0].settings.first_image | image_url }}" alt="Left Image">
@@ -90,7 +90,7 @@
 {% style %}
     .two-image-text-section {
       display: flex;
-      max-width: 1400px;
+      /* max-width: 1400px; */
       width: 100%;
     }
 

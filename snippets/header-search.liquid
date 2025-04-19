@@ -88,6 +88,37 @@
             <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>
           {%- endif -%}
         </form>
+        <!--
+          <div class="popular-categories-wrapper" style="margin-top: 30px;display: block;">
+            <h2 style="text-align: center; font-size: 24px; font-weight: 600;">Popular categories</h2>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
+              <a href="/collections/serums" style="text-align: center; text-decoration: none;">
+                <img
+                  src="{{ 'serum-image.png' | asset_url }}"
+                  alt="Serums"
+                  style="width: 180px; height: auto; border-radius: 10px;"
+                >
+                <p style="margin-top: 10px; font-size: 18px; color: black;">Serums</p>
+              </a>
+              <a href="/collections/perfume" style="text-align: center; text-decoration: none;">
+                <img
+                  src="{{ 'perfums.png' | asset_url }}"
+                  alt="Perfume"
+                  style="width: 180px; height: auto; border-radius: 10px;"
+                >
+                <p style="margin-top: 10px; font-size: 18px; color: black;">Perfume</p>
+              </a>
+              <a href="/collections/solution" style="text-align: center; text-decoration: none;">
+                <img
+                  src="{{ 'Solution.png' | asset_url }}"
+                  alt="Solution"
+                  style="width: 180px; height: auto; border-radius: 10px;"
+                >
+                <p style="margin-top: 10px; font-size: 18px; color: black;">Solution</p>
+              </a>
+            </div>
+          </div>
+        -->
         {%- if settings.predictive_search_enabled -%}
           </predictive-search>
         {%- else -%}
@@ -103,12 +134,8 @@
           </span>
         </button>
       </div>
-      <div class="list-menu">
-        <img
-          src="https://cdn.shopify.com/s/files/1/0597/5192/3755/files/featcured-product-zudio-subimage-3.png?v=1742889621"
-          |img_url="medium"
-        >
-      </div>
     </div>
   </details>
 </details-modal>
+
+<!-- changes base.css line 2080 -->
